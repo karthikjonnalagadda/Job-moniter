@@ -1,0 +1,4451 @@
+# Indian Company Metadata - curated dataset for job-intelligence platform
+# Categories span IT Services, Product, SaaS, FinTech, EdTech, HealthTech, E-commerce,
+# Analytics/AI, Consulting, BFSI, Manufacturing, Automotive, Telecom, Energy, Retail,
+# Pharma, Conglomerates, Startups, Unicorns, and India-based Global Capability Centers.
+
+# ==================== IT SERVICES ====================
+- name: TCS
+  slug: tcs
+  career_url: https://www.tcs.com/careers
+  industry: IT Services
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 92
+  ai_hiring_score: 68
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Analyst", "Cloud Engineer", "Business Analyst"]
+  preferred_technologies: ["Java", "Python", "Cloud", "SAP", "Data Engineering"]
+  aliases: ["Tata Consultancy Services"]
+  notes: "Largest Indian IT services firm by revenue and headcount."
+
+- name: Infosys
+  slug: infosys
+  career_url: https://www.infosys.com/careers
+  industry: IT Services
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 91
+  ai_hiring_score: 70
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Systems Engineer", "Data Scientist", "Consultant"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "SAP"]
+  aliases: ["Infosys Limited", "Infosys Technologies"]
+  notes: "Second-largest Indian IT services company, known for the Mysuru training campus."
+
+- name: Wipro
+  slug: wipro
+  career_url: https://careers.wipro.com
+  industry: IT Services
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 88
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Cloud Engineer", "Cybersecurity Analyst", "Consultant"]
+  preferred_technologies: ["Java", "Cloud", "Cybersecurity", "AI/ML", "SAP"]
+  aliases: ["Wipro Limited"]
+  notes: "Bengaluru-headquartered global IT, consulting and business process services firm."
+
+- name: HCLTech
+  slug: hcltech
+  career_url: https://www.hcltech.com/careers
+  industry: IT Services
+  headquarters: "Noida, Uttar Pradesh"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 88
+  ai_hiring_score: 67
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Infrastructure Engineer", "Cloud Engineer", "Data Engineer"]
+  preferred_technologies: ["Java", "Cloud", "DevOps", "AI/ML", "Cybersecurity"]
+  aliases: ["HCL Technologies"]
+  notes: "Third-largest Indian IT services company, strong in engineering and R&D services."
+
+- name: Tech Mahindra
+  slug: tech-mahindra
+  career_url: https://careers.techmahindra.com
+  industry: IT Services
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 84
+  ai_hiring_score: 64
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Network Engineer", "Cloud Engineer", "Data Analyst"]
+  preferred_technologies: ["Java", "5G", "Cloud", "AI/ML", "Telecom"]
+  aliases: ["Mahindra Satyam"]
+  notes: "Mahindra Group IT arm with strong telecom and networks practice."
+
+- name: LTIMindtree
+  slug: ltimindtree
+  career_url: https://www.ltimindtree.com/careers
+  industry: IT Services
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 85
+  ai_hiring_score: 68
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Engineer", "Cloud Architect", "Consultant"]
+  preferred_technologies: ["Java", "Cloud", "Data Engineering", "AI/ML", "SAP"]
+  aliases: ["L&T Infotech", "Mindtree", "LTI"]
+  notes: "Formed from the 2022 merger of L&T Infotech and Mindtree."
+
+- name: LTTS
+  slug: ltts
+  career_url: https://www.ltts.com/careers
+  industry: Engineering R&D Services
+  headquarters: "Vadodara, Gujarat"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 80
+  ai_hiring_score: 62
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Embedded Engineer", "Mechanical Engineer", "Software Engineer", "IoT Engineer"]
+  preferred_technologies: ["Embedded C", "IoT", "CAD", "AI/ML", "Cloud"]
+  aliases: ["L&T Technology Services"]
+  notes: "Pure-play engineering and R&D services arm of the L&T group."
+
+- name: Mphasis
+  slug: mphasis
+  career_url: https://careers.mphasis.com
+  industry: IT Services
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 64
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Cloud Engineer", "Data Engineer", "BFSI Consultant"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "BFSI", "DevOps"]
+  aliases: []
+  notes: "IT services firm with a strong banking and financial services focus."
+
+- name: Persistent Systems
+  slug: persistent-systems
+  career_url: https://www.persistent.com/careers
+  industry: IT Services
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 79
+  ai_hiring_score: 68
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Cloud Engineer", "Data Scientist", "Product Engineer"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Salesforce", "Data Engineering"]
+  aliases: ["Persistent"]
+  notes: "Digital engineering and product development services company."
+
+- name: Coforge
+  slug: coforge
+  career_url: https://www.coforge.com/careers
+  industry: IT Services
+  headquarters: "Noida, Uttar Pradesh"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 77
+  ai_hiring_score: 64
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Engineer", "Cloud Engineer", "Consultant"]
+  preferred_technologies: ["Java", "Cloud", "Data Engineering", "AI/ML", "ServiceNow"]
+  aliases: ["NIIT Technologies"]
+  notes: "Mid-tier IT firm strong in travel, insurance and BFSI verticals."
+
+- name: KPIT Technologies
+  slug: kpit-technologies
+  career_url: https://www.kpit.com/careers
+  industry: Automotive Software
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 76
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Embedded Engineer", "Software Engineer", "AUTOSAR Engineer", "Data Scientist"]
+  preferred_technologies: ["Embedded C", "AUTOSAR", "ADAS", "AI/ML", "C++"]
+  aliases: ["KPIT"]
+  notes: "Specialist in automotive and mobility software engineering."
+
+- name: Happiest Minds
+  slug: happiest-minds
+  career_url: https://www.happiestminds.com/careers
+  industry: IT Services
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 65
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Cloud Engineer", "Security Analyst", "Data Engineer"]
+  preferred_technologies: ["Cloud", "IoT", "AI/ML", "Cybersecurity", "DevOps"]
+  aliases: []
+  notes: "Digital transformation and product engineering services company."
+
+- name: Birlasoft
+  slug: birlasoft
+  career_url: https://www.birlasoft.com/careers
+  industry: IT Services
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 71
+  ai_hiring_score: 60
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "SAP Consultant", "Cloud Engineer", "Data Analyst"]
+  preferred_technologies: ["SAP", "Java", "Cloud", "AI/ML", "Oracle"]
+  aliases: []
+  notes: "CK Birla Group IT services firm focused on enterprise digital solutions."
+
+- name: Cyient
+  slug: cyient
+  career_url: https://www.cyient.com/careers
+  industry: Engineering R&D Services
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 58
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Design Engineer", "Embedded Engineer", "GIS Analyst", "Software Engineer"]
+  preferred_technologies: ["CAD", "Embedded", "GIS", "IoT", "AI/ML"]
+  aliases: ["Infotech Enterprises"]
+  notes: "Engineering, geospatial and network services company."
+
+- name: Hexaware Technologies
+  slug: hexaware-technologies
+  career_url: https://hexaware.com/careers
+  industry: IT Services
+  headquarters: "Navi Mumbai, Maharashtra"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 63
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Cloud Engineer", "Automation Engineer", "Data Engineer"]
+  preferred_technologies: ["Java", "Cloud", "Automation", "AI/ML", "DevOps"]
+  aliases: ["Hexaware"]
+  notes: "Automation-led IT services company with BFSI and travel focus."
+
+- name: Sonata Software
+  slug: sonata-software
+  career_url: https://www.sonata-software.com/careers
+  industry: IT Services
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 68
+  ai_hiring_score: 60
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Dynamics Consultant", "Cloud Engineer", "Data Analyst"]
+  preferred_technologies: ["Microsoft Dynamics", "Azure", "AI/ML", "Java", "Cloud"]
+  aliases: []
+  notes: "Platform-based digital transformation services company."
+
+- name: Zensar Technologies
+  slug: zensar-technologies
+  career_url: https://www.zensar.com/careers
+  industry: IT Services
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 69
+  ai_hiring_score: 60
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Cloud Engineer", "Experience Designer", "Data Engineer"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Experience Design", "DevOps"]
+  aliases: []
+  notes: "RPG Group digital solutions and technology services company."
+
+- name: Tata Elxsi
+  slug: tata-elxsi
+  career_url: https://www.tataelxsi.com/careers
+  industry: Design & Engineering Services
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 70
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Embedded Engineer", "UX Designer", "AI Engineer", "Software Engineer"]
+  preferred_technologies: ["Embedded", "AI/ML", "Design", "Media", "Automotive"]
+  aliases: []
+  notes: "Tata Group design and technology services firm across media, automotive and healthcare."
+
+- name: Cognizant
+  slug: cognizant
+  career_url: https://careers.cognizant.com
+  industry: IT Services
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 86
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Engineer", "Cloud Engineer", "Consultant"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Healthcare IT", "Data Engineering"]
+  aliases: ["Cognizant Technology Solutions", "CTS"]
+  notes: "US-listed IT services major with its largest delivery workforce in India."
+
+- name: Capgemini India
+  slug: capgemini-india
+  career_url: https://www.capgemini.com/in-en/careers
+  industry: IT Services
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 85
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Cloud Engineer", "Data Engineer", "Consultant"]
+  preferred_technologies: ["Java", "Cloud", "SAP", "AI/ML", "DevOps"]
+  aliases: ["Capgemini"]
+  notes: "Indian delivery arm of the French IT consulting and services group."
+
+- name: Accenture India
+  slug: accenture-india
+  career_url: https://www.accenture.com/in-en/careers
+  industry: IT Consulting
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: consulting
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 89
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Consultant", "Data Scientist", "Cloud Architect"]
+  preferred_technologies: ["Cloud", "AI/ML", "SAP", "Java", "Data Engineering"]
+  aliases: ["Accenture"]
+  notes: "Global consulting and technology firm with its largest workforce based in India."
+
+- name: Nagarro
+  slug: nagarro
+  career_url: https://www.nagarro.com/en/careers
+  industry: IT Services
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 66
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Cloud Engineer", "QA Engineer", "Data Engineer"]
+  preferred_technologies: ["Java", ".NET", "Cloud", "AI/ML", "DevOps"]
+  aliases: []
+  notes: "Digital engineering firm with a distributed global delivery model."
+
+- name: Mastek
+  slug: mastek
+  career_url: https://www.mastek.com/careers
+  industry: IT Services
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: it_services
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 65
+  ai_hiring_score: 58
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Oracle Consultant", "Cloud Engineer", "Data Analyst"]
+  preferred_technologies: ["Oracle", "Salesforce", "Cloud", "Java", "AI/ML"]
+  aliases: []
+  notes: "Enterprise digital and cloud transformation services company."
+
+- name: Newgen Software
+  slug: newgen-software
+  career_url: https://newgensoft.com/careers
+  industry: Enterprise Software
+  headquarters: "New Delhi, Delhi"
+  country: IN
+  company_category: product
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 64
+  ai_hiring_score: 60
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Java Developer", "Product Engineer", "QA Engineer"]
+  preferred_technologies: ["Java", "BPM", "ECM", "Low-code", "Cloud"]
+  aliases: []
+  notes: "Low-code digital transformation platform for BFSI and government."
+
+- name: Intellect Design Arena
+  slug: intellect-design-arena
+  career_url: https://www.intellectdesign.com/careers
+  industry: FinTech Software
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 64
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Engineer", "Java Developer", "Data Engineer"]
+  preferred_technologies: ["Java", "Microservices", "Cloud", "AI/ML", "BFSI"]
+  aliases: []
+  notes: "Banking and financial technology products company spun out of Polaris."
+
+# ==================== PRODUCT and SaaS ====================
+- name: Zoho
+  slug: zoho
+  career_url: https://www.zoho.com/careers.html
+  industry: SaaS
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 86
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "QA Engineer", "Data Scientist"]
+  preferred_technologies: ["Java", "JavaScript", "Cloud", "AI/ML", "SaaS"]
+  aliases: ["Zoho Corporation", "AdventNet"]
+  notes: "Bootstrapped SaaS suite company known for rural offices and privacy focus."
+
+- name: Freshworks
+  slug: freshworks
+  career_url: https://www.freshworks.com/company/careers
+  industry: SaaS
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 85
+  ai_hiring_score: 78
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "SRE"]
+  preferred_technologies: ["Ruby", "Java", "Cloud", "AI/ML", "SaaS"]
+  aliases: ["Freshdesk"]
+  notes: "Nasdaq-listed customer-experience SaaS company, first Indian SaaS firm to IPO in the US."
+
+- name: Postman
+  slug: postman
+  career_url: https://www.postman.com/company/careers
+  industry: Developer Tools
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: saas
+  ats_type: greenhouse
+  ats_token: postman
+  career_platform: Greenhouse
+  priority_score: 82
+  ai_hiring_score: 80
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Developer Advocate", "Data Scientist"]
+  preferred_technologies: ["JavaScript", "Node.js", "Cloud", "API", "AI/ML"]
+  aliases: []
+  notes: "API development platform used by millions of developers worldwide."
+
+- name: BrowserStack
+  slug: browserstack
+  career_url: https://www.browserstack.com/careers
+  industry: Developer Tools
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: saas
+  ats_type: greenhouse
+  ats_token: browserstack
+  career_platform: Greenhouse
+  priority_score: 80
+  ai_hiring_score: 76
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "SDET", "Product Manager", "DevOps Engineer"]
+  preferred_technologies: ["Ruby", "JavaScript", "Cloud", "Selenium", "AI/ML"]
+  aliases: []
+  notes: "Cloud-based cross-browser and mobile testing platform."
+
+- name: Chargebee
+  slug: chargebee
+  career_url: https://www.chargebee.com/careers
+  industry: SaaS
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: saas
+  ats_type: lever
+  ats_token: chargebee
+  career_platform: Lever
+  priority_score: 76
+  ai_hiring_score: 74
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Engineer", "Solutions Engineer"]
+  preferred_technologies: ["Java", "Cloud", "SaaS", "AI/ML", "Microservices"]
+  aliases: []
+  notes: "Subscription billing and revenue management SaaS platform."
+
+- name: Darwinbox
+  slug: darwinbox
+  career_url: https://darwinbox.com/careers
+  industry: HR Tech SaaS
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 74
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Implementation Consultant"]
+  preferred_technologies: ["PHP", "Java", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Enterprise HR management SaaS unicorn backed by TCV and Salesforce Ventures."
+
+- name: Hasura
+  slug: hasura
+  career_url: https://hasura.io/careers
+  industry: Developer Tools
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: saas
+  ats_type: lever
+  ats_token: hasura
+  career_platform: Lever
+  priority_score: 72
+  ai_hiring_score: 78
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Developer Advocate", "Product Manager", "SRE"]
+  preferred_technologies: ["Haskell", "GraphQL", "Cloud", "PostgreSQL", "AI/ML"]
+  aliases: []
+  notes: "Open-source GraphQL engine and data access platform."
+
+- name: Whatfix
+  slug: whatfix
+  career_url: https://whatfix.com/careers
+  industry: SaaS
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: saas
+  ats_type: greenhouse
+  ats_token: whatfix
+  career_platform: Greenhouse
+  priority_score: 73
+  ai_hiring_score: 75
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Customer Success Manager", "Data Analyst"]
+  preferred_technologies: ["JavaScript", "Java", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Digital adoption platform unicorn helping enterprises drive software usage."
+
+- name: MindTickle
+  slug: mindtickle
+  career_url: https://www.mindtickle.com/careers
+  industry: SaaS
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: saas
+  ats_type: lever
+  ats_token: mindtickle
+  career_platform: Lever
+  priority_score: 71
+  ai_hiring_score: 76
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Customer Success Manager"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Sales-readiness and revenue-productivity SaaS unicorn."
+
+- name: Icertis
+  slug: icertis
+  career_url: https://www.icertis.com/company/careers
+  industry: SaaS
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 76
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Solutions Consultant"]
+  preferred_technologies: [".NET", "Azure", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Contract lifecycle management SaaS unicorn."
+
+- name: Druva
+  slug: druva
+  career_url: https://www.druva.com/about/careers
+  industry: SaaS
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: saas
+  ats_type: greenhouse
+  ats_token: druva
+  career_platform: Greenhouse
+  priority_score: 72
+  ai_hiring_score: 76
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Cloud Engineer", "Product Manager", "SRE"]
+  preferred_technologies: ["Python", "AWS", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Cloud data protection and management SaaS unicorn."
+
+- name: HighRadius
+  slug: highradius
+  career_url: https://www.highradius.com/careers
+  industry: FinTech SaaS
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 78
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Solutions Consultant"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Autonomous finance and order-to-cash SaaS unicorn."
+
+- name: Innovaccer
+  slug: innovaccer
+  career_url: https://innovaccer.com/careers
+  industry: HealthTech SaaS
+  headquarters: "Noida, Uttar Pradesh"
+  country: IN
+  company_category: healthtech
+  ats_type: greenhouse
+  ats_token: innovaccer
+  career_platform: Greenhouse
+  priority_score: 73
+  ai_hiring_score: 80
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Python", "Java", "Cloud", "AI/ML", "Healthcare Data"]
+  aliases: []
+  notes: "Healthcare data and analytics platform unicorn."
+
+- name: Sprinklr India
+  slug: sprinklr-india
+  career_url: https://www.sprinklr.com/careers
+  industry: SaaS
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: saas
+  ats_type: greenhouse
+  ats_token: sprinklr
+  career_platform: Greenhouse
+  priority_score: 74
+  ai_hiring_score: 80
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "SRE"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Unified customer experience management SaaS platform with a large India engineering base."
+
+- name: Yellow.ai
+  slug: yellow-ai
+  career_url: https://yellow.ai/careers
+  industry: Conversational AI
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: lever
+  ats_token: yellowai
+  career_platform: Lever
+  priority_score: 72
+  ai_hiring_score: 88
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "Software Engineer", "NLP Engineer", "Product Manager"]
+  preferred_technologies: ["Python", "NLP", "LLMs", "Cloud", "AI/ML"]
+  aliases: ["Yellow Messenger"]
+  notes: "Conversational AI and customer automation platform."
+
+- name: Gupshup
+  slug: gupshup
+  career_url: https://www.gupshup.io/company/careers
+  industry: Conversational Messaging
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: saas
+  ats_type: lever
+  ats_token: gupshup
+  career_platform: Lever
+  priority_score: 70
+  ai_hiring_score: 82
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "ML Engineer", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "NLP", "Cloud", "AI/ML"]
+  aliases: []
+  notes: "Conversational messaging and CPaaS unicorn."
+
+- name: CleverTap
+  slug: clevertap
+  career_url: https://clevertap.com/careers
+  industry: SaaS
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: saas
+  ats_type: lever
+  ats_token: clevertap
+  career_platform: Lever
+  priority_score: 70
+  ai_hiring_score: 80
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Customer engagement and retention analytics SaaS unicorn."
+
+- name: MoEngage
+  slug: moengage
+  career_url: https://www.moengage.com/careers
+  industry: SaaS
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: saas
+  ats_type: lever
+  ats_token: moengage
+  career_platform: Lever
+  priority_score: 70
+  ai_hiring_score: 80
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Insights-led customer engagement platform unicorn."
+
+- name: Uniphore
+  slug: uniphore
+  career_url: https://www.uniphore.com/careers
+  industry: Conversational AI
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 71
+  ai_hiring_score: 88
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "NLP Engineer", "Software Engineer", "Data Scientist"]
+  preferred_technologies: ["Python", "NLP", "Speech AI", "LLMs", "Cloud"]
+  aliases: []
+  notes: "Conversational AI and automation unicorn with roots at IIT Madras."
+
+- name: Observe.ai
+  slug: observe-ai
+  career_url: https://www.observe.ai/careers
+  industry: Conversational AI
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: greenhouse
+  ats_token: observeai
+  career_platform: Greenhouse
+  priority_score: 68
+  ai_hiring_score: 88
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "NLP Engineer", "Software Engineer", "Data Scientist"]
+  preferred_technologies: ["Python", "NLP", "Speech AI", "LLMs", "Cloud"]
+  aliases: []
+  notes: "Contact-center conversation intelligence platform."
+
+- name: Capillary Technologies
+  slug: capillary-technologies
+  career_url: https://www.capillarytech.com/careers
+  industry: SaaS
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 74
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "AI-driven loyalty and customer engagement SaaS platform."
+
+# ==================== FINTECH ====================
+- name: Razorpay
+  slug: razorpay
+  career_url: https://razorpay.com/jobs
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: lever
+  ats_token: razorpay
+  career_platform: Lever
+  priority_score: 84
+  ai_hiring_score: 80
+  remote_support: true
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "SRE"]
+  preferred_technologies: ["Java", "Go", "Cloud", "AI/ML", "Payments"]
+  aliases: []
+  notes: "Full-stack payments and business banking unicorn."
+
+- name: PhonePe
+  slug: phonepe
+  career_url: https://www.phonepe.com/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 86
+  ai_hiring_score: 80
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "SRE"]
+  preferred_technologies: ["Java", "Go", "Cloud", "AI/ML", "UPI"]
+  aliases: []
+  notes: "Leading UPI payments and digital financial services decacorn."
+
+- name: CRED
+  slug: cred
+  career_url: https://careers.cred.club
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: lever
+  ats_token: cred
+  career_platform: Lever
+  priority_score: 80
+  ai_hiring_score: 80
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Product Designer"]
+  preferred_technologies: ["Kotlin", "Java", "Cloud", "AI/ML", "Payments"]
+  aliases: []
+  notes: "Credit-card payments and members-only fintech unicorn."
+
+- name: Paytm
+  slug: paytm
+  career_url: https://paytm.com/careers
+  industry: FinTech
+  headquarters: "Noida, Uttar Pradesh"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 82
+  ai_hiring_score: 78
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "SRE"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Payments", "Android"]
+  aliases: ["One97 Communications"]
+  notes: "Listed payments and financial services platform."
+
+- name: Pine Labs
+  slug: pine-labs
+  career_url: https://www.pinelabs.com/careers
+  industry: FinTech
+  headquarters: "Noida, Uttar Pradesh"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Engineer", "SRE"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Payments", "POS"]
+  aliases: []
+  notes: "Merchant commerce and payments unicorn."
+
+- name: BharatPe
+  slug: bharatpe
+  career_url: https://bharatpe.com/careers
+  industry: FinTech
+  headquarters: "New Delhi, Delhi"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Data Engineer"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Payments", "UPI"]
+  aliases: []
+  notes: "Merchant payments and financial services unicorn."
+
+- name: Slice
+  slug: slice
+  career_url: https://www.sliceit.com/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: lever
+  ats_token: slice
+  career_platform: Lever
+  priority_score: 70
+  ai_hiring_score: 76
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Product Designer"]
+  preferred_technologies: ["Kotlin", "Java", "Cloud", "AI/ML", "Payments"]
+  aliases: []
+  notes: "Consumer payments and credit fintech unicorn, now a small finance bank."
+
+- name: Navi
+  slug: navi
+  career_url: https://navi.com/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 78
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "ML Engineer"]
+  preferred_technologies: ["Java", "Kotlin", "Cloud", "AI/ML", "Lending"]
+  aliases: ["Navi Technologies"]
+  notes: "Digital lending, insurance and mutual funds firm founded by Sachin Bansal."
+
+- name: Zeta
+  slug: zeta
+  career_url: https://www.zeta.tech/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: lever
+  ats_token: zeta
+  career_platform: Lever
+  priority_score: 70
+  ai_hiring_score: 78
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "SRE", "Data Engineer"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Banking", "Microservices"]
+  aliases: []
+  notes: "Banking-tech unicorn providing modern core banking and card issuance stacks."
+
+- name: Cashfree Payments
+  slug: cashfree-payments
+  career_url: https://www.cashfree.com/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 72
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Engineer", "SRE"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Payments", "Microservices"]
+  aliases: ["Cashfree"]
+  notes: "Payments and API banking platform for businesses."
+
+- name: Juspay
+  slug: juspay
+  career_url: https://juspay.io/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 70
+  ai_hiring_score: 76
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "SRE", "Data Engineer"]
+  preferred_technologies: ["Haskell", "Java", "Cloud", "Payments", "AI/ML"]
+  aliases: []
+  notes: "Payments orchestration and checkout technology unicorn."
+
+- name: Signzy
+  slug: signzy
+  career_url: https://www.signzy.com/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 60
+  ai_hiring_score: 80
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "ML Engineer", "Product Manager", "Data Scientist"]
+  preferred_technologies: ["Python", "AI/ML", "Computer Vision", "Cloud", "KYC"]
+  aliases: []
+  notes: "AI-powered digital onboarding and KYC infrastructure company."
+
+- name: Perfios
+  slug: perfios
+  career_url: https://www.perfios.com/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 76
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "AI/ML", "Cloud", "Analytics"]
+  aliases: []
+  notes: "Credit decisioning and financial data analytics unicorn."
+
+- name: M2P Fintech
+  slug: m2p-fintech
+  career_url: https://m2pfintech.com/careers
+  industry: FinTech
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 64
+  ai_hiring_score: 74
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "SRE", "Data Engineer"]
+  preferred_technologies: ["Java", "Cloud", "APIs", "Payments", "AI/ML"]
+  aliases: ["M2P"]
+  notes: "Embedded finance and banking-as-a-service API unicorn."
+
+- name: Groww
+  slug: groww
+  career_url: https://groww.in/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: lever
+  ats_token: groww
+  career_platform: Lever
+  priority_score: 80
+  ai_hiring_score: 78
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "SRE"]
+  preferred_technologies: ["Java", "Kotlin", "Cloud", "AI/ML", "Fintech"]
+  aliases: []
+  notes: "Investment and stock-broking platform unicorn."
+
+- name: Zerodha
+  slug: zerodha
+  career_url: https://zerodha.com/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 72
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "SRE", "Data Analyst"]
+  preferred_technologies: ["Go", "Python", "Cloud", "Fintech", "PostgreSQL"]
+  aliases: []
+  notes: "Bootstrapped and profitable largest Indian retail stock broker."
+
+- name: Angel One
+  slug: angel-one
+  career_url: https://www.angelone.in/careers
+  industry: FinTech
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 68
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Fintech"]
+  aliases: ["Angel Broking"]
+  notes: "Listed digital-first retail stock broking firm."
+
+- name: Upstox
+  slug: upstox
+  career_url: https://upstox.com/careers
+  industry: FinTech
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: fintech
+  ats_type: lever
+  ats_token: upstox
+  career_platform: Lever
+  priority_score: 68
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "SRE"]
+  preferred_technologies: ["Java", "Kotlin", "Cloud", "AI/ML", "Fintech"]
+  aliases: ["RKSV"]
+  notes: "Discount broking and investment platform unicorn."
+
+- name: Jupiter
+  slug: jupiter-money
+  career_url: https://jupiter.money/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 74
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Product Designer"]
+  preferred_technologies: ["Kotlin", "Java", "Cloud", "AI/ML", "Neobanking"]
+  aliases: []
+  notes: "Consumer neobanking app offering digital banking on partner banks."
+
+- name: Fi Money
+  slug: fi-money
+  career_url: https://fi.money/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 60
+  ai_hiring_score: 74
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Product Designer"]
+  preferred_technologies: ["Kotlin", "Java", "Cloud", "AI/ML", "Neobanking"]
+  aliases: ["epiFi"]
+  notes: "Neobanking app targeting salaried millennials."
+
+- name: Open
+  slug: open-money
+  career_url: https://open.money/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 60
+  ai_hiring_score: 72
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Engineer", "SRE"]
+  preferred_technologies: ["Java", "Cloud", "APIs", "Neobanking", "AI/ML"]
+  aliases: ["Open Financial Technologies"]
+  notes: "SMB-focused neobanking and business finance unicorn."
+
+- name: PolicyBazaar
+  slug: policybazaar
+  career_url: https://www.policybazaar.com/careers
+  industry: InsurTech
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", ".NET", "Cloud", "AI/ML", "InsurTech"]
+  aliases: ["PB Fintech"]
+  notes: "Listed insurance and lending marketplace."
+
+- name: Acko
+  slug: acko
+  career_url: https://www.acko.com/careers
+  industry: InsurTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: lever
+  ats_token: acko
+  career_platform: Lever
+  priority_score: 68
+  ai_hiring_score: 78
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "InsurTech"]
+  aliases: []
+  notes: "Digital-first general insurance unicorn."
+
+- name: Digit Insurance
+  slug: digit-insurance
+  career_url: https://www.godigit.com/careers
+  industry: InsurTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Actuary"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "InsurTech"]
+  aliases: ["Go Digit"]
+  notes: "Technology-led general insurance company."
+
+- name: MobiKwik
+  slug: mobikwik
+  career_url: https://www.mobikwik.com/careers
+  industry: FinTech
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 60
+  ai_hiring_score: 70
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Analyst", "SRE"]
+  preferred_technologies: ["Java", "Cloud", "Payments", "AI/ML", "Android"]
+  aliases: []
+  notes: "Digital wallet and payments company."
+
+- name: KreditBee
+  slug: kreditbee
+  career_url: https://www.kreditbee.in/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 60
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Lending"]
+  aliases: []
+  notes: "Digital consumer lending platform unicorn."
+
+# ==================== E-COMMERCE and CONSUMER ====================
+- name: Flipkart
+  slug: flipkart
+  career_url: https://www.flipkartcareers.com
+  industry: E-commerce
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 88
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "SRE"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Big Data"]
+  aliases: []
+  notes: "Walmart-owned largest homegrown e-commerce marketplace."
+
+- name: Myntra
+  slug: myntra
+  career_url: https://careers.myntra.com
+  industry: E-commerce
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 80
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Recommendations"]
+  aliases: []
+  notes: "Fashion and lifestyle e-commerce platform, part of the Flipkart group."
+
+- name: Meesho
+  slug: meesho
+  career_url: https://www.meesho.io/jobs
+  industry: E-commerce
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: ecommerce
+  ats_type: lever
+  ats_token: meesho
+  career_platform: Lever
+  priority_score: 80
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Big Data"]
+  aliases: []
+  notes: "Social-commerce and value e-commerce unicorn."
+
+- name: Nykaa
+  slug: nykaa
+  career_url: https://www.nykaa.com/careers
+  industry: E-commerce
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Analyst"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "E-commerce"]
+  aliases: ["FSN E-Commerce Ventures"]
+  notes: "Listed beauty, wellness and fashion e-commerce company."
+
+- name: Snapdeal
+  slug: snapdeal
+  career_url: https://www.snapdeal.com/page/careers
+  industry: E-commerce
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 58
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Analyst", "Data Engineer"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "E-commerce", "Big Data"]
+  aliases: []
+  notes: "Value-focused e-commerce marketplace."
+
+- name: BigBasket
+  slug: bigbasket
+  career_url: https://www.bigbasket.com/careers
+  industry: E-grocery
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Supply Chain Analyst"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Supply Chain"]
+  aliases: ["Innovative Retail Concepts"]
+  notes: "Tata-owned online grocery delivery platform."
+
+- name: Blinkit
+  slug: blinkit
+  career_url: https://blinkit.com/careers
+  industry: Quick Commerce
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 76
+  ai_hiring_score: 78
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Supply Chain Analyst"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Logistics"]
+  aliases: ["Grofers"]
+  notes: "Quick-commerce grocery delivery arm of Zomato/Eternal."
+
+- name: Zepto
+  slug: zepto
+  career_url: https://www.zeptonow.com/careers
+  industry: Quick Commerce
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: ecommerce
+  ats_type: lever
+  ats_token: zepto
+  career_platform: Lever
+  priority_score: 78
+  ai_hiring_score: 80
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Supply Chain Analyst"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Logistics"]
+  aliases: []
+  notes: "Fast-growing 10-minute grocery delivery unicorn."
+
+- name: Cars24
+  slug: cars24
+  career_url: https://www.cars24.com/careers
+  industry: Auto E-commerce
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: ecommerce
+  ats_type: lever
+  ats_token: cars24
+  career_platform: Lever
+  priority_score: 68
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "E-commerce"]
+  aliases: []
+  notes: "Used-car transactions and financing marketplace unicorn."
+
+- name: Spinny
+  slug: spinny
+  career_url: https://www.spinny.com/careers
+  industry: Auto E-commerce
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 70
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Analyst"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "E-commerce"]
+  aliases: []
+  notes: "Full-stack used-car retailing platform unicorn."
+
+- name: Lenskart
+  slug: lenskart
+  career_url: https://www.lenskart.com/careers
+  industry: Eyewear Retail
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 76
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Computer Vision Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Computer Vision"]
+  aliases: []
+  notes: "Omnichannel eyewear retail unicorn with AI-driven try-on."
+
+- name: Urban Company
+  slug: urban-company
+  career_url: https://www.urbancompany.com/careers
+  industry: Home Services
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: unicorn
+  ats_type: lever
+  ats_token: urbancompany
+  career_platform: Lever
+  priority_score: 70
+  ai_hiring_score: 76
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Marketplace"]
+  aliases: ["UrbanClap"]
+  notes: "Home and beauty services marketplace unicorn."
+
+- name: Delhivery
+  slug: delhivery
+  career_url: https://www.delhivery.com/careers
+  industry: Logistics
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 76
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Operations Research Scientist"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Logistics"]
+  aliases: []
+  notes: "Listed logistics and supply-chain services company."
+
+- name: Udaan
+  slug: udaan
+  career_url: https://udaan.com/careers
+  industry: B2B E-commerce
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "B2B Commerce"]
+  aliases: []
+  notes: "B2B trade and wholesale commerce platform unicorn."
+
+- name: FirstCry
+  slug: firstcry
+  career_url: https://www.firstcry.com/careers
+  industry: E-commerce
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 68
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Analyst", "Data Engineer"]
+  preferred_technologies: ["Java", ".NET", "Cloud", "AI/ML", "E-commerce"]
+  aliases: ["BrainBees Solutions"]
+  notes: "Listed baby and kids products omnichannel retailer."
+
+# ==================== FOOD and MOBILITY ====================
+- name: Swiggy
+  slug: swiggy
+  career_url: https://careers.swiggy.com
+  industry: Food Delivery
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: unicorn
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 84
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Logistics"]
+  aliases: []
+  notes: "Listed food delivery and quick-commerce platform."
+
+- name: Zomato
+  slug: zomato
+  career_url: https://www.zomato.com/careers
+  industry: Food Delivery
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: unicorn
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 84
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Logistics"]
+  aliases: ["Eternal"]
+  notes: "Listed food delivery major, parent of Blinkit; rebranded holding company Eternal."
+
+- name: Ola
+  slug: ola-cabs
+  career_url: https://www.olacabs.com/careers
+  industry: Mobility
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: unicorn
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 78
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Maps"]
+  aliases: ["ANI Technologies", "Ola Cabs"]
+  notes: "Ride-hailing and mobility platform unicorn."
+
+- name: Ola Electric
+  slug: ola-electric
+  career_url: https://www.olaelectric.com/careers
+  industry: Electric Vehicles
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: automotive
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Embedded Engineer", "Software Engineer", "Battery Engineer", "Data Scientist"]
+  preferred_technologies: ["Embedded C", "Python", "Battery Tech", "AI/ML", "IoT"]
+  aliases: []
+  notes: "Listed electric two-wheeler manufacturer."
+
+- name: Rapido
+  slug: rapido
+  career_url: https://rapido.bike/careers
+  industry: Mobility
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: unicorn
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Maps"]
+  aliases: []
+  notes: "Bike-taxi and mobility platform unicorn."
+
+# ==================== GAMING and SOCIAL ====================
+- name: Dream11
+  slug: dream11
+  career_url: https://www.dream11.com/careers
+  industry: Fantasy Sports
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: unicorn
+  ats_type: lever
+  ats_token: dream11
+  career_platform: Lever
+  priority_score: 76
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Scala", "Cloud", "AI/ML", "Big Data"]
+  aliases: ["Dream Sports"]
+  notes: "Fantasy sports platform decacorn, parent Dream Sports."
+
+- name: Mobile Premier League
+  slug: mobile-premier-league
+  career_url: https://www.mpl.live/careers
+  industry: Gaming
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: unicorn
+  ats_type: lever
+  ats_token: mpl
+  career_platform: Lever
+  priority_score: 64
+  ai_hiring_score: 78
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Game Developer"]
+  preferred_technologies: ["Java", "Go", "Cloud", "AI/ML", "Gaming"]
+  aliases: ["MPL"]
+  notes: "Mobile esports and skill-gaming platform unicorn."
+
+- name: Games24x7
+  slug: games24x7
+  career_url: https://www.games24x7.com/careers
+  industry: Gaming
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: unicorn
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 80
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Gaming"]
+  aliases: ["RummyCircle", "My11Circle"]
+  notes: "Online skill-gaming company behind RummyCircle and My11Circle."
+
+- name: Zupee
+  slug: zupee
+  career_url: https://www.zupee.com/careers
+  industry: Gaming
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: unicorn
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 58
+  ai_hiring_score: 76
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Game Developer"]
+  preferred_technologies: ["Java", "Go", "Cloud", "AI/ML", "Gaming"]
+  aliases: []
+  notes: "Casual skill-based gaming platform unicorn."
+
+- name: Nazara Technologies
+  slug: nazara-technologies
+  career_url: https://www.nazara.com/careers
+  industry: Gaming
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: product
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 58
+  ai_hiring_score: 68
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Game Developer", "Software Engineer", "Product Manager", "Data Analyst"]
+  preferred_technologies: ["Unity", "C#", "Cloud", "Gaming", "AI/ML"]
+  aliases: []
+  notes: "Listed diversified gaming and esports company."
+
+- name: ShareChat
+  slug: sharechat
+  career_url: https://sharechat.com/careers
+  industry: Social Media
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: unicorn
+  ats_type: lever
+  ats_token: sharechat
+  career_platform: Lever
+  priority_score: 66
+  ai_hiring_score: 84
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "ML Engineer", "Product Manager"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Recommendations"]
+  aliases: ["Mohalla Tech", "Moj"]
+  notes: "Vernacular social media and short-video platform unicorn, parent of Moj."
+
+# ==================== EDTECH ====================
+- name: BYJU'S
+  slug: byjus
+  career_url: https://byjus.com/careers
+  industry: EdTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: edtech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 58
+  ai_hiring_score: 68
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Content Developer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "EdTech"]
+  aliases: ["Think and Learn"]
+  notes: "Once-dominant online learning company that faced steep financial troubles."
+
+- name: Unacademy
+  slug: unacademy
+  career_url: https://unacademy.com/careers
+  industry: EdTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: edtech
+  ats_type: lever
+  ats_token: unacademy
+  career_platform: Lever
+  priority_score: 64
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Data Engineer"]
+  preferred_technologies: ["Python", "Java", "Cloud", "AI/ML", "EdTech"]
+  aliases: []
+  notes: "Online exam-preparation and learning platform unicorn."
+
+- name: PhysicsWallah
+  slug: physicswallah
+  career_url: https://www.physicswallah.com/careers
+  industry: EdTech
+  headquarters: "Noida, Uttar Pradesh"
+  country: IN
+  company_category: edtech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 68
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Analyst", "Content Developer"]
+  preferred_technologies: ["Node.js", "React", "Cloud", "AI/ML", "EdTech"]
+  aliases: ["PW"]
+  notes: "Profitable affordable exam-prep EdTech unicorn."
+
+- name: upGrad
+  slug: upgrad
+  career_url: https://www.upgrad.com/careers
+  industry: EdTech
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: edtech
+  ats_type: lever
+  ats_token: upgrad
+  career_platform: Lever
+  priority_score: 62
+  ai_hiring_score: 72
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "EdTech"]
+  aliases: []
+  notes: "Higher-education and upskilling platform unicorn."
+
+- name: Vedantu
+  slug: vedantu
+  career_url: https://www.vedantu.com/careers
+  industry: EdTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: edtech
+  ats_type: lever
+  ats_token: vedantu
+  career_platform: Lever
+  priority_score: 56
+  ai_hiring_score: 70
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Analyst", "Content Developer"]
+  preferred_technologies: ["Node.js", "React", "Cloud", "AI/ML", "EdTech"]
+  aliases: []
+  notes: "Live online tutoring platform unicorn."
+
+- name: Simplilearn
+  slug: simplilearn
+  career_url: https://www.simplilearn.com/careers
+  industry: EdTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: edtech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 56
+  ai_hiring_score: 68
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Analyst", "Content Developer"]
+  preferred_technologies: ["PHP", "JavaScript", "Cloud", "AI/ML", "EdTech"]
+  aliases: []
+  notes: "Professional certification and digital skills training company."
+
+- name: Great Learning
+  slug: great-learning
+  career_url: https://www.mygreatlearning.com/careers
+  industry: EdTech
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: edtech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 56
+  ai_hiring_score: 72
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Content Developer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "EdTech"]
+  aliases: []
+  notes: "Higher-education and professional upskilling platform, part of BYJU'S."
+
+- name: Scaler
+  slug: scaler
+  career_url: https://www.scaler.com/careers
+  industry: EdTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: edtech
+  ats_type: lever
+  ats_token: scaler
+  career_platform: Lever
+  priority_score: 58
+  ai_hiring_score: 74
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Instructor", "Data Analyst"]
+  preferred_technologies: ["Java", "Ruby", "Cloud", "AI/ML", "EdTech"]
+  aliases: ["InterviewBit"]
+  notes: "Tech upskilling platform for software and data professionals."
+
+# ==================== HEALTHTECH ====================
+- name: Practo
+  slug: practo
+  career_url: https://www.practo.com/careers
+  industry: HealthTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: healthtech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Healthcare"]
+  aliases: []
+  notes: "Online doctor discovery and telemedicine platform."
+
+- name: Curefit
+  slug: curefit
+  career_url: https://www.cure.fit/careers
+  industry: HealthTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: healthtech
+  ats_type: lever
+  ats_token: curefit
+  career_platform: Lever
+  priority_score: 64
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Healthcare"]
+  aliases: ["Cult.fit", "Cure.fit"]
+  notes: "Health and fitness unicorn operating Cult.fit gyms and apps."
+
+- name: PharmEasy
+  slug: pharmeasy
+  career_url: https://pharmeasy.in/careers
+  industry: HealthTech
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: healthtech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Supply Chain Analyst"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Healthcare"]
+  aliases: ["API Holdings"]
+  notes: "Online pharmacy and e-healthcare platform unicorn."
+
+- name: Tata 1mg
+  slug: tata-1mg
+  career_url: https://www.1mg.com/careers
+  industry: HealthTech
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: healthtech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 64
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Scientist", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Healthcare"]
+  aliases: ["1mg"]
+  notes: "Tata-owned online pharmacy and diagnostics platform."
+
+- name: HealthifyMe
+  slug: healthifyme
+  career_url: https://www.healthifyme.com/careers
+  industry: HealthTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: healthtech
+  ats_type: lever
+  ats_token: healthifyme
+  career_platform: Lever
+  priority_score: 58
+  ai_hiring_score: 80
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "ML Engineer", "Product Manager"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Healthcare"]
+  aliases: []
+  notes: "AI-driven digital health, fitness and nutrition coaching platform."
+
+- name: SigTuple
+  slug: sigtuple
+  career_url: https://sigtuple.com/careers
+  industry: HealthTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: healthtech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 52
+  ai_hiring_score: 86
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "Data Scientist", "Software Engineer", "Computer Vision Engineer"]
+  preferred_technologies: ["Python", "Computer Vision", "Deep Learning", "AI/ML", "Cloud"]
+  aliases: []
+  notes: "AI-powered medical diagnostics from blood and body-fluid imaging."
+
+- name: Niramai
+  slug: niramai
+  career_url: https://www.niramai.com/careers
+  industry: HealthTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: healthtech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 50
+  ai_hiring_score: 86
+  remote_support: false
+  crawl_frequency: monthly
+  supported_roles: ["ML Engineer", "Data Scientist", "Software Engineer", "Research Scientist"]
+  preferred_technologies: ["Python", "Computer Vision", "Thermal Imaging", "AI/ML", "Deep Learning"]
+  aliases: []
+  notes: "AI-based breast-cancer screening using thermal imaging."
+
+- name: Netmeds
+  slug: netmeds
+  career_url: https://www.netmeds.com/careers
+  industry: HealthTech
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: healthtech
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 54
+  ai_hiring_score: 64
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Analyst", "Data Engineer"]
+  preferred_technologies: ["Java", "PHP", "Cloud", "AI/ML", "Healthcare"]
+  aliases: []
+  notes: "Online pharmacy owned by Reliance Retail."
+
+# ==================== ANALYTICS and AI ====================
+- name: Fractal Analytics
+  slug: fractal-analytics
+  career_url: https://fractal.ai/careers
+  industry: Analytics & AI
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 92
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Data Scientist", "ML Engineer", "Data Engineer", "AI Consultant"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Deep Learning", "Analytics"]
+  aliases: ["Fractal"]
+  notes: "AI and advanced-analytics services unicorn for Fortune 500 clients."
+
+- name: Tiger Analytics
+  slug: tiger-analytics
+  career_url: https://www.tigeranalytics.com/careers
+  industry: Analytics & AI
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 92
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Data Scientist", "ML Engineer", "Data Engineer", "Analytics Consultant"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Data Engineering", "Analytics"]
+  aliases: []
+  notes: "Advanced analytics and data science consulting firm."
+
+- name: Tredence
+  slug: tredence
+  career_url: https://www.tredence.com/careers
+  industry: Analytics & AI
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 70
+  ai_hiring_score: 90
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Data Scientist", "ML Engineer", "Data Engineer", "Analytics Consultant"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Data Engineering", "Analytics"]
+  aliases: []
+  notes: "Data science and AI solutions company, a unicorn."
+
+- name: Mu Sigma
+  slug: mu-sigma
+  career_url: https://www.mu-sigma.com/careers
+  industry: Analytics & AI
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 86
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Data Scientist", "Decision Scientist", "Data Engineer", "Analytics Consultant"]
+  preferred_technologies: ["Python", "R", "AI/ML", "Analytics", "SQL"]
+  aliases: []
+  notes: "Decision-sciences and analytics services pioneer."
+
+- name: LatentView Analytics
+  slug: latentview-analytics
+  career_url: https://www.latentview.com/careers
+  industry: Analytics & AI
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 64
+  ai_hiring_score: 88
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Data Scientist", "ML Engineer", "Data Engineer", "Analytics Consultant"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Data Engineering", "Analytics"]
+  aliases: []
+  notes: "Listed data analytics and digital solutions firm."
+
+- name: InMobi
+  slug: inmobi
+  career_url: https://www.inmobi.com/company/careers
+  industry: AdTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 86
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "ML Engineer", "Product Manager"]
+  preferred_technologies: ["Java", "Scala", "Cloud", "AI/ML", "Big Data"]
+  aliases: ["Glance"]
+  notes: "Mobile advertising and marketing-tech unicorn, parent of Glance."
+
+- name: Quantiphi
+  slug: quantiphi
+  career_url: https://quantiphi.com/careers
+  industry: Analytics & AI
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 90
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "Data Scientist", "Cloud Engineer", "AI Consultant"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Deep Learning", "GCP"]
+  aliases: []
+  notes: "Applied AI and machine learning solutions company."
+
+- name: Gramener
+  slug: gramener
+  career_url: https://gramener.com/careers
+  industry: Analytics & AI
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 54
+  ai_hiring_score: 86
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Data Scientist", "Data Analyst", "ML Engineer", "Data Visualization Engineer"]
+  preferred_technologies: ["Python", "AI/ML", "Data Visualization", "Analytics", "Cloud"]
+  aliases: []
+  notes: "Data science and storytelling firm, part of Straive."
+
+- name: TheMathCompany
+  slug: themathcompany
+  career_url: https://themathcompany.com/careers
+  industry: Analytics & AI
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 56
+  ai_hiring_score: 88
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Data Scientist", "ML Engineer", "Data Engineer", "Analytics Consultant"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Data Engineering", "Analytics"]
+  aliases: ["MathCo"]
+  notes: "Analytics and AI-led enterprise decisioning firm."
+
+- name: Course5 Intelligence
+  slug: course5-intelligence
+  career_url: https://www.course5i.com/careers
+  industry: Analytics & AI
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 52
+  ai_hiring_score: 84
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Data Scientist", "ML Engineer", "Data Analyst", "Analytics Consultant"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Analytics", "NLP"]
+  aliases: ["Course5i"]
+  notes: "Analytics, insights and AI solutions company."
+
+# ==================== CONSULTING ====================
+- name: Deloitte India
+  slug: deloitte-india
+  career_url: https://www2.deloitte.com/in/en/careers.html
+  industry: Consulting
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: consulting
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 84
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Consultant", "Software Engineer", "Data Scientist", "Risk Analyst"]
+  preferred_technologies: ["SAP", "Cloud", "AI/ML", "Data Engineering", "Cybersecurity"]
+  aliases: ["Deloitte USI"]
+  notes: "Big Four professional services firm with a large India delivery footprint."
+
+- name: EY India
+  slug: ey-india
+  career_url: https://www.ey.com/en_in/careers
+  industry: Consulting
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: consulting
+  ats_type: successfactors
+  ats_token: null
+  career_platform: SuccessFactors
+  priority_score: 82
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Consultant", "Auditor", "Data Scientist", "Software Engineer"]
+  preferred_technologies: ["SAP", "Cloud", "AI/ML", "Analytics", "Cybersecurity"]
+  aliases: ["Ernst & Young", "EY GDS"]
+  notes: "Big Four firm with global delivery services centers across India."
+
+- name: PwC India
+  slug: pwc-india
+  career_url: https://www.pwc.in/careers.html
+  industry: Consulting
+  headquarters: "Kolkata, West Bengal"
+  country: IN
+  company_category: consulting
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 82
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Consultant", "Auditor", "Data Scientist", "Software Engineer"]
+  preferred_technologies: ["SAP", "Cloud", "AI/ML", "Analytics", "Cybersecurity"]
+  aliases: ["PricewaterhouseCoopers"]
+  notes: "Big Four professional services network in India."
+
+- name: KPMG India
+  slug: kpmg-india
+  career_url: https://home.kpmg/in/en/home/careers.html
+  industry: Consulting
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: consulting
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 80
+  ai_hiring_score: 70
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Consultant", "Auditor", "Data Scientist", "Risk Analyst"]
+  preferred_technologies: ["SAP", "Cloud", "AI/ML", "Analytics", "Cybersecurity"]
+  aliases: []
+  notes: "Big Four audit, tax and advisory firm in India."
+
+- name: ZS Associates
+  slug: zs-associates
+  career_url: https://www.zs.com/careers
+  industry: Consulting
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: consulting
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Data Scientist", "Business Analyst", "Software Engineer", "Consultant"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Analytics", "SQL"]
+  aliases: ["ZS"]
+  notes: "Management consulting and analytics firm with large India centers."
+
+- name: McKinsey India
+  slug: mckinsey-india
+  career_url: https://www.mckinsey.com/careers
+  industry: Consulting
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: consulting
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 80
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Consultant", "Data Scientist", "Business Analyst", "Software Engineer"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Analytics", "Strategy"]
+  aliases: ["McKinsey & Company"]
+  notes: "Strategy consulting firm with India offices and the QuantumBlack AI arm."
+
+- name: Genpact
+  slug: genpact
+  career_url: https://www.genpact.com/careers
+  industry: BPM & Analytics
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: consulting
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Process Associate", "Data Scientist", "Software Engineer", "Analytics Consultant"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Analytics", "Automation"]
+  aliases: []
+  notes: "Global professional services firm focused on digital operations and analytics."
+
+- name: WNS Global Services
+  slug: wns-global-services
+  career_url: https://www.wns.com/careers
+  industry: BPM
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: consulting
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 68
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Process Associate", "Data Analyst", "Software Engineer", "Analytics Consultant"]
+  preferred_technologies: ["Python", "Analytics", "Cloud", "Automation", "AI/ML"]
+  aliases: ["WNS"]
+  notes: "Business process management and analytics services company."
+
+# ==================== BFSI ====================
+- name: HDFC Bank
+  slug: hdfc-bank
+  career_url: https://www.hdfcbank.com/personal/about-us/careers
+  industry: Banking
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 82
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Relationship Manager", "Risk Analyst"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Core Banking", "Analytics"]
+  aliases: []
+  notes: "Largest Indian private-sector bank by assets."
+
+- name: ICICI Bank
+  slug: icici-bank
+  career_url: https://www.icicicareers.com
+  industry: Banking
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 80
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Relationship Manager", "Risk Analyst"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Core Banking", "Analytics"]
+  aliases: []
+  notes: "Leading private-sector bank with a strong digital banking stack."
+
+- name: Axis Bank
+  slug: axis-bank
+  career_url: https://www.axisbank.com/careers
+  industry: Banking
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 76
+  ai_hiring_score: 64
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Relationship Manager", "Risk Analyst"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Core Banking", "Analytics"]
+  aliases: []
+  notes: "Third-largest Indian private-sector bank."
+
+- name: Kotak Mahindra Bank
+  slug: kotak-mahindra-bank
+  career_url: https://www.kotak.com/en/careers.html
+  industry: Banking
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 76
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Relationship Manager", "Risk Analyst"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Core Banking", "Analytics"]
+  aliases: []
+  notes: "Private-sector bank and diversified financial services group."
+
+- name: State Bank of India
+  slug: state-bank-of-india
+  career_url: https://sbi.co.in/careers
+  industry: Banking
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 58
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Probationary Officer", "Software Engineer", "Data Analyst", "Risk Analyst"]
+  preferred_technologies: ["Java", "Core Banking", "Cloud", "Analytics", "AI/ML"]
+  aliases: ["SBI"]
+  notes: "Largest public-sector bank in India by assets and branches."
+
+- name: Yes Bank
+  slug: yes-bank
+  career_url: https://www.yesbank.in/careers
+  industry: Banking
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 60
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Relationship Manager", "Data Analyst", "Risk Analyst"]
+  preferred_technologies: ["Java", "Core Banking", "Cloud", "Analytics", "AI/ML"]
+  aliases: []
+  notes: "Private-sector bank rebuilt after a 2020 restructuring."
+
+- name: IndusInd Bank
+  slug: indusind-bank
+  career_url: https://www.indusind.com/in/en/personal/careers.html
+  industry: Banking
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 64
+  ai_hiring_score: 62
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Relationship Manager", "Data Analyst", "Risk Analyst"]
+  preferred_technologies: ["Java", "Core Banking", "Cloud", "Analytics", "AI/ML"]
+  aliases: []
+  notes: "Private-sector bank with vehicle-finance and microfinance strengths."
+
+- name: Bajaj Finserv
+  slug: bajaj-finserv
+  career_url: https://www.bajajfinserv.in/careers
+  industry: Financial Services
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 70
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Risk Analyst"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Analytics", "Fintech"]
+  aliases: ["Bajaj Finance"]
+  notes: "Diversified financial services and lending group."
+
+- name: HDFC Life
+  slug: hdfc-life
+  career_url: https://www.hdfclife.com/careers
+  industry: Insurance
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 64
+  ai_hiring_score: 62
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Actuary", "Software Engineer", "Data Analyst", "Relationship Manager"]
+  preferred_technologies: ["Java", "Cloud", "Analytics", "AI/ML", "InsurTech"]
+  aliases: []
+  notes: "Leading private-sector life insurance company."
+
+- name: LIC
+  slug: lic
+  career_url: https://licindia.in/careers
+  industry: Insurance
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 50
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Actuary", "Development Officer", "Software Engineer", "Data Analyst"]
+  preferred_technologies: ["Java", "Core Systems", "Analytics", "Cloud", "AI/ML"]
+  aliases: ["Life Insurance Corporation of India"]
+  notes: "State-owned and largest Indian life insurer by market share."
+
+- name: IDFC First Bank
+  slug: idfc-first-bank
+  career_url: https://www.idfcfirstbank.com/careers
+  industry: Banking
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 64
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Relationship Manager", "Risk Analyst"]
+  preferred_technologies: ["Java", "Core Banking", "Cloud", "Analytics", "AI/ML"]
+  aliases: []
+  notes: "Retail-focused private-sector bank formed from IDFC and Capital First."
+
+# ==================== CONGLOMERATES ====================
+- name: Reliance Industries
+  slug: reliance-industries
+  career_url: https://www.ril.com/careers
+  industry: Conglomerate
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: conglomerate
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 88
+  ai_hiring_score: 68
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Chemical Engineer", "Product Manager"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Data Engineering", "IoT"]
+  aliases: ["RIL"]
+  notes: "India's largest private-sector conglomerate spanning energy, retail and telecom."
+
+- name: Tata Group
+  slug: tata-group
+  career_url: https://www.tata.com/careers
+  industry: Conglomerate
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: conglomerate
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 88
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Mechanical Engineer", "Consultant"]
+  preferred_technologies: ["Java", "Cloud", "AI/ML", "Manufacturing", "Data Engineering"]
+  aliases: ["Tata Sons"]
+  notes: "Diversified salt-to-software conglomerate with 100+ operating companies."
+
+- name: Adani Group
+  slug: adani-group
+  career_url: https://www.adani.com/careers
+  industry: Conglomerate
+  headquarters: "Ahmedabad, Gujarat"
+  country: IN
+  company_category: conglomerate
+  ats_type: successfactors
+  ats_token: null
+  career_platform: SuccessFactors
+  priority_score: 80
+  ai_hiring_score: 58
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Analyst", "Electrical Engineer", "Project Manager"]
+  preferred_technologies: ["SAP", "Cloud", "AI/ML", "IoT", "Data Engineering"]
+  aliases: []
+  notes: "Infrastructure conglomerate spanning ports, energy and airports."
+
+- name: Mahindra Group
+  slug: mahindra-group
+  career_url: https://www.mahindra.com/careers
+  industry: Conglomerate
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: conglomerate
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 60
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Mechanical Engineer", "Software Engineer", "Data Analyst", "Product Manager"]
+  preferred_technologies: ["CAD", "Cloud", "AI/ML", "Manufacturing", "IoT"]
+  aliases: []
+  notes: "Diversified group across automotive, farm equipment, IT and finance."
+
+- name: Godrej Group
+  slug: godrej-group
+  career_url: https://www.godrej.com/careers
+  industry: Conglomerate
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: conglomerate
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 56
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Mechanical Engineer", "Software Engineer", "Data Analyst", "Brand Manager"]
+  preferred_technologies: ["SAP", "Cloud", "Manufacturing", "AI/ML", "IoT"]
+  aliases: ["Godrej"]
+  notes: "Diversified group across consumer goods, real estate and appliances."
+
+- name: ITC Limited
+  slug: itc-limited
+  career_url: https://www.itcportal.com/careers
+  industry: Conglomerate
+  headquarters: "Kolkata, West Bengal"
+  country: IN
+  company_category: conglomerate
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 76
+  ai_hiring_score: 56
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Brand Manager", "Data Analyst", "Supply Chain Analyst"]
+  preferred_technologies: ["SAP", "Cloud", "Analytics", "AI/ML", "FMCG"]
+  aliases: ["ITC"]
+  notes: "Diversified group spanning FMCG, hotels, paperboards and agri-business."
+
+- name: Larsen & Toubro
+  slug: larsen-and-toubro
+  career_url: https://www.larsentoubro.com/careers
+  industry: Engineering & Construction
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: conglomerate
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 80
+  ai_hiring_score: 58
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Civil Engineer", "Mechanical Engineer", "Software Engineer", "Project Manager"]
+  preferred_technologies: ["CAD", "Project Management", "IoT", "Cloud", "AI/ML"]
+  aliases: ["L&T"]
+  notes: "Engineering, construction and technology conglomerate."
+
+# ==================== GLOBAL CAPABILITY CENTERS (INDIA) ====================
+- name: Wells Fargo India
+  slug: wells-fargo-india
+  career_url: https://www.wellsfargojobs.com/en/india
+  industry: BFSI Technology
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: bfsi
+  ats_type: workday
+  ats_token: null
+  career_platform: Workday
+  priority_score: 78
+  ai_hiring_score: 76
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Engineer", "Data Scientist", "Risk Analyst"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Big Data"]
+  aliases: ["Wells Fargo EGS"]
+  notes: "India technology and operations center of Wells Fargo."
+
+- name: JPMorgan Chase India
+  slug: jpmorgan-india
+  career_url: https://careers.jpmorgan.com/global/en/locations/apac/india
+  industry: BFSI Technology
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: bfsi
+  ats_type: oracle
+  ats_token: null
+  career_platform: Oracle
+  priority_score: 82
+  ai_hiring_score: 80
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Engineer", "Data Scientist", "Quant Analyst"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Big Data"]
+  aliases: ["JPMC India"]
+  notes: "One of the bank's largest global technology and operations hubs."
+
+- name: Goldman Sachs India
+  slug: goldman-sachs-india
+  career_url: https://www.goldmansachs.com/careers
+  industry: BFSI Technology
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: bfsi
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 82
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Quant Analyst", "Data Scientist", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Slang", "Cloud", "AI/ML"]
+  aliases: ["Goldman Sachs Services"]
+  notes: "Major engineering and quant hub for the investment bank."
+
+- name: Walmart Global Tech India
+  slug: walmart-global-tech-india
+  career_url: https://tech.walmart.com/careers
+  industry: Retail Technology
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: ecommerce
+  ats_type: workday
+  ats_token: null
+  career_platform: Workday
+  priority_score: 82
+  ai_hiring_score: 84
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Data Engineer", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Big Data"]
+  aliases: ["Walmart Labs"]
+  notes: "Walmart's largest technology center outside the US."
+
+- name: Target India
+  slug: target-india
+  career_url: https://india.target.com/careers
+  industry: Retail Technology
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: ecommerce
+  ats_type: workday
+  ats_token: null
+  career_platform: Workday
+  priority_score: 76
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Data Engineer", "Product Manager"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Big Data"]
+  aliases: ["Target Corporation India"]
+  notes: "Technology and operations hub of US retailer Target."
+
+- name: Amazon India
+  slug: amazon-india
+  career_url: https://www.amazon.jobs/en/locations/india
+  industry: Technology
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: product
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 90
+  ai_hiring_score: 86
+  remote_support: false
+  crawl_frequency: daily
+  supported_roles: ["Software Engineer", "Data Scientist", "Applied Scientist", "Product Manager"]
+  preferred_technologies: ["Java", "Python", "AWS", "AI/ML", "Big Data"]
+  aliases: ["AWS India", "Amazon Development Centre India"]
+  notes: "Amazon's large India engineering, retail and AWS presence."
+
+- name: Microsoft India
+  slug: microsoft-india
+  career_url: https://careers.microsoft.com/v2/global/en/locations/india
+  industry: Technology
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: product
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 88
+  ai_hiring_score: 88
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Applied Scientist", "Product Manager"]
+  preferred_technologies: ["C#", "Python", "Azure", "AI/ML", "Cloud"]
+  aliases: ["Microsoft IDC"]
+  notes: "Microsoft's India Development Center, its largest R&D site outside the US."
+
+- name: Google India
+  slug: google-india
+  career_url: https://www.google.com/about/careers/applications/locations/india
+  industry: Technology
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: product
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 90
+  ai_hiring_score: 90
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Research Scientist", "Product Manager"]
+  preferred_technologies: ["C++", "Python", "Cloud", "AI/ML", "Distributed Systems"]
+  aliases: ["Google India Development Center"]
+  notes: "Google's India engineering and research operations."
+
+- name: Uber India
+  slug: uber-india
+  career_url: https://www.uber.com/us/en/careers/locations/india
+  industry: Technology
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: product
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 84
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "ML Engineer", "Product Manager"]
+  preferred_technologies: ["Go", "Java", "Python", "Cloud", "AI/ML"]
+  aliases: ["Uber Technologies India"]
+  notes: "Uber's India engineering and data science center."
+
+- name: Salesforce India
+  slug: salesforce-india
+  career_url: https://www.salesforce.com/company/careers
+  industry: SaaS
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 82
+  ai_hiring_score: 84
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Solutions Engineer"]
+  preferred_technologies: ["Java", "Apex", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Salesforce's India development and engineering center."
+
+- name: Adobe India
+  slug: adobe-india
+  career_url: https://www.adobe.com/careers.html
+  industry: Technology
+  headquarters: "Noida, Uttar Pradesh"
+  country: IN
+  company_category: product
+  ats_type: workday
+  ats_token: null
+  career_platform: Workday
+  priority_score: 82
+  ai_hiring_score: 86
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "ML Engineer", "Product Manager"]
+  preferred_technologies: ["C++", "Python", "Cloud", "AI/ML", "Computer Vision"]
+  aliases: []
+  notes: "Adobe's large India R&D center for creative and document products."
+
+- name: SAP Labs India
+  slug: sap-labs-india
+  career_url: https://www.sap.com/india/about/careers.html
+  industry: Enterprise Software
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: product
+  ats_type: successfactors
+  ats_token: null
+  career_platform: SuccessFactors
+  priority_score: 80
+  ai_hiring_score: 80
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Cloud Engineer"]
+  preferred_technologies: ["Java", "ABAP", "Cloud", "AI/ML", "SAP HANA"]
+  aliases: []
+  notes: "SAP's largest R&D lab outside Germany."
+
+- name: Oracle India
+  slug: oracle-india
+  career_url: https://www.oracle.com/in/careers
+  industry: Enterprise Software
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: product
+  ats_type: oracle
+  ats_token: null
+  career_platform: Oracle
+  priority_score: 80
+  ai_hiring_score: 80
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Cloud Engineer", "Data Scientist", "Product Manager"]
+  preferred_technologies: ["Java", "SQL", "Cloud", "AI/ML", "Databases"]
+  aliases: ["Oracle India Development Center"]
+  notes: "Oracle's large India development center for cloud and database products."
+
+- name: Qualcomm India
+  slug: qualcomm-india
+  career_url: https://www.qualcomm.com/company/careers
+  industry: Semiconductors
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: product
+  ats_type: workday
+  ats_token: null
+  career_platform: Workday
+  priority_score: 80
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Hardware Engineer", "Software Engineer", "DSP Engineer", "Machine Learning Engineer"]
+  preferred_technologies: ["C++", "Verilog", "Embedded", "AI/ML", "Wireless"]
+  aliases: []
+  notes: "Qualcomm's chipset and wireless R&D hub in India."
+
+- name: Nvidia India
+  slug: nvidia-india
+  career_url: https://www.nvidia.com/en-in/about-nvidia/careers
+  industry: Semiconductors
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: product
+  ats_type: workday
+  ats_token: null
+  career_platform: Workday
+  priority_score: 82
+  ai_hiring_score: 92
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["GPU Architect", "Software Engineer", "Deep Learning Engineer", "Hardware Engineer"]
+  preferred_technologies: ["CUDA", "C++", "Deep Learning", "AI/ML", "GPU"]
+  aliases: []
+  notes: "Nvidia's India engineering hub for GPU and AI systems."
+
+- name: Intel India
+  slug: intel-india
+  career_url: https://www.intel.com/content/www/us/en/jobs/locations/india.html
+  industry: Semiconductors
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: product
+  ats_type: workday
+  ats_token: null
+  career_platform: Workday
+  priority_score: 78
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Hardware Engineer", "Software Engineer", "Validation Engineer", "Machine Learning Engineer"]
+  preferred_technologies: ["C++", "Verilog", "Embedded", "AI/ML", "Silicon Design"]
+  aliases: []
+  notes: "Intel's largest design and validation center outside the US."
+
+- name: Texas Instruments India
+  slug: texas-instruments-india
+  career_url: https://careers.ti.com
+  industry: Semiconductors
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: product
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 72
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Analog Design Engineer", "Software Engineer", "Validation Engineer", "Embedded Engineer"]
+  preferred_technologies: ["Analog Design", "C", "Verilog", "Embedded", "DSP"]
+  aliases: ["TI India"]
+  notes: "Texas Instruments' analog and embedded processing design center."
+
+- name: Samsung R&D Institute India
+  slug: samsung-rd-india
+  career_url: https://research.samsung.com/careers
+  industry: Technology
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: product
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 76
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "ML Engineer", "Embedded Engineer", "Research Scientist"]
+  preferred_technologies: ["C++", "Java", "AI/ML", "Android", "Computer Vision"]
+  aliases: ["SRI-B", "Samsung R&D India"]
+  notes: "Samsung's largest R&D center outside South Korea."
+
+- name: Cisco India
+  slug: cisco-india
+  career_url: https://www.cisco.com/c/en/us/about/careers.html
+  industry: Networking Technology
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: product
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 80
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Network Engineer", "Data Scientist", "Security Engineer"]
+  preferred_technologies: ["C++", "Python", "Networking", "Cloud", "AI/ML"]
+  aliases: []
+  notes: "Cisco's second-largest R&D site globally."
+
+- name: Broadcom India
+  slug: broadcom-india
+  career_url: https://www.broadcom.com/company/careers
+  industry: Semiconductors
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: product
+  ats_type: workday
+  ats_token: null
+  career_platform: Workday
+  priority_score: 70
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Hardware Engineer", "Software Engineer", "Validation Engineer", "ASIC Engineer"]
+  preferred_technologies: ["C++", "Verilog", "Embedded", "Silicon Design", "Cloud"]
+  aliases: ["VMware India"]
+  notes: "Semiconductor and enterprise software firm, now including former VMware India teams."
+
+- name: ServiceNow India
+  slug: servicenow-india
+  career_url: https://careers.servicenow.com
+  industry: SaaS
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 84
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Platform Engineer"]
+  preferred_technologies: ["Java", "JavaScript", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "ServiceNow's growing India engineering and product center."
+
+# ==================== AUTOMOTIVE ====================
+- name: Maruti Suzuki
+  slug: maruti-suzuki
+  career_url: https://www.marutisuzuki.com/corporate/careers
+  industry: Automotive
+  headquarters: "New Delhi, Delhi"
+  country: IN
+  company_category: automotive
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 52
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Mechanical Engineer", "Manufacturing Engineer", "Software Engineer", "Data Analyst"]
+  preferred_technologies: ["CAD", "Manufacturing", "Embedded", "IoT", "AI/ML"]
+  aliases: ["Maruti Suzuki India"]
+  notes: "Largest passenger-vehicle manufacturer in India."
+
+- name: Tata Motors
+  slug: tata-motors
+  career_url: https://www.tatamotors.com/careers
+  industry: Automotive
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: automotive
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 76
+  ai_hiring_score: 58
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Mechanical Engineer", "Embedded Engineer", "Software Engineer", "Data Scientist"]
+  preferred_technologies: ["CAD", "Embedded", "EV", "AI/ML", "IoT"]
+  aliases: []
+  notes: "Tata Group automaker and EV leader, owner of Jaguar Land Rover."
+
+- name: Bajaj Auto
+  slug: bajaj-auto
+  career_url: https://www.bajajauto.com/careers
+  industry: Automotive
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: automotive
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 68
+  ai_hiring_score: 50
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Mechanical Engineer", "Manufacturing Engineer", "Embedded Engineer", "Data Analyst"]
+  preferred_technologies: ["CAD", "Manufacturing", "Embedded", "EV", "IoT"]
+  aliases: []
+  notes: "Major two-wheeler and three-wheeler manufacturer."
+
+- name: Hero MotoCorp
+  slug: hero-motocorp
+  career_url: https://www.heromotocorp.com/en-in/careers.html
+  industry: Automotive
+  headquarters: "New Delhi, Delhi"
+  country: IN
+  company_category: automotive
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 50
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Mechanical Engineer", "Manufacturing Engineer", "Embedded Engineer", "Data Analyst"]
+  preferred_technologies: ["CAD", "Manufacturing", "Embedded", "EV", "IoT"]
+  aliases: []
+  notes: "World's largest two-wheeler manufacturer by volume."
+
+- name: TVS Motor Company
+  slug: tvs-motor
+  career_url: https://www.tvsmotor.com/careers
+  industry: Automotive
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: automotive
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 54
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Mechanical Engineer", "Embedded Engineer", "Software Engineer", "Data Analyst"]
+  preferred_technologies: ["CAD", "Embedded", "EV", "IoT", "AI/ML"]
+  aliases: ["TVS Motor"]
+  notes: "Two-wheeler and three-wheeler manufacturer with a growing EV portfolio."
+
+- name: Mahindra & Mahindra
+  slug: mahindra-and-mahindra
+  career_url: https://www.mahindra.com/careers
+  industry: Automotive
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: automotive
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 74
+  ai_hiring_score: 56
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Mechanical Engineer", "Embedded Engineer", "Software Engineer", "Data Scientist"]
+  preferred_technologies: ["CAD", "Embedded", "EV", "AI/ML", "IoT"]
+  aliases: ["M&M"]
+  notes: "Automotive and farm-equipment flagship of the Mahindra Group."
+
+- name: Bosch India
+  slug: bosch-india
+  career_url: https://www.bosch.in/careers
+  industry: Automotive Technology
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: automotive
+  ats_type: successfactors
+  ats_token: null
+  career_platform: SuccessFactors
+  priority_score: 72
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Embedded Engineer", "Software Engineer", "Mechanical Engineer", "Data Scientist"]
+  preferred_technologies: ["Embedded C", "AUTOSAR", "IoT", "AI/ML", "C++"]
+  aliases: ["Bosch Global Software Technologies"]
+  notes: "Bosch's India engineering, mobility and software operations."
+
+# ==================== TELECOM ====================
+- name: Bharti Airtel
+  slug: bharti-airtel
+  career_url: https://www.airtel.in/careers
+  industry: Telecom
+  headquarters: "New Delhi, Delhi"
+  country: IN
+  company_category: telecom
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 78
+  ai_hiring_score: 68
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Network Engineer", "Data Scientist", "Product Manager"]
+  preferred_technologies: ["Java", "5G", "Cloud", "AI/ML", "Big Data"]
+  aliases: ["Airtel"]
+  notes: "Second-largest telecom operator in India by subscribers."
+
+- name: Jio
+  slug: jio
+  career_url: https://careers.jio.com
+  industry: Telecom
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: telecom
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 82
+  ai_hiring_score: 76
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Network Engineer", "Data Scientist", "ML Engineer"]
+  preferred_technologies: ["Java", "5G", "Cloud", "AI/ML", "Big Data"]
+  aliases: ["Reliance Jio", "Jio Platforms"]
+  notes: "Largest Indian telecom operator and digital platforms company."
+
+- name: Vodafone Idea
+  slug: vodafone-idea
+  career_url: https://www.myvi.in/about-us/careers
+  industry: Telecom
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: telecom
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 58
+  ai_hiring_score: 56
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Network Engineer", "Software Engineer", "Data Analyst", "Product Manager"]
+  preferred_technologies: ["Java", "4G", "Cloud", "AI/ML", "Telecom"]
+  aliases: ["Vi", "Idea Cellular"]
+  notes: "Telecom operator formed by the Vodafone-Idea merger."
+
+- name: Sterlite Technologies
+  slug: sterlite-technologies
+  career_url: https://www.stl.tech/careers
+  industry: Telecom Infrastructure
+  headquarters: "Pune, Maharashtra"
+  country: IN
+  company_category: telecom
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 56
+  ai_hiring_score: 56
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Network Engineer", "Software Engineer", "Optical Engineer", "Data Analyst"]
+  preferred_technologies: ["5G", "Optical Fiber", "Cloud", "AI/ML", "Networking"]
+  aliases: ["STL"]
+  notes: "Optical and digital networking solutions company."
+
+# ==================== ENERGY ====================
+- name: NTPC
+  slug: ntpc
+  career_url: https://www.ntpc.co.in/careers
+  industry: Power Generation
+  headquarters: "New Delhi, Delhi"
+  country: IN
+  company_category: energy
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 60
+  ai_hiring_score: 40
+  remote_support: false
+  crawl_frequency: monthly
+  supported_roles: ["Electrical Engineer", "Mechanical Engineer", "Data Analyst", "Project Manager"]
+  preferred_technologies: ["Power Systems", "SCADA", "IoT", "Analytics", "AI/ML"]
+  aliases: ["National Thermal Power Corporation"]
+  notes: "Largest power generation company in India."
+
+- name: ONGC
+  slug: ongc
+  career_url: https://ongcindia.com/web/eng/career
+  industry: Oil & Gas
+  headquarters: "New Delhi, Delhi"
+  country: IN
+  company_category: energy
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 58
+  ai_hiring_score: 38
+  remote_support: false
+  crawl_frequency: monthly
+  supported_roles: ["Petroleum Engineer", "Geologist", "Mechanical Engineer", "Data Analyst"]
+  preferred_technologies: ["Reservoir Modeling", "SCADA", "IoT", "Analytics", "GIS"]
+  aliases: ["Oil and Natural Gas Corporation"]
+  notes: "State-owned oil and gas exploration and production major."
+
+- name: Adani Green Energy
+  slug: adani-green-energy
+  career_url: https://www.adanigreenenergy.com/careers
+  industry: Renewable Energy
+  headquarters: "Ahmedabad, Gujarat"
+  country: IN
+  company_category: energy
+  ats_type: successfactors
+  ats_token: null
+  career_platform: SuccessFactors
+  priority_score: 62
+  ai_hiring_score: 50
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Electrical Engineer", "Renewable Energy Engineer", "Data Analyst", "Project Manager"]
+  preferred_technologies: ["Solar", "Wind", "SCADA", "IoT", "Analytics"]
+  aliases: []
+  notes: "One of the largest renewable energy companies in India."
+
+- name: Tata Power
+  slug: tata-power
+  career_url: https://www.tatapower.com/careers
+  industry: Power & Utilities
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: energy
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 48
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Electrical Engineer", "Renewable Energy Engineer", "Data Analyst", "Project Manager"]
+  preferred_technologies: ["Power Systems", "Solar", "SCADA", "IoT", "Analytics"]
+  aliases: []
+  notes: "Tata Group integrated power utility with a growing renewables portfolio."
+
+# ==================== MANUFACTURING and STEEL ====================
+- name: JSW Steel
+  slug: jsw-steel
+  career_url: https://www.jsw.in/careers
+  industry: Steel Manufacturing
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: manufacturing
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 46
+  remote_support: false
+  crawl_frequency: monthly
+  supported_roles: ["Metallurgical Engineer", "Mechanical Engineer", "Data Analyst", "Process Engineer"]
+  preferred_technologies: ["Manufacturing", "SCADA", "IoT", "Analytics", "AI/ML"]
+  aliases: ["JSW"]
+  notes: "One of India's largest integrated steel manufacturers."
+
+- name: Tata Steel
+  slug: tata-steel
+  career_url: https://www.tatasteel.com/careers
+  industry: Steel Manufacturing
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: manufacturing
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 50
+  remote_support: false
+  crawl_frequency: monthly
+  supported_roles: ["Metallurgical Engineer", "Mechanical Engineer", "Data Scientist", "Process Engineer"]
+  preferred_technologies: ["Manufacturing", "SCADA", "IoT", "AI/ML", "Analytics"]
+  aliases: []
+  notes: "Tata Group global steel producer, among the oldest Indian companies."
+
+- name: Larsen & Toubro Construction
+  slug: lt-construction
+  career_url: https://www.lntecc.com/careers
+  industry: Construction
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: manufacturing
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 60
+  ai_hiring_score: 44
+  remote_support: false
+  crawl_frequency: monthly
+  supported_roles: ["Civil Engineer", "Mechanical Engineer", "Project Manager", "Planning Engineer"]
+  preferred_technologies: ["CAD", "BIM", "Project Management", "IoT", "Analytics"]
+  aliases: ["L&T Construction"]
+  notes: "Construction arm of L&T, among the world's largest EPC contractors."
+
+- name: Asian Paints
+  slug: asian-paints
+  career_url: https://www.asianpaints.com/careers.html
+  industry: Manufacturing
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: manufacturing
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 70
+  ai_hiring_score: 58
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Chemical Engineer", "Software Engineer", "Data Scientist", "Supply Chain Analyst"]
+  preferred_technologies: ["SAP", "Analytics", "AI/ML", "Cloud", "Manufacturing"]
+  aliases: []
+  notes: "Largest paints company in India with a strong data-driven supply chain."
+
+- name: Havells India
+  slug: havells-india
+  career_url: https://www.havells.com/en/careers.html
+  industry: Electrical Equipment
+  headquarters: "Noida, Uttar Pradesh"
+  country: IN
+  company_category: manufacturing
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 58
+  ai_hiring_score: 48
+  remote_support: false
+  crawl_frequency: monthly
+  supported_roles: ["Electrical Engineer", "Mechanical Engineer", "Data Analyst", "Product Manager"]
+  preferred_technologies: ["Manufacturing", "IoT", "Analytics", "AI/ML", "SAP"]
+  aliases: []
+  notes: "Consumer electrical and appliances manufacturer."
+
+# ==================== FMCG and RETAIL ====================
+- name: Hindustan Unilever
+  slug: hindustan-unilever
+  career_url: https://www.hul.co.in/careers
+  industry: FMCG
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: retail
+  ats_type: workday
+  ats_token: null
+  career_platform: Workday
+  priority_score: 74
+  ai_hiring_score: 60
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Brand Manager", "Data Scientist", "Supply Chain Analyst", "Software Engineer"]
+  preferred_technologies: ["SAP", "Analytics", "AI/ML", "Cloud", "FMCG"]
+  aliases: ["HUL"]
+  notes: "India's largest fast-moving consumer goods company."
+
+- name: Nestle India
+  slug: nestle-india
+  career_url: https://www.nestle.in/jobs
+  industry: FMCG
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: retail
+  ats_type: successfactors
+  ats_token: null
+  career_platform: SuccessFactors
+  priority_score: 66
+  ai_hiring_score: 54
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Brand Manager", "Supply Chain Analyst", "Data Analyst", "Quality Engineer"]
+  preferred_technologies: ["SAP", "Analytics", "Cloud", "AI/ML", "FMCG"]
+  aliases: []
+  notes: "Indian arm of the global food and beverages major."
+
+- name: Titan Company
+  slug: titan-company
+  career_url: https://www.titancompany.in/careers
+  industry: Consumer Retail
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: retail
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 56
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Retail Manager", "Data Scientist", "Software Engineer", "Supply Chain Analyst"]
+  preferred_technologies: ["SAP", "Analytics", "AI/ML", "Cloud", "Retail"]
+  aliases: []
+  notes: "Tata Group lifestyle and watches-to-jewellery retailer."
+
+- name: DMart
+  slug: dmart
+  career_url: https://www.dmartindia.com/careers
+  industry: Retail
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: retail
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 48
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Retail Manager", "Supply Chain Analyst", "Data Analyst", "Software Engineer"]
+  preferred_technologies: ["SAP", "Analytics", "Cloud", "Retail", "AI/ML"]
+  aliases: ["Avenue Supermarts"]
+  notes: "Listed value-retail supermarket chain."
+
+# ==================== PHARMA ====================
+- name: Sun Pharma
+  slug: sun-pharma
+  career_url: https://sunpharma.com/careers
+  industry: Pharmaceuticals
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: pharma
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 68
+  ai_hiring_score: 52
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Research Scientist", "Chemical Engineer", "Data Analyst", "Quality Engineer"]
+  preferred_technologies: ["Pharma R&D", "Analytics", "AI/ML", "SAP", "Cloud"]
+  aliases: ["Sun Pharmaceutical Industries"]
+  notes: "Largest Indian pharmaceutical company by revenue."
+
+- name: Dr. Reddy's Laboratories
+  slug: dr-reddys-laboratories
+  career_url: https://careers.drreddys.com
+  industry: Pharmaceuticals
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: pharma
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 54
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Research Scientist", "Chemical Engineer", "Data Scientist", "Quality Engineer"]
+  preferred_technologies: ["Pharma R&D", "Analytics", "AI/ML", "SAP", "Cloud"]
+  aliases: ["Dr Reddys"]
+  notes: "Global generics and pharmaceutical services company."
+
+- name: Cipla
+  slug: cipla
+  career_url: https://www.cipla.com/careers
+  industry: Pharmaceuticals
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: pharma
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 64
+  ai_hiring_score: 50
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Research Scientist", "Chemical Engineer", "Data Analyst", "Quality Engineer"]
+  preferred_technologies: ["Pharma R&D", "Analytics", "AI/ML", "SAP", "Cloud"]
+  aliases: []
+  notes: "Major pharmaceutical company strong in respiratory and generics."
+
+- name: Biocon
+  slug: biocon
+  career_url: https://www.biocon.com/careers
+  industry: Biopharmaceuticals
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: pharma
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 64
+  ai_hiring_score: 56
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Research Scientist", "Biotechnologist", "Data Scientist", "Quality Engineer"]
+  preferred_technologies: ["Biotech", "Pharma R&D", "Analytics", "AI/ML", "Cloud"]
+  aliases: []
+  notes: "Leading biopharmaceuticals and biosimilars company."
+
+- name: Lupin
+  slug: lupin
+  career_url: https://www.lupin.com/careers
+  industry: Pharmaceuticals
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: pharma
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 60
+  ai_hiring_score: 48
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Research Scientist", "Chemical Engineer", "Data Analyst", "Quality Engineer"]
+  preferred_technologies: ["Pharma R&D", "Analytics", "SAP", "AI/ML", "Cloud"]
+  aliases: []
+  notes: "Global generics pharmaceutical company."
+
+- name: Aurobindo Pharma
+  slug: aurobindo-pharma
+  career_url: https://www.aurobindo.com/careers
+  industry: Pharmaceuticals
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: pharma
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 58
+  ai_hiring_score: 46
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Research Scientist", "Chemical Engineer", "Data Analyst", "Quality Engineer"]
+  preferred_technologies: ["Pharma R&D", "Analytics", "SAP", "AI/ML", "Cloud"]
+  aliases: []
+  notes: "Generic pharmaceuticals and active ingredients manufacturer."
+
+# ==================== ADDITIONAL STARTUPS and PRODUCT ====================
+- name: Postman Labs
+  slug: postman-labs
+  career_url: https://www.postman.com/company/careers
+  industry: Developer Tools
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: startup
+  ats_type: greenhouse
+  ats_token: null
+  career_platform: Greenhouse
+  priority_score: 60
+  ai_hiring_score: 80
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Developer Advocate", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["JavaScript", "Node.js", "Cloud", "API", "AI/ML"]
+  aliases: []
+  notes: "AI and developer-experience research initiatives within Postman."
+
+- name: Zolo
+  slug: zolo
+  career_url: https://zolostays.com/careers
+  industry: PropTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: startup
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 50
+  ai_hiring_score: 58
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Analyst", "Operations Manager"]
+  preferred_technologies: ["Java", "Cloud", "Analytics", "PropTech", "AI/ML"]
+  aliases: ["Zolostays"]
+  notes: "Co-living and managed accommodation startup."
+
+- name: Simpl
+  slug: simpl
+  career_url: https://getsimpl.com/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: lever
+  ats_token: simpl
+  career_platform: Lever
+  priority_score: 56
+  ai_hiring_score: 74
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Ruby", "Python", "Cloud", "AI/ML", "Payments"]
+  aliases: ["GetSimpl"]
+  notes: "Checkout and buy-now-pay-later fintech startup."
+
+- name: DevRev
+  slug: devrev
+  career_url: https://devrev.ai/careers
+  industry: SaaS
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 58
+  ai_hiring_score: 86
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "ML Engineer", "Product Manager", "Data Scientist"]
+  preferred_technologies: ["Go", "Python", "Cloud", "AI/ML", "LLMs"]
+  aliases: []
+  notes: "AI-native customer support and product development platform unicorn."
+
+- name: Sarvam AI
+  slug: sarvam-ai
+  career_url: https://www.sarvam.ai/careers
+  industry: Artificial Intelligence
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 58
+  ai_hiring_score: 95
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "Research Scientist", "Software Engineer", "NLP Engineer"]
+  preferred_technologies: ["Python", "PyTorch", "LLMs", "NLP", "Deep Learning"]
+  aliases: []
+  notes: "Foundational-model startup building Indian-language generative AI."
+
+- name: Krutrim
+  slug: krutrim
+  career_url: https://www.olakrutrim.com/careers
+  industry: Artificial Intelligence
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 56
+  ai_hiring_score: 94
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "Research Scientist", "Software Engineer", "Silicon Engineer"]
+  preferred_technologies: ["Python", "PyTorch", "LLMs", "AI Chips", "Deep Learning"]
+  aliases: ["Ola Krutrim"]
+  notes: "Ola's AI unicorn building LLMs and AI silicon."
+
+- name: Wingify
+  slug: wingify
+  career_url: https://wingify.com/careers
+  industry: SaaS
+  headquarters: "New Delhi, Delhi"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 54
+  ai_hiring_score: 72
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Analyst", "Growth Engineer"]
+  preferred_technologies: ["JavaScript", "Ruby", "Cloud", "SaaS", "AI/ML"]
+  aliases: ["VWO"]
+  notes: "Bootstrapped SaaS maker of the VWO experimentation platform."
+
+- name: Zluri
+  slug: zluri
+  career_url: https://www.zluri.com/careers
+  industry: SaaS
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 52
+  ai_hiring_score: 74
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Product Manager", "Data Engineer", "Solutions Engineer"]
+  preferred_technologies: ["Node.js", "React", "Cloud", "SaaS", "AI/ML"]
+  aliases: []
+  notes: "SaaS management and identity governance platform startup."
+
+- name: Locus
+  slug: locus
+  career_url: https://locus.sh/careers
+  industry: Supply Chain SaaS
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: saas
+  ats_type: lever
+  ats_token: locus
+  career_platform: Lever
+  priority_score: 54
+  ai_hiring_score: 82
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "ML Engineer", "Product Manager"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Optimization"]
+  aliases: []
+  notes: "AI-driven logistics and dispatch optimization SaaS platform."
+
+- name: FarEye
+  slug: fareye
+  career_url: https://fareye.com/careers
+  industry: Supply Chain SaaS
+  headquarters: "Noida, Uttar Pradesh"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 52
+  ai_hiring_score: 78
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Logistics"]
+  aliases: []
+  notes: "Last-mile delivery and logistics orchestration SaaS platform."
+
+- name: Netcore Cloud
+  slug: netcore-cloud
+  career_url: https://netcorecloud.com/careers
+  industry: SaaS
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 54
+  ai_hiring_score: 76
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "SaaS"]
+  aliases: ["Netcore"]
+  notes: "Martech and customer engagement SaaS company."
+
+- name: WebEngage
+  slug: webengage
+  career_url: https://webengage.com/careers
+  industry: SaaS
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 52
+  ai_hiring_score: 74
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Analyst", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Customer data and marketing automation SaaS platform."
+
+- name: Vymo
+  slug: vymo
+  career_url: https://getvymo.com/careers
+  industry: SaaS
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: saas
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 50
+  ai_hiring_score: 80
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "ML Engineer", "Product Manager"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "AI-led sales engagement platform for financial services."
+
+- name: Skit.ai
+  slug: skit-ai
+  career_url: https://skit.ai/careers
+  industry: Conversational AI
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 48
+  ai_hiring_score: 88
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "NLP Engineer", "Software Engineer", "Data Scientist"]
+  preferred_technologies: ["Python", "NLP", "Speech AI", "LLMs", "Cloud"]
+  aliases: ["Vernacular.ai"]
+  notes: "Voice AI and conversational automation startup for contact centers."
+
+- name: Mad Street Den
+  slug: mad-street-den
+  career_url: https://www.madstreetden.com/careers
+  industry: Artificial Intelligence
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 48
+  ai_hiring_score: 90
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "Computer Vision Engineer", "Software Engineer", "Data Scientist"]
+  preferred_technologies: ["Python", "Computer Vision", "Deep Learning", "AI/ML", "Cloud"]
+  aliases: ["Vue.ai"]
+  notes: "Computer-vision AI startup powering retail personalization via Vue.ai."
+
+- name: Innovaccer Analytics
+  slug: innovaccer-analytics
+  career_url: https://innovaccer.com/careers
+  industry: HealthTech
+  headquarters: "Noida, Uttar Pradesh"
+  country: IN
+  company_category: analytics_ai
+  ats_type: greenhouse
+  ats_token: null
+  career_platform: Greenhouse
+  priority_score: 54
+  ai_hiring_score: 84
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Data Scientist", "ML Engineer", "Data Engineer", "Software Engineer"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Healthcare Data", "Analytics"]
+  aliases: []
+  notes: "Healthcare data-science and analytics teams within Innovaccer."
+
+- name: Cred Labs
+  slug: cred-labs
+  career_url: https://careers.cred.club
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: fintech
+  ats_type: lever
+  ats_token: null
+  career_platform: Lever
+  priority_score: 56
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "Software Engineer", "Data Scientist", "Product Manager"]
+  preferred_technologies: ["Kotlin", "Python", "Cloud", "AI/ML", "Fintech"]
+  aliases: []
+  notes: "AI and data-science engineering teams within CRED."
+
+- name: Porter
+  slug: porter
+  career_url: https://porter.in/careers
+  industry: Logistics
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: unicorn
+  ats_type: lever
+  ats_token: porter
+  career_platform: Lever
+  priority_score: 58
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Logistics"]
+  aliases: ["Smartshift Logistics"]
+  notes: "Intra-city goods logistics marketplace unicorn."
+
+- name: Ather Energy
+  slug: ather-energy
+  career_url: https://www.atherenergy.com/careers
+  industry: Electric Vehicles
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: automotive
+  ats_type: lever
+  ats_token: atherenergy
+  career_platform: Lever
+  priority_score: 62
+  ai_hiring_score: 72
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Embedded Engineer", "Software Engineer", "Battery Engineer", "Data Scientist"]
+  preferred_technologies: ["Embedded C", "Python", "Battery Tech", "IoT", "AI/ML"]
+  aliases: []
+  notes: "Electric scooter manufacturer with connected-vehicle technology."
+
+- name: Meesho Labs
+  slug: meesho-labs
+  career_url: https://www.meesho.io/jobs
+  industry: E-commerce
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: lever
+  ats_token: null
+  career_platform: Lever
+  priority_score: 54
+  ai_hiring_score: 84
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "Data Scientist", "Software Engineer", "Data Engineer"]
+  preferred_technologies: ["Python", "AI/ML", "Cloud", "Big Data", "Recommendations"]
+  aliases: []
+  notes: "Data-science and ML platform teams within Meesho."
+
+- name: Pixxel
+  slug: pixxel
+  career_url: https://www.pixxel.space/careers
+  industry: SpaceTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: startup
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 52
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Aerospace Engineer", "Software Engineer", "ML Engineer", "Data Scientist"]
+  preferred_technologies: ["Python", "Computer Vision", "AI/ML", "Embedded", "Remote Sensing"]
+  aliases: []
+  notes: "Hyperspectral earth-imaging satellite startup."
+
+- name: Skyroot Aerospace
+  slug: skyroot-aerospace
+  career_url: https://skyroot.in/careers
+  industry: SpaceTech
+  headquarters: "Hyderabad, Telangana"
+  country: IN
+  company_category: startup
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 50
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Aerospace Engineer", "Propulsion Engineer", "Software Engineer", "Avionics Engineer"]
+  preferred_technologies: ["Propulsion", "Embedded", "CAD", "Python", "Avionics"]
+  aliases: []
+  notes: "Private launch-vehicle startup building small-satellite rockets."
+
+- name: Chargebee Labs
+  slug: chargebee-labs
+  career_url: https://www.chargebee.com/careers
+  industry: SaaS
+  headquarters: "Chennai, Tamil Nadu"
+  country: IN
+  company_category: startup
+  ats_type: lever
+  ats_token: null
+  career_platform: Lever
+  priority_score: 50
+  ai_hiring_score: 76
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "ML Engineer", "Product Manager"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "SaaS"]
+  aliases: []
+  notes: "Data-science and AI teams within Chargebee."
+
+- name: Rebel Foods
+  slug: rebel-foods
+  career_url: https://www.rebelfoods.com/careers
+  industry: FoodTech
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: unicorn
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 58
+  ai_hiring_score: 70
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "Operations Manager"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "FoodTech"]
+  aliases: ["Faasos"]
+  notes: "Cloud-kitchen and internet-restaurant platform unicorn."
+
+- name: OYO
+  slug: oyo
+  career_url: https://www.oyorooms.com/careers
+  industry: Travel & Hospitality
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: unicorn
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 62
+  ai_hiring_score: 74
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Travel Tech"]
+  aliases: ["Oravel Stays"]
+  notes: "Budget-hospitality and travel-tech platform."
+
+- name: MakeMyTrip
+  slug: makemytrip
+  career_url: https://careers.makemytrip.com
+  industry: Travel Tech
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 66
+  ai_hiring_score: 76
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Scientist", "Product Manager", "ML Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Travel Tech"]
+  aliases: ["MMT"]
+  notes: "Listed online travel booking platform."
+
+- name: Infra.Market
+  slug: infra-market
+  career_url: https://www.infra.market/careers
+  industry: B2B Construction Materials
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: unicorn
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 54
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Analyst", "Product Manager", "Supply Chain Analyst"]
+  preferred_technologies: ["Java", "Cloud", "Analytics", "AI/ML", "B2B Commerce"]
+  aliases: []
+  notes: "B2B construction materials and building-products unicorn."
+
+- name: PhonePe Labs
+  slug: phonepe-labs
+  career_url: https://www.phonepe.com/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 56
+  ai_hiring_score: 84
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "Data Scientist", "Software Engineer", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "AI/ML", "Big Data", "Fraud Detection"]
+  aliases: []
+  notes: "AI, fraud-detection and data-platform teams within PhonePe."
+
+- name: Chalo
+  slug: chalo
+  career_url: https://chalo.com/careers
+  industry: Mobility
+  headquarters: "Mumbai, Maharashtra"
+  country: IN
+  company_category: startup
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 48
+  ai_hiring_score: 68
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Analyst", "Product Manager", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "Maps"]
+  aliases: []
+  notes: "Public-transport tech startup for bus tracking and ticketing."
+
+- name: Groww Labs
+  slug: groww-labs
+  career_url: https://groww.in/careers
+  industry: FinTech
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: lever
+  ats_token: null
+  career_platform: Lever
+  priority_score: 54
+  ai_hiring_score: 82
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "Data Scientist", "Software Engineer", "Data Engineer"]
+  preferred_technologies: ["Java", "Python", "AI/ML", "Big Data", "Fintech"]
+  aliases: []
+  notes: "Data-science and ML engineering teams within Groww."
+
+- name: Cashify
+  slug: cashify
+  career_url: https://www.cashify.in/careers
+  industry: E-commerce
+  headquarters: "Gurugram, Haryana"
+  country: IN
+  company_category: ecommerce
+  ats_type: unknown
+  ats_token: null
+  career_platform: Custom
+  priority_score: 48
+  ai_hiring_score: 66
+  remote_support: false
+  crawl_frequency: weekly
+  supported_roles: ["Software Engineer", "Data Analyst", "Product Manager", "Operations Manager"]
+  preferred_technologies: ["Java", "Python", "Cloud", "AI/ML", "E-commerce"]
+  aliases: []
+  notes: "Re-commerce marketplace for used electronics."
+
+- name: Turing
+  slug: turing
+  career_url: https://www.turing.com/careers
+  industry: AI Talent Platform
+  headquarters: "Bengaluru, Karnataka"
+  country: IN
+  company_category: analytics_ai
+  ats_type: greenhouse
+  ats_token: turing
+  career_platform: Greenhouse
+  priority_score: 56
+  ai_hiring_score: 90
+  remote_support: true
+  crawl_frequency: weekly
+  supported_roles: ["ML Engineer", "Software Engineer", "Data Scientist", "LLM Trainer"]
+  preferred_technologies: ["Python", "LLMs", "AI/ML", "Cloud", "Deep Learning"]
+  aliases: []
+  notes: "AI-powered developer talent and LLM training data company."

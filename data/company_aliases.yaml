@@ -1,0 +1,39 @@
+# Company alias map — improves cross-source deduplication.
+# Each entry maps a canonical company to the alternate names seen in the wild.
+# Loaded by app.importers.aliases.AliasResolver.
+alphabet:
+  canonical_name: Alphabet
+  aliases: [Google, Google LLC, Google DeepMind, YouTube]
+meta:
+  canonical_name: Meta
+  aliases: [Facebook, Instagram, WhatsApp, "Meta Platforms"]
+walmart:
+  canonical_name: Walmart
+  aliases: ["Walmart Global Tech", "Walmart Labs", "Sam's Club"]
+amazon:
+  canonical_name: Amazon
+  aliases: [AWS, "Amazon Web Services", Twitch, Audible, "Amazon India"]
+microsoft:
+  canonical_name: Microsoft
+  aliases: [MSFT, "Microsoft India", "MS", LinkedIn, GitHub, "Microsoft Corporation"]
+flipkart:
+  canonical_name: Flipkart
+  aliases: [Myntra, Cleartrip, "Flipkart Internet", "Flipkart Health+"]
+tata-consultancy-services:
+  canonical_name: TCS
+  aliases: ["Tata Consultancy Services", "TCS Ltd", "Tata Consultancy"]
+phonepe:
+  canonical_name: PhonePe
+  aliases: ["PhonePe Private Limited", "PhonePe India"]
+paytm:
+  canonical_name: Paytm
+  aliases: ["One97 Communications", "Paytm Payments Bank"]
+reliance:
+  canonical_name: Reliance Industries
+  aliases: ["Reliance", "RIL", "Jio", "Jio Platforms", "Reliance Jio", "Reliance Retail"]
+ola:
+  canonical_name: Ola
+  aliases: ["ANI Technologies", "Ola Cabs", "Olacabs"]
+blinkit:
+  canonical_name: Blinkit
+  aliases: [Grofers, "Blinkit (Grofers)"]

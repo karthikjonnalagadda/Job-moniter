@@ -1,0 +1,9 @@
+# ---------------------------------------------------------------------------
+# Heavy ML stack (torch + transformers via sentence-transformers).
+# Installed only where embeddings are actually computed: the daily pipeline
+# job and any worker that ranks jobs. Keeps the API image small.
+#
+#   pip install -r requirements.txt -r requirements-ml.txt
+# ---------------------------------------------------------------------------
+-r requirements.txt
+sentence-transformers>=3.3,<4.0

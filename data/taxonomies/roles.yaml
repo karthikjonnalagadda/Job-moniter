@@ -1,0 +1,389 @@
+# Canonical role name -> list of lowercase title synonyms/variants.
+# The pipeline lowercases job titles and matches these as substrings.
+
+# ---------------------------------------------------------------------------
+# Software
+# ---------------------------------------------------------------------------
+"Backend Engineer":
+  - "backend engineer"
+  - "backend developer"
+  - "back-end engineer"
+  - "back end developer"
+  - "server side engineer"
+  - "server-side developer"
+"Frontend Engineer":
+  - "frontend engineer"
+  - "frontend developer"
+  - "front-end engineer"
+  - "front end developer"
+  - "ui engineer"
+  - "ui developer"
+"Full Stack Engineer":
+  - "full stack engineer"
+  - "full-stack engineer"
+  - "fullstack developer"
+  - "full stack developer"
+  - "full-stack web developer"
+"Software Engineer":
+  - "software engineer"
+  - "software developer"
+  - "sde"
+  - "sw engineer"
+  - "application developer"
+  - "programmer"
+"Mobile Engineer":
+  - "mobile engineer"
+  - "mobile developer"
+  - "mobile app developer"
+  - "mobile application developer"
+  - "cross platform developer"
+"iOS Engineer":
+  - "ios engineer"
+  - "ios developer"
+  - "iphone developer"
+  - "swift developer"
+  - "apple developer"
+"Android Engineer":
+  - "android engineer"
+  - "android developer"
+  - "kotlin developer"
+  - "android app developer"
+"Embedded Engineer":
+  - "embedded engineer"
+  - "embedded developer"
+  - "embedded software engineer"
+  - "firmware engineer"
+  - "embedded systems engineer"
+"Web Developer":
+  - "web developer"
+  - "web engineer"
+  - "website developer"
+  - "web programmer"
+"Game Developer":
+  - "game developer"
+  - "game engineer"
+  - "game programmer"
+  - "unity developer"
+  - "unreal developer"
+
+# ---------------------------------------------------------------------------
+# Data
+# ---------------------------------------------------------------------------
+"Data Engineer":
+  - "data engineer"
+  - "data pipeline engineer"
+  - "etl developer"
+  - "etl engineer"
+  - "data infrastructure engineer"
+"Big Data Engineer":
+  - "big data engineer"
+  - "big data developer"
+  - "hadoop developer"
+  - "spark developer"
+  - "big data architect"
+"Data Scientist":
+  - "data scientist"
+  - "senior data scientist"
+  - "applied data scientist"
+  - "decision scientist"
+"Data Analyst":
+  - "data analyst"
+  - "business data analyst"
+  - "reporting analyst"
+  - "insights analyst"
+"Analytics Engineer":
+  - "analytics engineer"
+  - "analytics developer"
+  - "dbt developer"
+  - "marketing analytics engineer"
+"BI Developer":
+  - "bi developer"
+  - "bi engineer"
+  - "business intelligence developer"
+  - "business intelligence engineer"
+  - "tableau developer"
+  - "power bi developer"
+"Data Architect":
+  - "data architect"
+  - "enterprise data architect"
+  - "data modeler"
+  - "data warehouse architect"
+"Database Administrator":
+  - "database administrator"
+  - "dba"
+  - "database engineer"
+  - "sql dba"
+  - "oracle dba"
+
+# ---------------------------------------------------------------------------
+# AI / ML
+# ---------------------------------------------------------------------------
+"ML Engineer":
+  - "machine learning engineer"
+  - "ml engineer"
+  - "artificial intelligence engineer"
+  - "ai engineer"
+  - "ml/ai engineer"
+  - "applied scientist"
+"MLOps Engineer":
+  - "mlops engineer"
+  - "ml ops engineer"
+  - "machine learning operations engineer"
+  - "ml platform engineer"
+  - "ml infrastructure engineer"
+"Research Scientist":
+  - "research scientist"
+  - "ml research scientist"
+  - "machine learning researcher"
+  - "ai researcher"
+  - "research engineer"
+"NLP Engineer":
+  - "nlp engineer"
+  - "natural language processing engineer"
+  - "nlp scientist"
+  - "computational linguist"
+  - "nlp researcher"
+"Computer Vision Engineer":
+  - "computer vision engineer"
+  - "cv engineer"
+  - "computer vision scientist"
+  - "image processing engineer"
+  - "vision engineer"
+"GenAI Engineer":
+  - "genai engineer"
+  - "generative ai engineer"
+  - "llm engineer"
+  - "large language model engineer"
+  - "gen ai engineer"
+  - "llm developer"
+"Deep Learning Engineer":
+  - "deep learning engineer"
+  - "deep learning scientist"
+  - "neural network engineer"
+  - "dl engineer"
+"Prompt Engineer":
+  - "prompt engineer"
+  - "prompt designer"
+  - "llm prompt engineer"
+  - "conversation designer"
+
+# ---------------------------------------------------------------------------
+# Platform / Infra
+# ---------------------------------------------------------------------------
+"DevOps Engineer":
+  - "devops engineer"
+  - "dev ops engineer"
+  - "devops developer"
+  - "ci/cd engineer"
+  - "build and release engineer"
+"DevSecOps Engineer":
+  - "devsecops engineer"
+  - "dev sec ops engineer"
+  - "secops engineer"
+  - "security devops engineer"
+"Site Reliability Engineer":
+  - "site reliability engineer"
+  - "sre"
+  - "reliability engineer"
+  - "production engineer"
+"Platform Engineer":
+  - "platform engineer"
+  - "platform developer"
+  - "internal platform engineer"
+  - "developer platform engineer"
+"Cloud Engineer":
+  - "cloud engineer"
+  - "cloud developer"
+  - "aws engineer"
+  - "azure engineer"
+  - "gcp engineer"
+  - "cloud operations engineer"
+"Cloud Architect":
+  - "cloud architect"
+  - "aws architect"
+  - "azure architect"
+  - "cloud solutions architect"
+"Infrastructure Engineer":
+  - "infrastructure engineer"
+  - "infra engineer"
+  - "systems infrastructure engineer"
+  - "it infrastructure engineer"
+"Systems Engineer":
+  - "systems engineer"
+  - "system engineer"
+  - "linux systems engineer"
+  - "systems administrator"
+  - "sysadmin"
+"Network Engineer":
+  - "network engineer"
+  - "network administrator"
+  - "network operations engineer"
+  - "noc engineer"
+"Security Engineer":
+  - "security engineer"
+  - "cyber security engineer"
+  - "cybersecurity engineer"
+  - "information security engineer"
+  - "application security engineer"
+  - "infosec engineer"
+"Security Analyst":
+  - "security analyst"
+  - "soc analyst"
+  - "cyber security analyst"
+  - "information security analyst"
+"Release Engineer":
+  - "release engineer"
+  - "release manager"
+  - "build engineer"
+  - "deployment engineer"
+
+# ---------------------------------------------------------------------------
+# QA / Testing
+# ---------------------------------------------------------------------------
+"QA Engineer":
+  - "qa engineer"
+  - "quality assurance engineer"
+  - "quality engineer"
+  - "qa analyst"
+  - "test engineer"
+"SDET":
+  - "sdet"
+  - "software development engineer in test"
+  - "software engineer in test"
+  - "test automation engineer"
+"Automation Engineer":
+  - "automation engineer"
+  - "qa automation engineer"
+  - "automation test engineer"
+  - "test automation developer"
+"Performance Test Engineer":
+  - "performance test engineer"
+  - "performance engineer"
+  - "load test engineer"
+  - "performance testing analyst"
+
+# ---------------------------------------------------------------------------
+# Product / Design
+# ---------------------------------------------------------------------------
+"Product Manager":
+  - "product manager"
+  - "pm"
+  - "associate product manager"
+  - "senior product manager"
+  - "group product manager"
+  - "product owner"
+"Technical Program Manager":
+  - "technical program manager"
+  - "tpm"
+  - "program manager"
+  - "technical project manager"
+"Project Manager":
+  - "project manager"
+  - "it project manager"
+  - "delivery manager"
+  - "project lead"
+"Business Analyst":
+  - "business analyst"
+  - "ba"
+  - "business systems analyst"
+  - "functional analyst"
+"Product Designer":
+  - "product designer"
+  - "senior product designer"
+  - "digital product designer"
+  - "experience designer"
+"UX Designer":
+  - "ux designer"
+  - "user experience designer"
+  - "ux/ui designer"
+  - "interaction designer"
+"UI Designer":
+  - "ui designer"
+  - "user interface designer"
+  - "visual designer"
+  - "ui/ux designer"
+"UX Researcher":
+  - "ux researcher"
+  - "user researcher"
+  - "user experience researcher"
+  - "design researcher"
+
+# ---------------------------------------------------------------------------
+# Leadership
+# ---------------------------------------------------------------------------
+"Engineering Manager":
+  - "engineering manager"
+  - "software engineering manager"
+  - "development manager"
+  - "em"
+  - "manager of engineering"
+"Director of Engineering":
+  - "director of engineering"
+  - "engineering director"
+  - "director engineering"
+  - "head of engineering"
+"VP of Engineering":
+  - "vp of engineering"
+  - "vp engineering"
+  - "vice president of engineering"
+  - "vice president engineering"
+"CTO":
+  - "cto"
+  - "chief technology officer"
+  - "chief technical officer"
+"Tech Lead":
+  - "tech lead"
+  - "technical lead"
+  - "team lead"
+  - "lead engineer"
+  - "engineering lead"
+"Principal Engineer":
+  - "principal engineer"
+  - "principal software engineer"
+  - "distinguished engineer"
+  - "principal developer"
+"Staff Engineer":
+  - "staff engineer"
+  - "staff software engineer"
+  - "senior staff engineer"
+"Software Architect":
+  - "software architect"
+  - "application architect"
+  - "technical architect"
+  - "system architect"
+  - "enterprise architect"
+"Solutions Architect":
+  - "solutions architect"
+  - "solution architect"
+  - "pre-sales architect"
+  - "technical solutions architect"
+"Scrum Master":
+  - "scrum master"
+  - "agile coach"
+  - "agile scrum master"
+  - "certified scrum master"
+
+# ---------------------------------------------------------------------------
+# Other technical
+# ---------------------------------------------------------------------------
+"Solutions Engineer":
+  - "solutions engineer"
+  - "sales engineer"
+  - "pre-sales engineer"
+  - "technical account manager"
+"Support Engineer":
+  - "support engineer"
+  - "technical support engineer"
+  - "customer support engineer"
+  - "application support engineer"
+"Technical Writer":
+  - "technical writer"
+  - "documentation engineer"
+  - "content developer"
+  - "docs engineer"
+"Data Platform Engineer":
+  - "data platform engineer"
+  - "data platform developer"
+  - "streaming data engineer"
+  - "data ops engineer"
+  - "dataops engineer"

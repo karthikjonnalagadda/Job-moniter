@@ -1,0 +1,48 @@
+# =============================================================================
+# Local development stack.
+#   - api   : the FastAPI service (this project)
+#   - mongo : local MongoDB for development.
+#
+# NOTE on Vector Search: local MongoDB does NOT provide Atlas Vector Search.
+# For local ranking, set JOBAGENT_VECTOR__BACKEND=numpy (the numpy cosine
+# scorer). Point JOBAGENT_MONGO__URI at your Atlas cluster to exercise the
+# real $vectorSearch path.
+# =============================================================================
+services:
+  api:
+    build:
+      context: .
+      target: runtime
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      # Compose overrides so the API talks to the bundled mongo by default.
+      JOBAGENT_MONGO__URI: "mongodb://mongo:27017"
+      JOBAGENT_VECTOR__BACKEND: "numpy"
+      JOBAGENT_ENV: "development"
+      JOBAGENT_DEBUG: "true"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    volumes:
+      - ./app:/app/app          # live-reload friendly bind mount
+      - ./data:/app/data
+    command: >
+      uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mongo_data:

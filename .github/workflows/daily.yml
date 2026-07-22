@@ -1,0 +1,56 @@
+# =============================================================================
+# Daily job-discovery pipeline — SKELETON (wired fully in Phase 12).
+# Runs at 06:00 IST (00:30 UTC). Manual trigger available for testing.
+# Secrets (JOBAGENT_MONGO__URI, SMTP creds) come from GitHub repo secrets.
+# =============================================================================
+name: daily-job-run
+
+on:
+  schedule:
+    - cron: "30 0 * * *"      # 00:30 UTC == 06:00 IST
+  workflow_dispatch: {}         # allow manual runs
+
+concurrency:
+  group: daily-job-run
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      JOBAGENT_ENV: production
+      JOBAGENT_LOG_JSON: "true"
+      JOBAGENT_VECTOR__BACKEND: atlas
+      JOBAGENT_MONGO__URI: ${{ secrets.JOBAGENT_MONGO_URI }}
+      JOBAGENT_SMTP__USERNAME: ${{ secrets.JOBAGENT_SMTP_USERNAME }}
+      JOBAGENT_SMTP__PASSWORD: ${{ secrets.JOBAGENT_SMTP_PASSWORD }}
+      JOBAGENT_SMTP__TO_ADDRESS: ${{ secrets.JOBAGENT_SMTP_TO_ADDRESS }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies (runtime + ML)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -r requirements-ml.txt
+
+      - name: Cache embedding model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-${{ hashFiles('requirements-ml.txt') }}
+
+      - name: Run daily pipeline
+        run: python -m app.scheduler.run_daily
+
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-logs
+          path: logs/

@@ -1,0 +1,45 @@
+# =============================================================================
+# Source Registry — single source of truth for which sources exist.
+# Loaded by app.registry.SourceRegistry (YAML | JSON | Mongo). No source is
+# hardcoded in Python. Priority follows the Phase-4 order (1 = highest).
+#
+# Fields per source:
+#   enabled       : bool  — master on/off switch
+#   priority      : int   — routing/collection order (1 = highest)
+#   source_type   : career_site | ats | job_board
+#   legal_mode    : api | feed | scrape   (scrape => opt-in, never on by default)
+#   rate_limit_rps: float — per-source request rate cap
+#   ats_type      : the ATS platform (ATS sources only)
+# =============================================================================
+
+# ---- 1. Official career pages (robots-aware generic crawler) ----------------
+career_site:     { enabled: true,  priority: 1,  source_type: career_site, legal_mode: scrape, rate_limit_rps: 0.5 }
+
+# ---- 2-16. ATS platforms (documented public APIs) ---------------------------
+greenhouse:      { enabled: true,  priority: 2,  source_type: ats, legal_mode: api, rate_limit_rps: 2, ats_type: greenhouse }
+lever:           { enabled: true,  priority: 3,  source_type: ats, legal_mode: api, rate_limit_rps: 2, ats_type: lever }
+ashby:           { enabled: true,  priority: 4,  source_type: ats, legal_mode: api, rate_limit_rps: 2, ats_type: ashby }
+workday:         { enabled: true,  priority: 5,  source_type: ats, legal_mode: api, rate_limit_rps: 1, ats_type: workday }
+smartrecruiters: { enabled: true,  priority: 6,  source_type: ats, legal_mode: api, rate_limit_rps: 2, ats_type: smartrecruiters }
+bamboohr:        { enabled: true,  priority: 7,  source_type: ats, legal_mode: api, rate_limit_rps: 2, ats_type: bamboohr }
+teamtailor:      { enabled: true,  priority: 8,  source_type: ats, legal_mode: api, rate_limit_rps: 2, ats_type: teamtailor }
+recruitee:       { enabled: true,  priority: 9,  source_type: ats, legal_mode: api, rate_limit_rps: 2, ats_type: recruitee }
+jobvite:         { enabled: true,  priority: 10, source_type: ats, legal_mode: api, rate_limit_rps: 2, ats_type: jobvite }
+icims:           { enabled: false, priority: 11, source_type: ats, legal_mode: api, rate_limit_rps: 1, ats_type: icims }
+oracle:          { enabled: false, priority: 12, source_type: ats, legal_mode: api, rate_limit_rps: 1, ats_type: oracle }
+successfactors:  { enabled: false, priority: 13, source_type: ats, legal_mode: api, rate_limit_rps: 1, ats_type: successfactors }
+comeet:          { enabled: true,  priority: 14, source_type: ats, legal_mode: api, rate_limit_rps: 2, ats_type: comeet }
+breezyhr:        { enabled: true,  priority: 15, source_type: ats, legal_mode: api, rate_limit_rps: 2, ats_type: breezyhr }
+jazzhr:          { enabled: true,  priority: 16, source_type: ats, legal_mode: api, rate_limit_rps: 2, ats_type: jazzhr }
+
+# ---- 17-23. Job boards & remote job boards ----------------------------------
+wellfound:       { enabled: false, priority: 17, source_type: job_board, legal_mode: scrape, rate_limit_rps: 0.5 }
+otta:            { enabled: false, priority: 18, source_type: job_board, legal_mode: scrape, rate_limit_rps: 0.5 }
+hiringcafe:      { enabled: true,  priority: 19, source_type: job_board, legal_mode: api,   rate_limit_rps: 1 }
+remoteok:        { enabled: true,  priority: 20, source_type: job_board, legal_mode: feed,  rate_limit_rps: 1 }
+himalayas:       { enabled: true,  priority: 21, source_type: job_board, legal_mode: api,   rate_limit_rps: 1 }
+weworkremotely:  { enabled: true,  priority: 22, source_type: job_board, legal_mode: feed,  rate_limit_rps: 1 }
+ycombinator:     { enabled: true,  priority: 23, source_type: job_board, legal_mode: feed,  rate_limit_rps: 1 }
+
+# ---- 24. LinkedIn — interface only, DISABLED (do not enable) ----------------
+linkedin:        { enabled: false, priority: 24, source_type: job_board, legal_mode: scrape, rate_limit_rps: 0.2 }

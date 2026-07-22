@@ -1,0 +1,36 @@
+# =============================================================================
+# Render Blueprint (Infrastructure as Code) — deployment preparation.
+# Provisions the API web service. The daily pipeline runs from GitHub Actions
+# (Phase 12), not Render Cron, to keep the ML stack out of the web image.
+#
+# Secrets (MONGO URI, SMTP password) are set as sync:false env vars in the
+# Render dashboard — never committed here.
+# =============================================================================
+services:
+  - type: web
+    name: ai-job-intelligence-agent
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: JOBAGENT_ENV
+        value: production
+      - key: JOBAGENT_DEBUG
+        value: "false"
+      - key: JOBAGENT_LOG_JSON
+        value: "true"
+      - key: JOBAGENT_VECTOR__BACKEND
+        value: atlas
+      - key: JOBAGENT_EMBEDDING__MODEL_NAME
+        value: BAAI/bge-small-en-v1.5
+      # ---- Secrets: set in dashboard, do not commit ----
+      - key: JOBAGENT_MONGO__URI
+        sync: false
+      - key: JOBAGENT_SMTP__USERNAME
+        sync: false
+      - key: JOBAGENT_SMTP__PASSWORD
+        sync: false
+      - key: JOBAGENT_SMTP__TO_ADDRESS
+        sync: false

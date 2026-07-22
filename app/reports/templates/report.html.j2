@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<style>
+  body { margin:0; padding:0; background:{{ theme.bg }}; color:{{ theme.text }};
+         font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
+  .wrap { max-width:920px; margin:0 auto; padding:24px; }
+  .header { border-left:5px solid {{ theme.accent }}; padding:4px 16px; margin-bottom:20px; }
+  .header h1 { margin:0; font-size:22px; color:{{ theme.accent }}; }
+  .header p { margin:4px 0 0; color:{{ theme.muted }}; font-size:13px; }
+  .cards { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
+  .card { flex:1 1 150px; background:{{ theme.card }}; border:1px solid {{ theme.border }};
+          border-radius:10px; padding:14px 16px; }
+  .card .n { font-size:26px; font-weight:700; color:{{ theme.accent }}; }
+  .card .l { font-size:12px; color:{{ theme.muted }}; text-transform:uppercase; letter-spacing:.03em; }
+  h2 { font-size:16px; margin:24px 0 10px; color:{{ theme.text }}; }
+  .panel { background:{{ theme.card }}; border:1px solid {{ theme.border }};
+           border-radius:10px; padding:16px; margin-bottom:18px; }
+  .bar-row { display:flex; align-items:center; margin:6px 0; font-size:13px; }
+  .bar-row .lbl { width:38%; color:{{ theme.text }}; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-track { flex:1; background:{{ theme.bg }}; border-radius:6px; height:16px; overflow:hidden; }
+  .bar-fill { height:16px; background:{{ theme.bar }}; }
+  .bar-row .val { width:36px; text-align:right; color:{{ theme.muted }}; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th { text-align:left; background:{{ theme.accent }}; color:#fff; padding:8px; }
+  td { padding:8px; border-bottom:1px solid {{ theme.border }}; }
+  tr:nth-child(even) td { background:{{ theme.bg }}; }
+  a.apply { color:{{ theme.bar }}; text-decoration:none; font-weight:600; }
+  .score { font-weight:700; }
+  .footer { color:{{ theme.muted }}; font-size:11px; margin-top:20px; text-align:center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <h1>{{ title }}</h1>
+    <p>Generated {{ generated_at }} &middot; run {{ run_id }}</p>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">{{ summary.total_jobs | comma }}</div><div class="l">Total Jobs</div></div>
+    <div class="card"><div class="n">{{ summary.new_today | comma }}</div><div class="l">New Today</div></div>
+    <div class="card"><div class="n">{{ summary.ranked_jobs | comma }}</div><div class="l">Ranked</div></div>
+    <div class="card"><div class="n">{{ summary.average_match }}</div><div class="l">Avg Match</div></div>
+    <div class="card"><div class="n">{{ summary.duplicate_groups | comma }}</div><div class="l">Dup Groups</div></div>
+  </div>
+
+  {% macro bars(title, items) %}
+  <h2>{{ title }}</h2>
+  <div class="panel">
+    {% if items %}
+      {% for it in items %}
+      <div class="bar-row">
+        <span class="lbl">{{ it.label }}</span>
+        <span class="bar-track"><span class="bar-fill" style="width:{{ it.pct }}%"></span></span>
+        <span class="val">{{ it.count }}</span>
+      </div>
+      {% endfor %}
+    {% else %}<p style="color:{{ theme.muted }}">No data.</p>{% endif %}
+  </div>
+  {% endmacro %}
+
+  {{ bars("Top Companies", top_companies) }}
+  {{ bars("Top Roles", top_roles) }}
+  {{ bars("Top Skills", top_skills) }}
+  {{ bars("Skill Gap (most-wanted missing skills)", skill_gap) }}
+
+  <h2>Top Matches</h2>
+  <div class="panel" style="padding:0; overflow-x:auto;">
+    <table>
+      <tr><th>Score</th><th>Role</th><th>Company</th><th>Location</th><th>Apply</th></tr>
+      {% for job in top_matches %}
+      <tr>
+        <td class="score">{{ job.match_score if job.match_score is not none else "—" }}</td>
+        <td>{{ job.normalized_role }}</td>
+        <td>{{ job.company }}</td>
+        <td>{{ job.location }}</td>
+        <td><a class="apply" href="{{ job.apply_url }}">Apply &rarr;</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <div class="footer">
+    report v{{ versions.report_version }} &middot; schema v{{ versions.schema_version }}
+    &middot; pipeline v{{ versions.pipeline_version }}
+  </div>
+</div>
+</body>
+</html>

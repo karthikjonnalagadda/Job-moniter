@@ -1,0 +1,24 @@
+# Sample company seed (YAML). Import with: job-agent-import companies.sample.yaml
+companies:
+  - company: Acme AI
+    slug: acme-ai
+    career_url: https://acme.ai/careers
+    ats: greenhouse
+    ats_token: acmeai
+    industry: Artificial Intelligence
+    headquarters: San Francisco
+    country: US
+    hiring_category: aggressive
+    remote_support: true
+    active_status: true
+  - company: Globex
+    slug: globex
+    career_url: https://globex.example/jobs
+    ats: lever
+    ats_token: globex
+    industry: SaaS
+    headquarters: New York
+    country: US
+    hiring_category: active
+    remote_support: true
+    active_status: true

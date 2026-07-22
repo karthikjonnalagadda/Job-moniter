@@ -1,0 +1,5 @@
+company,slug,career_url,ats,ats_token,industry,headquarters,country,hiring_category,remote_support,active_status
+Acme AI,acme-ai,https://acme.ai/careers,greenhouse,acmeai,Artificial Intelligence,San Francisco,US,aggressive,true,true
+Globex,globex,https://globex.example/jobs,lever,globex,SaaS,New York,US,active,true,true
+Initech,initech,https://initech.example/careers,ashby,initech,Fintech,Austin,US,moderate,false,true
+Umbrella Labs,umbrella-labs,https://umbrella.example/careers,,,Biotech,Boston,US,occasional,false,true
