@@ -43,7 +43,7 @@ jobs:
             tail -n 60 pytest_output.txt;
             echo '```';
           } >> "$GITHUB_STEP_SUMMARY"
-          grep -E "FAILED|ERROR|Traceback|assert|Error" pytest_output.txt | tail -n 40 \
+          grep -nE "^E +|ModuleNotFoundError|ImportError|No module named|cannot import name|AttributeError|^ +File \"" pytest_output.txt | head -n 40 \
             | while IFS= read -r l; do echo "::error::${l}"; done
       - name: Smoke test (app imports & wires)
         run: python -c "from app.main import app; assert app.title"
