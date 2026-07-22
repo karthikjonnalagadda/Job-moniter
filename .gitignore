@@ -65,7 +65,8 @@ vector_cache/*
 atlas_cache/*
 faiss/*
 chroma/*
-models/
+# Anchored to repo root so it never matches the source package app/models/.
+/models/
 
 # ---- Personal data (never commit) -------------------------------------------
 data/resume/*
