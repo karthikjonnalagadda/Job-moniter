@@ -44,7 +44,7 @@ class TemplateRenderer:
         """Convert Markdown to HTML (lazy optional dependency + fallback)."""
 
         try:
-            import markdown  # type: ignore[import-untyped]
+            import markdown
 
             return markdown.markdown(md_text, extensions=["tables"])
         except ImportError:
