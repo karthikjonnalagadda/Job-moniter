@@ -31,6 +31,19 @@ jobs:
       - name: Mypy type-check
         run: mypy app
       - name: Pytest
-        run: pytest --cov=app
+        run: |
+          set -o pipefail
+          python -m pytest --cov=app -rA 2>&1 | tee pytest_output.txt
+      - name: Surface pytest failure
+        if: failure()
+        run: |
+          {
+            echo '### Pytest failure (tail)';
+            echo '```';
+            tail -n 60 pytest_output.txt;
+            echo '```';
+          } >> "$GITHUB_STEP_SUMMARY"
+          grep -E "FAILED|ERROR|Traceback|assert|Error" pytest_output.txt | tail -n 40 \
+            | while IFS= read -r l; do echo "::error::${l}"; done
       - name: Smoke test (app imports & wires)
         run: python -c "from app.main import app; assert app.title"
