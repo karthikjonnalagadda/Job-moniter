@@ -104,7 +104,13 @@ ignore = ["B008"]  # FastAPI Depends() in defaults is idiomatic.
 [tool.mypy]
 python_version = "3.12"
 plugins = ["pydantic.mypy"]
-warn_unused_ignores = true
+# NOTE: warn_unused_ignores is intentionally OFF. This project is validated
+# across a matrix (CI Python 3.12 vs dev 3.13; the `ml`/`reports` extras present
+# or absent). Whether a given `# type: ignore` is redundant depends on the
+# runtime and which optional libraries are installed, so an ignore that is
+# required in one environment is "unused" in another. Keeping this flag on makes
+# a green build impossible across the matrix. Real type errors are still caught.
+warn_unused_ignores = false
 warn_redundant_casts = true
 disallow_untyped_defs = true
 ignore_missing_imports = true
