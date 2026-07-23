@@ -140,3 +140,23 @@ def test_filter_chain_short_circuits_and_summarises() -> None:
     assert len(kept) == 1
     assert summary.rejected == 2
     assert summary.rejected_by == {"experience": 1, "freshness": 1}
+
+
+def test_production_chain_attributes_rejections_and_keeps_entry_target() -> None:
+    # Mirrors the daily pipeline's real chain. Proves that a "N in, 0 stored" run
+    # is fully attributable per filter (the funnel we now log), and that a genuine
+    # entry-level target role still survives the strict chain (so it is not a
+    # black hole). This is the diagnostic backbone for the 5308->0 incident.
+    from app.config.settings import Settings
+    from app.pipeline.factory import build_filter_chain
+
+    chain = build_filter_chain(Settings())
+    jobs = [
+        _job(role="Senior Data Scientist"),  # -> seniority (senior title marker)
+        _job(role="Recruiter"),              # -> role_relevance (excluded function)
+        _job(role="Data Analyst"),           # entry-level target -> KEPT
+    ]
+    kept, summary = chain.apply(jobs)
+    assert [j.role for j in kept] == ["Data Analyst"]
+    assert summary.rejected_by.get("seniority") == 1
+    assert summary.rejected_by.get("role_relevance") == 1

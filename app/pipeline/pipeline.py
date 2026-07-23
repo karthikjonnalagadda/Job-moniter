@@ -156,6 +156,26 @@ class JobProcessingPipeline:
             run.filtered_out,
             run.duplicates,
         )
+        # Per-stage funnel + which filter rejected what — makes a "N in, 0 stored"
+        # run diagnosable instead of opaque (rejected_by is keyed by filter name:
+        # seniority / role_relevance / experience / freshness / location).
+        log.info(
+            "Funnel: collected={} validated={} normalized={} kept_after_filter={} "
+            "filtered_out={} rejected_by={} unique_after_dedup={} duplicates={} "
+            "ranked={} stored={}",
+            run.collected, run.validated, run.normalized,
+            run.normalized - run.filtered_out, run.filtered_out, run.rejected_by,
+            len(unique), run.duplicates, run.ranked, run.stored,
+        )
+        if run.normalized and not run.stored:
+            log.warning(
+                "0 jobs stored from {} normalized — dominant rejection: {}. "
+                "Tune JOBAGENT_FILTERS__* (MAX_AGE_HOURS, MAX_EXPERIENCE_YEARS, "
+                "ENABLE_ROLE_FILTER, ENABLE_SENIORITY_FILTER) if this is too strict.",
+                run.normalized,
+                max(run.rejected_by, key=lambda k: run.rejected_by[k])
+                if run.rejected_by else "n/a",
+            )
         return PipelineResult(run=run, jobs=ranked, dedup=dedup)
 
     def deduplicate(self, jobs: list[Job]) -> tuple[list[Job], DedupResult]:

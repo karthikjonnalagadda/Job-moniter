@@ -85,6 +85,23 @@ def build_work_list(companies: list[Company], router: CompanyRouter) -> WorkList
     return [(name, targets) for name, targets in grouped.items() if targets]
 
 
+def log_effective_smtp_config(settings: Settings) -> None:
+    """Log the effective SMTP configuration at startup so a mis-bound or missing
+    recipient is diagnosable. Never logs the password or any secret value."""
+
+    s = settings.smtp
+    log.info(
+        "SMTP config: host={} port={} tls={} username={} from={} to_address={!r}",
+        s.host, s.port, s.use_tls,
+        s.username or "<empty>", s.from_address, s.to_address,
+    )
+    if not s.to_address:
+        log.warning(
+            "SMTP to_address is empty — set the JOBAGENT_SMTP_TO_ADDRESS secret "
+            "(maps to JOBAGENT_SMTP__TO_ADDRESS -> settings.smtp.to_address)"
+        )
+
+
 def resolve_resume_text(settings: Settings) -> str:
     """Resume text for ranking. Priority: JOBAGENT_RESUME_TEXT (env/secret) →
     local file (dev) → empty (ranking then skipped, never a crash). No personal
@@ -134,6 +151,7 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
     await runs_repo.save(run)  # mark RUNNING so a crash is visible
     t0 = time.perf_counter()
     log.info("Scheduler starting (run_id={})", run_id)
+    log_effective_smtp_config(settings)
     try:
         # ---- collector bootstrap (the API does this in create_app; the
         # standalone scheduler must do it too, or routing targets are all
