@@ -68,6 +68,9 @@ chroma/*
 # Anchored to repo root so it never matches the source package app/models/.
 /models/
 
+# ---- Release artifacts (attach to GitHub Releases; not source) --------------
+release-artifacts/
+
 # ---- Personal data (never commit) -------------------------------------------
 data/resume/*
 !data/resume/.gitkeep

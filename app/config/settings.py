@@ -210,6 +210,9 @@ class Settings(BaseSettings):
     log_dir: Path = Path("logs")
     api_host: str = "0.0.0.0"
     api_port: int = 8000
+    # Explicit CORS allowlist (production). Empty => deny cross-origin in prod,
+    # allow-all in debug. e.g. JOBAGENT_CORS_ORIGINS='["https://app.example.com"]'
+    cors_origins: list[str] = Field(default_factory=list)
     # Seconds between source-registry hot-reload checks (0 disables the watcher).
     registry_reload_seconds: int = 0
 
@@ -241,6 +244,15 @@ class Settings(BaseSettings):
         # Embedding dimension must match the configured vector index dimension.
         if self.vector.dimensions <= 0:
             raise ValueError("vector.dimensions must be positive")
+        # Fail fast in production if the critical secret is still the local default
+        # — a misconfigured deploy should crash on boot, not silently run degraded.
+        if self.is_production:
+            uri = self.mongo.uri.get_secret_value()
+            if not uri or uri == "mongodb://localhost:27017":
+                raise ValueError(
+                    "JOBAGENT_MONGO__URI must point at a real cluster in production "
+                    "(got the local default). Set it as an environment secret."
+                )
         return self
 
 

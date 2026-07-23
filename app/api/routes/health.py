@@ -1,11 +1,9 @@
 """Health & readiness endpoints.
 
-* ``GET /health``  — liveness: process is up. Always 200 if the app responds.
-* ``GET /health/ready`` — readiness: dependencies reachable (Mongo ping). Returns
+* ``GET /health``      — liveness: process is up. Always 200 if the app responds.
+* ``GET /health/live`` — liveness alias (Kubernetes/Render-style livenessProbe).
+* ``GET /health/ready``— readiness: dependencies reachable (Mongo ping). Returns
   503 when a hard dependency is down so orchestrators can gate traffic.
-
-Only these are implemented in Phase 2; the other 11 endpoints are wired in later
-phases.
 """
 
 from __future__ import annotations
@@ -36,10 +34,11 @@ class ReadyInfo(AppBaseModel):
 
 
 @router.get("/health", response_model=HealthInfo)
+@router.get("/health/live", response_model=HealthInfo)
 async def health(
     settings: Annotated[Settings, Depends(get_app_settings)],
 ) -> HealthInfo:
-    """Liveness probe — cheap, no external calls."""
+    """Liveness probe — cheap, no external calls. Served at /health and /health/live."""
 
     return HealthInfo(status="ok", app=settings.app_name, env=str(settings.env))
 

@@ -11,6 +11,13 @@ def test_health_liveness(app_client) -> None:
     assert body["version"] == "0.8.0"
 
 
+def test_health_live_alias(app_client) -> None:
+    # /health/live is the Kubernetes/Render-style liveness alias.
+    resp = app_client.get("/health/live")
+    assert resp.status_code == 200
+    assert resp.json()["status"] == "ok"
+
+
 def test_readiness_reports_dependencies(app_client) -> None:
     resp = app_client.get("/health/ready")
     body = resp.json()
