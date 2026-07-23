@@ -27,10 +27,16 @@ class SchedulerRun(MongoDocument):
     duration_seconds: float | None = None
 
     collectors_executed: list[str] = Field(default_factory=list)
+    collector_failures: int = 0  # number of collectors that reported errors
     jobs_collected: int = 0
     duplicates_removed: int = 0
-    ai_ranked: int = 0
+    ai_ranked: int = 0  # jobs ranked (== "jobs_ranked")
+    # Reporting/delivery outcome — recorded honestly so a run's status can never
+    # claim a report/email that did not actually happen.
+    report_generated: bool = False
     excel_generated: bool = False
+    email_attempted: bool = False
     email_sent: bool = False
+    delivery_status: str | None = None  # notifier DeliveryStatus, if a send was attempted
     failures: list[str] = Field(default_factory=list)
     retry_count: int = 0

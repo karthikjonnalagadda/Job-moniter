@@ -99,12 +99,17 @@ class SmtpNotifier(Notifier):
         return email
 
     def _deliver(self, email: EmailMessage) -> None:
-        with smtplib.SMTP(self._settings.host, self._settings.port, timeout=30) as server:
-            if self._settings.use_tls:
+        s = self._settings
+        # Observability: connection parameters only — never the password/secret.
+        log.info("SMTP connect host={} port={} tls={} from={} to={}",
+                 s.host, s.port, s.use_tls, s.from_address, s.to_address)
+        with smtplib.SMTP(s.host, s.port, timeout=30) as server:
+            if s.use_tls:
                 server.starttls()
-            password = self._settings.password.get_secret_value()
-            if self._settings.username and password:
-                server.login(self._settings.username, password)
+            password = s.password.get_secret_value()
+            if s.username and password:
+                server.login(s.username, password)
+                log.info("SMTP authentication succeeded for {}", s.username)
             server.send_message(email)
 
     def _probe(self) -> None:

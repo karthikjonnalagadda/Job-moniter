@@ -306,3 +306,286 @@ async def test_run_daily_pipeline_idempotent(scheduler_container, monkeypatch) -
     assert result.status == RunStatus.SUCCESS
     assert "skipped" in " ".join(result.failures)
     assert called["n"] == 0  # idempotency prevented a duplicate execution
+
+
+# ---- truthful status / observability (production-bug regression suite) ------
+# A run that did NOT produce and deliver a report must never be recorded SUCCESS.
+
+def _canned(collector: str = "greenhouse", *, errors: int = 0, ext: str = "1",
+            url: str = "https://boards.greenhouse.io/acme/jobs/1") -> SimpleNamespace:
+    return SimpleNamespace(
+        collector=collector, errors=errors,
+        jobs=[RawJob(external_id=ext, title="Data Analyst", company="Acme",
+                     url=url, description="0-2 years experience, freshers welcome")],
+    )
+
+
+async def test_zero_jobs_generates_empty_report(scheduler_container, monkeypatch) -> None:
+    # Case B: collectors ran clean but there were genuinely zero matching jobs.
+    # This is a SUCCESS, but reporting is NOT skipped — an empty report is
+    # generated and a "No matching jobs" email is sent.
+    from app.db.repositories.companies import CompanyRepository
+    from app.notifications import smtp as smtp_module
+
+    container = scheduler_container
+    await container.mongo.connect()
+    await CompanyRepository(container.mongo.db).upsert_by_slug(_company("acme", "Acme"))
+    container.settings.smtp.to_address = "recipient@example.com"
+
+    async def _run_many(self, work):
+        return []  # zero jobs, no collector errors
+
+    sent: list[object] = []
+
+    async def _send(self, message):
+        sent.append(message)
+
+    monkeypatch.setattr("app.collectors.executor.CollectorExecutor.run_many", _run_many)
+    monkeypatch.setattr(smtp_module.SmtpNotifier, "send", _send)
+
+    result = await run_daily_pipeline(container)
+    assert result.jobs_collected == 0
+    assert result.status == RunStatus.SUCCESS
+    assert result.report_generated is True         # empty report WAS generated
+    assert result.email_attempted is True
+    assert result.email_sent is True               # and delivered
+    assert result.delivery_status == "sent"
+    assert len(sent) == 1
+    assert "No matching jobs" in sent[0].subject   # email clearly states the empty result
+
+
+async def test_zero_jobs_with_collector_errors_fails(scheduler_container, monkeypatch) -> None:
+    # Zero jobs *because* collectors errored is a real failure, not a quiet day.
+    from app.db.repositories.companies import CompanyRepository
+
+    container = scheduler_container
+    await container.mongo.connect()
+    await CompanyRepository(container.mongo.db).upsert_by_slug(_company("acme", "Acme"))
+
+    async def _run_many(self, work):
+        return [SimpleNamespace(collector="greenhouse", errors=3, jobs=[])]
+
+    monkeypatch.setattr("app.collectors.executor.CollectorExecutor.run_many", _run_many)
+
+    result = await run_daily_pipeline(container)
+    assert result.jobs_collected == 0
+    assert result.status == RunStatus.FAILED
+    assert any("no jobs collected" in f for f in result.failures)
+
+
+async def test_report_generation_failure_fails_run(scheduler_container, monkeypatch) -> None:
+    # If report generation throws, the run must FAIL (exit non-zero), not succeed.
+    from app.db.repositories.companies import CompanyRepository
+    from app.notifications.service import NotificationService
+
+    container = scheduler_container
+    await container.mongo.connect()
+    await CompanyRepository(container.mongo.db).upsert_by_slug(_company("acme", "Acme"))
+    container.settings.smtp.to_address = "recipient@example.com"
+
+    async def _run_many(self, work):
+        return [_canned()]
+
+    async def _boom(self, **kwargs):
+        raise RuntimeError("report backend exploded")
+
+    monkeypatch.setattr("app.collectors.executor.CollectorExecutor.run_many", _run_many)
+    monkeypatch.setattr(NotificationService, "send_report", _boom)
+
+    result = await run_daily_pipeline(container)
+    assert result.status == RunStatus.FAILED
+    assert result.email_attempted is True   # we tried
+    assert result.excel_generated is False
+    assert result.email_sent is False
+    assert any("RuntimeError" in f for f in result.failures)
+
+
+async def test_email_delivery_failure_fails_run(scheduler_container, monkeypatch) -> None:
+    # If the SMTP send throws, the run must FAIL and email_sent must stay False.
+    from app.core.exceptions import NotificationError
+    from app.db.repositories.companies import CompanyRepository
+    from app.notifications import smtp as smtp_module
+
+    container = scheduler_container
+    await container.mongo.connect()
+    await CompanyRepository(container.mongo.db).upsert_by_slug(_company("acme", "Acme"))
+    container.settings.smtp.to_address = "recipient@example.com"
+
+    async def _run_many(self, work):
+        return [_canned()]
+
+    async def _send_fail(self, message):
+        raise NotificationError("smtp server refused the message")
+
+    monkeypatch.setattr("app.collectors.executor.CollectorExecutor.run_many", _run_many)
+    monkeypatch.setattr(smtp_module.SmtpNotifier, "send", _send_fail)
+
+    result = await run_daily_pipeline(container)
+    assert result.status == RunStatus.FAILED
+    assert result.email_attempted is True
+    assert result.email_sent is False
+    assert result.failures  # a fatal failure was recorded
+
+
+async def test_smtp_authentication_failure_fails_run(scheduler_container, monkeypatch) -> None:
+    # An SMTP auth failure surfaces (via the notifier) as NotificationError; the
+    # run must FAIL, not silently succeed.
+    from app.core.exceptions import NotificationError
+    from app.db.repositories.companies import CompanyRepository
+    from app.notifications import smtp as smtp_module
+
+    container = scheduler_container
+    await container.mongo.connect()
+    await CompanyRepository(container.mongo.db).upsert_by_slug(_company("acme", "Acme"))
+    container.settings.smtp.to_address = "recipient@example.com"
+
+    async def _run_many(self, work):
+        return [_canned()]
+
+    async def _auth_fail(self, message):
+        raise NotificationError("Email delivery failed: 535 5.7.8 authentication failed")
+
+    monkeypatch.setattr("app.collectors.executor.CollectorExecutor.run_many", _run_many)
+    monkeypatch.setattr(smtp_module.SmtpNotifier, "send", _auth_fail)
+
+    result = await run_daily_pipeline(container)
+    assert result.status == RunStatus.FAILED
+    assert result.email_attempted is True
+    assert result.email_sent is False
+    assert any("authentication failed" in f for f in result.failures)
+
+
+async def test_partial_collector_failure_still_delivers(scheduler_container, monkeypatch) -> None:
+    # One collector fails, another succeeds: jobs are still delivered. This is a
+    # legitimate PARTIAL success (recorded, visible) — not a hard failure.
+    from app.db.repositories.companies import CompanyRepository
+    from app.notifications import smtp as smtp_module
+
+    container = scheduler_container
+    await container.mongo.connect()
+    await CompanyRepository(container.mongo.db).upsert_by_slug(_company("acme", "Acme"))
+    container.settings.smtp.to_address = "recipient@example.com"
+
+    ok = _canned("greenhouse", errors=0, ext="1")
+    bad = _canned("lever", errors=2, ext="2", url="https://jobs.lever.co/acme/2")
+
+    async def _run_many(self, work):
+        return [ok, bad]
+
+    sent: list[object] = []
+
+    async def _send(self, message):
+        sent.append(message)
+
+    monkeypatch.setattr("app.collectors.executor.CollectorExecutor.run_many", _run_many)
+    monkeypatch.setattr(smtp_module.SmtpNotifier, "send", _send)
+
+    result = await run_daily_pipeline(container)
+    assert result.jobs_collected == 2
+    assert result.collector_failures == 1
+    assert result.status == RunStatus.PARTIAL      # a collector failed...
+    assert result.report_generated is True         # ...but the report was still delivered
+    assert result.email_sent is True
+    assert result.excel_generated is True
+    assert result.delivery_status == "sent"
+    assert any("lever" in f and "error" in f for f in result.failures)
+    assert len(sent) == 1
+
+
+async def test_scheduler_run_records_all_fields(scheduler_container, monkeypatch) -> None:
+    # A clean successful run must populate the full audit record honestly.
+    from app.db.repositories.companies import CompanyRepository
+    from app.notifications import smtp as smtp_module
+
+    container = scheduler_container
+    await container.mongo.connect()
+    await CompanyRepository(container.mongo.db).upsert_by_slug(_company("acme", "Acme"))
+    container.settings.smtp.to_address = "recipient@example.com"
+
+    async def _run_many(self, work):
+        return [_canned()]
+
+    async def _send(self, message):
+        return None
+
+    monkeypatch.setattr("app.collectors.executor.CollectorExecutor.run_many", _run_many)
+    monkeypatch.setattr(smtp_module.SmtpNotifier, "send", _send)
+
+    r = await run_daily_pipeline(container)
+    assert r.status == RunStatus.SUCCESS
+    assert r.jobs_collected == 1
+    assert r.ai_ranked >= 0            # jobs_ranked
+    assert r.collector_failures == 0
+    assert r.report_generated is True
+    assert r.excel_generated is True
+    assert r.email_attempted is True
+    assert r.email_sent is True
+    assert r.delivery_status == "sent"
+    assert r.duration_seconds is not None   # execution_time recorded
+
+
+async def test_production_missing_recipient_fails(monkeypatch) -> None:
+    # In production, jobs collected but no recipient configured => FAILED, not a
+    # silent green run. (This is the exact production incident.)
+    from app.api.deps import build_container
+    from app.config.settings import Settings, get_settings
+    from app.db import mongo as mongo_module
+    from app.db.repositories.companies import CompanyRepository
+    from mongomock_motor import AsyncMongoMockClient
+
+    async def _connect(self) -> None:
+        self._client = AsyncMongoMockClient()
+        self._db = self._client[self._settings.mongo.db_name]
+
+    monkeypatch.setattr(mongo_module.MongoClientManager, "connect", _connect)
+    monkeypatch.setenv("JOBAGENT_ENV", "production")
+    monkeypatch.setenv("JOBAGENT_MONGO__URI", "mongodb://real.invalid:27017")  # pass prod validator
+    monkeypatch.setenv("JOBAGENT_SMTP__TO_ADDRESS", "")  # no recipient
+    get_settings.cache_clear()
+    try:
+        container = build_container(Settings())
+        await container.mongo.connect()
+        await CompanyRepository(container.mongo.db).upsert_by_slug(_company("acme", "Acme"))
+
+        async def _run_many(self, work):
+            return [_canned()]
+
+        monkeypatch.setattr("app.collectors.executor.CollectorExecutor.run_many", _run_many)
+
+        result = await run_daily_pipeline(container)
+        assert result.jobs_collected == 1
+        assert result.status == RunStatus.FAILED
+        assert any("to_address" in f for f in result.failures)
+    finally:
+        get_settings.cache_clear()
+
+
+async def test_run_daily_exit_code_reflects_status(monkeypatch) -> None:
+    # The CLI must exit non-zero on a FAILED run and zero otherwise, so GitHub
+    # Actions marks the job failed when the pipeline did not truthfully complete.
+    import app.scheduler.run_daily as rd
+    from app.config.settings import get_settings
+    from app.db import mongo as mongo_module
+
+    async def _noop(self) -> None:
+        return None
+
+    async def _ping_ok(self) -> bool:
+        return True
+
+    monkeypatch.setattr(mongo_module.MongoClientManager, "connect", _noop)
+    monkeypatch.setattr(mongo_module.MongoClientManager, "disconnect", _noop)
+    monkeypatch.setattr(mongo_module.MongoClientManager, "ping", _ping_ok)
+    get_settings.cache_clear()
+
+    async def _failed(container, *, force=False):
+        return SchedulerRun(run_id="x", status=RunStatus.FAILED)
+
+    monkeypatch.setattr(rd, "run_daily_pipeline", _failed)
+    assert await rd._run() == 1  # FAILED -> non-zero
+
+    async def _ok(container, *, force=False):
+        return SchedulerRun(run_id="y", status=RunStatus.SUCCESS)
+
+    monkeypatch.setattr(rd, "run_daily_pipeline", _ok)
+    assert await rd._run() == 0  # SUCCESS -> zero
