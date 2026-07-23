@@ -5,7 +5,7 @@ name: ci
 
 on:
   push:
-    branches: [main]
+    branches: ["**"]   # validate every branch push, not just main
   pull_request: {}
 
 jobs:
