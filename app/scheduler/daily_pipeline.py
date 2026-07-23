@@ -133,6 +133,7 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
 
     await runs_repo.save(run)  # mark RUNNING so a crash is visible
     t0 = time.perf_counter()
+    log.info("Scheduler starting (run_id={})", run_id)
     try:
         # ---- collector bootstrap (the API does this in create_app; the
         # standalone scheduler must do it too, or routing targets are all
@@ -140,23 +141,24 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
         log.info("Starting collector discovery")
         discover_collectors()
         registered = sorted(available_collectors())
-        log.info("Collector discovery completed: {} registered {}",
-                 len(registered), registered)
+        log.info("Collector discovery complete")
+        log.info("Collector registry ready: {} registered {}", len(registered), registered)
 
         # ---- sources + companies ------------------------------------------
-        log.info("Loading source registry + active companies")
+        log.info("Loading registry")
         await container.sources.load_from(YamlSourceLoader(settings.paths.ats_sources_file))
         companies = await CompanyRepository(db).list_active()
-        log.info("Loaded {} sources, {} active companies",
+        log.info("Registry loaded: {} sources, {} active companies",
                  len(container.sources), len(companies))
 
         # ---- build work-list + collect ------------------------------------
         # require_registered_collector: skip routing targets with no registered
         # collector (e.g. the generic "career_site" fallback) instead of crashing.
+        log.info("Routing companies")
         router = CompanyRouter(container.sources, RoutingConfig(require_registered_collector=True))
         work = build_work_list(companies, router)
         run.collectors_executed = [name for name, _ in work]
-        log.info("Routed to {} collectors: {}", len(work), run.collectors_executed)
+        log.info("Routing completed: {} collectors {}", len(work), run.collectors_executed)
 
         ctx = CollectorContext(
             http=container.http, settings=settings,
@@ -170,6 +172,7 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
             for res in results for raw in res.jobs
         ]
         run.jobs_collected = len(items)
+        run.collector_failures = sum(1 for res in results if res.errors)
         run.failures.extend(
             f"{res.collector}: {res.errors} collector error(s)"
             for res in results if res.errors
@@ -177,7 +180,7 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
         log.info(
             "Collector execution completed: {} raw jobs across {} collectors "
             "({} collector(s) reported errors)",
-            len(items), len(results), sum(1 for res in results if res.errors),
+            len(items), len(results), run.collector_failures,
         )
 
         # ---- resume + priority + process (normalize→filter→dedup→embed→rank→store)
@@ -206,22 +209,20 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
                  run.ai_ranked, run.duplicates_removed)
 
         # ---- report + email -----------------------------------------------
-        # Truthfulness: a run that SHOULD have produced and delivered a report but
-        # did not must NOT be recorded as SUCCESS. Report generation and delivery
-        # are one unit (NotificationService.send_report); we gate and record them
-        # honestly, and let hard failures propagate to FAILED (non-zero exit).
-        if run.jobs_collected == 0:
-            # Nothing to report — loud, not silent. Zero jobs *with* collector
-            # errors is a real failure; a genuinely quiet day is not.
-            log.warning("No jobs collected — skipping report/email generation")
-            if run.failures:
-                run.status = RunStatus.FAILED
-                run.failures.append("no jobs collected (collectors failed to yield any jobs)")
-            else:
-                run.status = RunStatus.SUCCESS
+        # Truthfulness: a run's status must reflect what actually happened. A
+        # report is ALWAYS generated and emailed on a run that did not hard-fail
+        # — including a genuinely-empty day (Case B), which still gets an empty
+        # report and a "no matching jobs" email rather than a silent skip.
+        no_jobs = run.jobs_collected == 0
+        if no_jobs and run.failures:
+            # Case A: zero jobs BECAUSE collectors/config failed -> real failure.
+            log.error("No jobs collected and {} collector failure(s) — run FAILED",
+                      run.collector_failures)
+            run.status = RunStatus.FAILED
+            run.failures.append("no jobs collected (collectors failed / misconfigured)")
         elif not settings.smtp.to_address:
-            # Jobs exist but there is nowhere to deliver them.
-            msg = "SMTP to_address not configured — report not delivered"
+            # There is a report to deliver (empty or not) but nowhere to send it.
+            msg = "SMTP to_address not configured — report cannot be delivered"
             if settings.is_production:
                 log.error("{} (production requires a recipient)", msg)
                 run.status = RunStatus.FAILED
@@ -230,27 +231,40 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
                 log.warning("{} — email disabled (non-production run)", msg)
                 run.status = RunStatus.PARTIAL if run.failures else RunStatus.SUCCESS
         else:
-            log.info("Generating report and sending email to configured recipient")
+            # Case B (no_jobs, no failures) still reports — never silently skipped.
+            title = (
+                "Daily Job Intelligence Report — No matching jobs were found today"
+                if no_jobs else None
+            )
+            if no_jobs:
+                log.info("No matching jobs were found today — sending an empty report")
+            log.info("Generating report")
+            log.info("Sending email (host={} port={} tls={} from={} to={})",
+                     settings.smtp.host, settings.smtp.port, settings.smtp.use_tls,
+                     settings.smtp.from_address, settings.smtp.to_address)
+            run.email_attempted = True
             try:
                 record = await get_notification_service(db, container).send_report(
                     report_type="daily", recipient=settings.smtp.to_address,
-                    attach_formats=[ReportFormat.EXCEL])
+                    attach_formats=[ReportFormat.EXCEL], title=title)
             except Exception:
                 # Full traceback + a clear stage marker, then propagate so the run
                 # is recorded FAILED and the process exits non-zero.
                 log.exception("Report generation / email delivery failed")
                 raise
+            run.report_generated = True
             run.excel_generated = True
+            run.delivery_status = record.delivery_status.value
             run.email_sent = record.delivery_status == DeliveryStatus.SENT
-            log.info("Report generated (Excel attachment produced)")
+            log.info("Report generated")
             if run.email_sent:
-                log.info("Email sent successfully to configured recipient")
+                log.info("Email sent successfully")
                 run.status = RunStatus.PARTIAL if run.failures else RunStatus.SUCCESS
             else:
-                log.error("Email not delivered (delivery_status={})", record.delivery_status)
+                log.error("Email not delivered (delivery_status={})", run.delivery_status)
                 run.status = RunStatus.FAILED
                 run.failures.append(
-                    f"email not delivered (delivery_status={record.delivery_status})")
+                    f"email not delivered (delivery_status={run.delivery_status})")
 
         if run.status == RunStatus.SUCCESS:
             log.info("Scheduler completed successfully")
