@@ -99,6 +99,7 @@ def test_smtp_settings_map_from_env(monkeypatch) -> None:
     for k, v in {
         "JOBAGENT_SMTP__HOST": "smtp.example.com",
         "JOBAGENT_SMTP__USERNAME": "sender@example.com",
+        "JOBAGENT_SMTP__FROM_ADDRESS": "sender@example.com",
         "JOBAGENT_SMTP__TO_ADDRESS": "recipient@example.com",
     }.items():
         monkeypatch.setenv(k, v)
@@ -106,7 +107,46 @@ def test_smtp_settings_map_from_env(monkeypatch) -> None:
     s = Settings()
     assert s.smtp.host == "smtp.example.com"
     assert s.smtp.username == "sender@example.com"
-    assert s.smtp.to_address == "recipient@example.com"
+    assert s.smtp.from_address == "sender@example.com"
+    assert s.smtp.to_address == "recipient@example.com"  # JOBAGENT_SMTP__TO_ADDRESS binds
+
+
+def test_smtp_to_address_empty_when_env_empty(monkeypatch) -> None:
+    # If the secret is unset/empty the env var is an empty string, so to_address
+    # binds to "" — the "SMTP to_address not configured" path is a *config* issue
+    # (missing secret), NOT a binding bug. Binding itself works (test above).
+    from app.config.settings import Settings, get_settings
+
+    monkeypatch.setenv("JOBAGENT_SMTP__TO_ADDRESS", "")
+    get_settings.cache_clear()
+    assert Settings().smtp.to_address == ""
+
+
+def test_log_effective_smtp_config_masks_password(monkeypatch) -> None:
+    # Startup config logging must show host/user/from/to and NEVER the password.
+    from app.config.settings import Settings, get_settings
+    from app.scheduler.daily_pipeline import log_effective_smtp_config
+    from loguru import logger
+
+    for k, v in {
+        "JOBAGENT_SMTP__HOST": "smtp.example.com",
+        "JOBAGENT_SMTP__USERNAME": "sender@example.com",
+        "JOBAGENT_SMTP__PASSWORD": "sup3r-secret-token",
+        "JOBAGENT_SMTP__TO_ADDRESS": "recipient@example.com",
+    }.items():
+        monkeypatch.setenv(k, v)
+    get_settings.cache_clear()
+
+    captured: list[str] = []
+    handler_id = logger.add(captured.append, level="INFO", format="{message}")
+    try:
+        log_effective_smtp_config(Settings())
+    finally:
+        logger.remove(handler_id)
+    logged = "".join(captured)
+    assert "smtp.example.com" in logged
+    assert "recipient@example.com" in logged
+    assert "sup3r-secret-token" not in logged  # password never logged
 
 
 def test_already_succeeded_today() -> None:
