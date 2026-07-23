@@ -40,10 +40,14 @@ COPY pyproject.toml requirements.txt ./
 RUN mkdir -p logs exports && chown -R app:app /app
 USER app
 
+# Render (and other PaaS) inject $PORT and route to it. Default to 8000 locally.
+ENV PORT=8000
 EXPOSE 8000
 
-# Container-level liveness check.
+# Container-level liveness check (honours $PORT).
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-    CMD python -c "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/health').status==200 else 1)"
+    CMD python -c "import urllib.request,sys,os; p=os.environ.get('PORT','8000'); sys.exit(0 if urllib.request.urlopen(f'http://localhost:{p}/health').status==200 else 1)"
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# `exec` so uvicorn is PID 1 and receives SIGTERM for graceful shutdown; the
+# shell only expands ${PORT} first. Render sets PORT; locally it defaults to 8000.
+CMD ["sh", "-c", "exec uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]

@@ -61,11 +61,25 @@ non-root user, with a container-level `HEALTHCHECK` against `/health`. The ML
 stack is intentionally excluded from the API image; the pipeline installs
 `requirements-ml.txt` separately.
 
+**Port binding.** The container binds to `$PORT` (Render injects it; defaults to
+`8000` locally): `uvicorn … --port ${PORT:-8000}`. `exec` is used so uvicorn is
+PID 1 and receives `SIGTERM` for graceful shutdown.
+
+**Fail-fast.** In `production` the app refuses to boot if `JOBAGENT_MONGO__URI`
+is missing or still the local default — a misconfigured deploy crashes loudly
+rather than running degraded. Set the real Atlas URI as a secret.
+
 ### Health & metrics
 
-- `GET /health` — liveness
-- `GET /health/ready` — readiness (pings Mongo)
+- `GET /health` — liveness (cheap, no external calls)
+- `GET /health/live` — liveness alias (Render/Kubernetes-style livenessProbe)
+- `GET /health/ready` — readiness (pings Mongo; 503 when a hard dep is down)
 - `GET /metrics` — JSON or `?format=prometheus`
+
+### CORS
+
+Cross-origin is denied by default in production and allow-all in debug. To
+allowlist origins, set `JOBAGENT_CORS_ORIGINS='["https://your-frontend"]'`.
 
 ---
 
@@ -89,6 +103,21 @@ The workflow installs `requirements.txt` + `requirements-ml.txt`, caches the
 embedding model, runs `python -m app.scheduler.run_daily`, and uploads logs on
 failure.
 
+**What the daily run does** (`app/scheduler/daily_pipeline.py`): loads the
+source registry + active companies → routes companies to collectors → collects
+postings → normalize → filter (seniority/role/experience/freshness/location) →
+deduplicate → embed → rank → store → generate report → email. Each run is:
+
+- **Idempotent** — a second run on a day that already succeeded is skipped
+  (recovers safely after a restart/retry).
+- **Audited** — one `SchedulerRun` document per run in the `scheduler_logs`
+  collection (status, counts, failures, duration), surviving log expiry.
+- **Graceful** — collector failures are isolated (one bad board never breaks the
+  batch); a hard failure is recorded and the process exits non-zero.
+
+The pipeline is also runnable on-demand: `job-agent-daily` (console script) or
+`python -m app.scheduler.run_daily`.
+
 ---
 
 ## 5. Deployment checklist
@@ -103,7 +132,38 @@ failure.
 
 ---
 
-## 6. Rollback
+## 6. Monitoring & observability
 
-Render keeps prior deploys — roll back from the dashboard. For a bad release,
-revert the offending commit on `main`; autodeploy ships the previous good state.
+- **Logs:** structured JSON in production (`JOBAGENT_LOG_JSON=true`), with
+  correlation IDs on every request and 10 MB rotation / 14-day retention / zip
+  compression for file sinks. View live logs in the Render dashboard.
+- **Metrics:** `GET /metrics` (JSON, or `?format=prometheus`) exposes request
+  counts and embedding/latency summaries — scrape with Prometheus or Render
+  metrics.
+- **Run history:** query the `scheduler_logs` and `pipeline_runs` collections,
+  or `GET /pipeline/stats` and `GET /pipeline/history`, for per-run outcomes.
+
+---
+
+## 7. Troubleshooting
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| App exits on boot with "JOBAGENT_MONGO__URI must point at a real cluster" | Prod fail-fast: URI unset/default | Set the real Atlas URI secret |
+| `/health/ready` returns 503 | Mongo unreachable | Check Atlas network access + URI/credentials |
+| Vector search returns nothing | Vector index missing/not READY | `job-agent-bootstrap --with-vector-index`; check Atlas → Search |
+| Deploy healthy but port errors | Not binding `$PORT` | Ensure the shipped `Dockerfile` CMD (uses `${PORT:-8000}`) is unchanged |
+| Daily run sends no email | `JOBAGENT_SMTP__TO_ADDRESS` unset, or bad App Password | Set/rotate SMTP secrets; check `scheduler_logs.failures` |
+| Daily run "skipped" | Idempotency: already succeeded today | Expected; it prevents duplicate sends |
+
+---
+
+## 8. Failure recovery & rollback
+
+- **Restart recovery:** the daily run is idempotent — a re-run after a crash on a
+  day that already succeeded is skipped; a failed/partial run re-executes.
+- **Degraded dependencies:** the API never crashes when Mongo/SMTP are down at
+  runtime — readiness reports 503 and the affected operation fails gracefully.
+- **Rollback:** Render keeps prior deploys — roll back from the dashboard. For a
+  bad release, revert the offending commit on `main`; autodeploy ships the
+  previous good state.

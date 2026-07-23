@@ -1,10 +1,6 @@
-# Continuous integration: lint, type-check, test, and smoke-test on every push/PR.
-#
-# The container image is built and validated by Render on deploy (render.yaml,
-# Docker runtime) and by `docker build` locally — it is intentionally NOT
-# rebuilt here, to keep CI fast and its result deterministic. Deployment to
-# Render happens via Render's native autodeploy on push to `main` after this
-# workflow is green.
+# Continuous integration: lint, type-check, test, then build the container image
+# and smoke-test that it boots and serves /health. Deployment to Render happens
+# via Render's native autodeploy on push to `main` after this workflow is green.
 name: ci
 
 on:
@@ -34,3 +30,39 @@ jobs:
         run: pytest --cov=app
       - name: Smoke test (app imports & wires)
         run: python -c "from app.main import app; assert app.title"
+
+  container:
+    name: Docker build & container health
+    needs: quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t job-agent-api:ci .
+      - name: Start container
+        # env=production (Dockerfile default) exercises the prod config path; a
+        # non-default (unreachable) Mongo URI satisfies the fail-fast validator,
+        # then the resilient lifespan degrades gracefully so /health still serves.
+        run: |
+          docker run -d --name jobagent -p 8000:8000 \
+            -e JOBAGENT_MONGO__URI="mongodb://smoke.invalid:27017" \
+            -e JOBAGENT_MONGO__SERVER_SELECTION_TIMEOUT_MS=1000 \
+            -e JOBAGENT_VECTOR__BACKEND=numpy \
+            job-agent-api:ci
+      - name: Wait for /health
+        run: |
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:8000/health; then echo; echo "healthy"; exit 0; fi
+            sleep 2
+          done
+          echo "health check never passed"; docker logs jobagent; exit 1
+      - name: Smoke /health/live and /metrics
+        run: |
+          curl -fsS http://localhost:8000/health/live && echo
+          curl -fsS http://localhost:8000/metrics && echo
+      - name: Container logs (always)
+        if: always()
+        run: docker logs jobagent || true
+      - name: Stop container
+        if: always()
+        run: docker rm -f jobagent || true

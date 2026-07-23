@@ -157,9 +157,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     # Correlation id is established first (outermost) so every log line — including
     # CORS/errors — carries it.
     app.add_middleware(CorrelationIdMiddleware)
+    # Explicit allowlist wins; otherwise allow-all in debug, deny cross-origin in prod.
+    cors_origins = settings.cors_origins or (["*"] if settings.debug else [])
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["*"] if settings.debug else [],
+        allow_origins=cors_origins,
         allow_methods=["*"],
         allow_headers=["*"],
     )
