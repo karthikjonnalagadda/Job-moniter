@@ -213,6 +213,9 @@ class Settings(BaseSettings):
     # Explicit CORS allowlist (production). Empty => deny cross-origin in prod,
     # allow-all in debug. e.g. JOBAGENT_CORS_ORIGINS='["https://app.example.com"]'
     cors_origins: list[str] = Field(default_factory=list)
+    # Resume text for ranking, supplied via env/secret (JOBAGENT_RESUME_TEXT) so
+    # no personal resume file is committed. Empty => ranking unavailable (skipped).
+    resume_text: str = ""
     # Seconds between source-registry hot-reload checks (0 disables the watcher).
     registry_reload_seconds: int = 0
 

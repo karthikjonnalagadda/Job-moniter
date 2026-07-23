@@ -23,9 +23,17 @@ jobs:
       JOBAGENT_LOG_JSON: "true"
       JOBAGENT_VECTOR__BACKEND: atlas
       JOBAGENT_MONGO__URI: ${{ secrets.JOBAGENT_MONGO_URI }}
+      # SMTP transport (non-secret) — without HOST it defaults to localhost and
+      # email silently fails; GitHub runners allow outbound SMTP (587).
+      JOBAGENT_SMTP__HOST: smtp.gmail.com
+      JOBAGENT_SMTP__PORT: "587"
+      JOBAGENT_SMTP__USE_TLS: "true"
       JOBAGENT_SMTP__USERNAME: ${{ secrets.JOBAGENT_SMTP_USERNAME }}
       JOBAGENT_SMTP__PASSWORD: ${{ secrets.JOBAGENT_SMTP_PASSWORD }}
       JOBAGENT_SMTP__TO_ADDRESS: ${{ secrets.JOBAGENT_SMTP_TO_ADDRESS }}
+      JOBAGENT_SMTP__FROM_ADDRESS: ${{ secrets.JOBAGENT_SMTP_FROM_ADDRESS }}
+      # Resume text for ranking (no personal file committed).
+      JOBAGENT_RESUME_TEXT: ${{ secrets.JOBAGENT_RESUME_TEXT }}
     steps:
       - uses: actions/checkout@v4
 

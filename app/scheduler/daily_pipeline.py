@@ -27,7 +27,10 @@ from app.api.deps import Container, get_notification_service, get_pipeline
 from app.collectors.base import CollectorTarget
 from app.collectors.context import CollectorContext
 from app.collectors.executor import CollectorExecutor
+from app.collectors.loader import discover_collectors
+from app.collectors.registry import available_collectors
 from app.config.logging import get_logger
+from app.config.settings import Settings
 from app.core.classification import build_priority_map
 from app.db.repositories.benchmarks import BenchmarkRepository
 from app.db.repositories.companies import CompanyRepository
@@ -38,6 +41,7 @@ from app.models.report_record import DeliveryStatus, ReportFormat
 from app.models.run import SchedulerRun
 from app.pipeline.pipeline import ProcessItem
 from app.registry.loaders import YamlSourceLoader
+from app.routing.models import RoutingConfig
 from app.routing.router import CompanyRouter
 
 log = get_logger("scheduler")
@@ -81,6 +85,17 @@ def build_work_list(companies: list[Company], router: CompanyRouter) -> WorkList
     return [(name, targets) for name, targets in grouped.items() if targets]
 
 
+def resolve_resume_text(settings: Settings) -> str:
+    """Resume text for ranking. Priority: JOBAGENT_RESUME_TEXT (env/secret) →
+    local file (dev) → empty (ranking then skipped, never a crash). No personal
+    resume is ever committed to the repo."""
+
+    if settings.resume_text.strip():
+        return settings.resume_text
+    path = settings.paths.resume_file
+    return path.read_text(encoding="utf-8") if path.exists() else ""
+
+
 def already_succeeded_today(runs: list[SchedulerRun], today: date) -> bool:
     """Idempotency guard: has a run already SUCCEEDED today? (recovers on restart)."""
 
@@ -119,6 +134,12 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
     await runs_repo.save(run)  # mark RUNNING so a crash is visible
     t0 = time.perf_counter()
     try:
+        # ---- collector bootstrap (the API does this in create_app; the
+        # standalone scheduler must do it too, or routing targets are all
+        # "not registered") -------------------------------------------------
+        discover_collectors()
+        log.info("Collector registry ready: {} collectors", len(available_collectors()))
+
         # ---- sources + companies ------------------------------------------
         await container.sources.load_from(YamlSourceLoader(settings.paths.ats_sources_file))
         companies = await CompanyRepository(db).list_active()
@@ -126,7 +147,10 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
                  len(container.sources), len(companies))
 
         # ---- build work-list + collect ------------------------------------
-        work = build_work_list(companies, CompanyRouter(container.sources))
+        # require_registered_collector: skip routing targets with no registered
+        # collector (e.g. the generic "career_site" fallback) instead of crashing.
+        router = CompanyRouter(container.sources, RoutingConfig(require_registered_collector=True))
+        work = build_work_list(companies, router)
         run.collectors_executed = [name for name, _ in work]
         log.info("Routed to {} collectors: {}", len(work), run.collectors_executed)
 
@@ -150,14 +174,18 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
         # ---- resume + priority + process (normalize→filter→dedup→embed→rank→store)
         priority = build_priority_map([c.model_dump() for c in companies])
         pipeline = get_pipeline(db, container)
+        # Resume priority: JOBAGENT_RESUME_TEXT env/secret → local file (dev) →
+        # none. Never commit a personal resume; production supplies it as a secret.
         resume = None
-        if settings.paths.resume_file.exists():
-            resume_text = settings.paths.resume_file.read_text(encoding="utf-8")
+        resume_text = resolve_resume_text(settings)
+        if resume_text.strip():
             resume = pipeline.build_resume_context(
                 text=resume_text, max_experience_years=settings.filters.max_experience_years)
         else:
-            log.warning("Resume file {} missing — jobs will not be ranked",
-                        settings.paths.resume_file)
+            log.warning(
+                "No resume provided (set JOBAGENT_RESUME_TEXT) — "
+                "jobs are collected/stored but ranking is unavailable"
+            )
 
         result = await pipeline.process(
             items, resume=resume, company_priority=priority, persist=True,
