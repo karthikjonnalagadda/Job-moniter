@@ -25,7 +25,14 @@ services:
         value: atlas
       - key: JOBAGENT_EMBEDDING__MODEL_NAME
         value: BAAI/bge-small-en-v1.5
-      # ---- Secrets: set in dashboard, do not commit ----
+      # ---- SMTP transport (non-secret; generic Gmail defaults) ----
+      - key: JOBAGENT_SMTP__HOST
+        value: smtp.gmail.com
+      - key: JOBAGENT_SMTP__PORT
+        value: "587"
+      - key: JOBAGENT_SMTP__USE_TLS
+        value: "true"
+      # ---- Secrets / personal: set in dashboard, do not commit ----
       - key: JOBAGENT_MONGO__URI
         sync: false
       - key: JOBAGENT_SMTP__USERNAME
@@ -33,4 +40,6 @@ services:
       - key: JOBAGENT_SMTP__PASSWORD
         sync: false
       - key: JOBAGENT_SMTP__TO_ADDRESS
+        sync: false
+      - key: JOBAGENT_SMTP__FROM_ADDRESS   # your sending address; must match USERNAME
         sync: false
