@@ -137,10 +137,14 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
         # ---- collector bootstrap (the API does this in create_app; the
         # standalone scheduler must do it too, or routing targets are all
         # "not registered") -------------------------------------------------
+        log.info("Starting collector discovery")
         discover_collectors()
-        log.info("Collector registry ready: {} collectors", len(available_collectors()))
+        registered = sorted(available_collectors())
+        log.info("Collector discovery completed: {} registered {}",
+                 len(registered), registered)
 
         # ---- sources + companies ------------------------------------------
+        log.info("Loading source registry + active companies")
         await container.sources.load_from(YamlSourceLoader(settings.paths.ats_sources_file))
         companies = await CompanyRepository(db).list_active()
         log.info("Loaded {} sources, {} active companies",
@@ -158,6 +162,7 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
             http=container.http, settings=settings,
             states=container.collector_states, benchmarks=BenchmarkRepository(db),
         )
+        log.info("Starting collector execution ({} collectors)", len(work))
         results = await CollectorExecutor(ctx).run_many(work)
         items: list[ProcessItem] = [
             ProcessItem(raw=raw, source=res.collector, source_type=SourceType.ATS,
@@ -169,7 +174,11 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
             f"{res.collector}: {res.errors} collector error(s)"
             for res in results if res.errors
         )
-        log.info("Collected {} raw jobs across {} collectors", len(items), len(results))
+        log.info(
+            "Collector execution completed: {} raw jobs across {} collectors "
+            "({} collector(s) reported errors)",
+            len(items), len(results), sum(1 for res in results if res.errors),
+        )
 
         # ---- resume + priority + process (normalize→filter→dedup→embed→rank→store)
         priority = build_priority_map([c.model_dump() for c in companies])
@@ -187,26 +196,64 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
                 "jobs are collected/stored but ranking is unavailable"
             )
 
+        log.info("Starting pipeline processing (normalize→filter→dedup→embed→rank→store)")
         result = await pipeline.process(
             items, resume=resume, company_priority=priority, persist=True,
             incremental=settings.collector.incremental, correlation_id=run_id)
         run.duplicates_removed = result.dedup.duplicates if result.dedup else 0
         run.ai_ranked = len(result.jobs)
-        log.info("Pipeline: {} ranked, {} duplicates removed",
+        log.info("Pipeline completed: {} ranked, {} duplicates removed",
                  run.ai_ranked, run.duplicates_removed)
 
         # ---- report + email -----------------------------------------------
-        if settings.smtp.to_address:
-            record = await get_notification_service(db, container).send_report(
-                report_type="daily", recipient=settings.smtp.to_address,
-                attach_formats=[ReportFormat.EXCEL])
+        # Truthfulness: a run that SHOULD have produced and delivered a report but
+        # did not must NOT be recorded as SUCCESS. Report generation and delivery
+        # are one unit (NotificationService.send_report); we gate and record them
+        # honestly, and let hard failures propagate to FAILED (non-zero exit).
+        if run.jobs_collected == 0:
+            # Nothing to report — loud, not silent. Zero jobs *with* collector
+            # errors is a real failure; a genuinely quiet day is not.
+            log.warning("No jobs collected — skipping report/email generation")
+            if run.failures:
+                run.status = RunStatus.FAILED
+                run.failures.append("no jobs collected (collectors failed to yield any jobs)")
+            else:
+                run.status = RunStatus.SUCCESS
+        elif not settings.smtp.to_address:
+            # Jobs exist but there is nowhere to deliver them.
+            msg = "SMTP to_address not configured — report not delivered"
+            if settings.is_production:
+                log.error("{} (production requires a recipient)", msg)
+                run.status = RunStatus.FAILED
+                run.failures.append(msg)
+            else:
+                log.warning("{} — email disabled (non-production run)", msg)
+                run.status = RunStatus.PARTIAL if run.failures else RunStatus.SUCCESS
+        else:
+            log.info("Generating report and sending email to configured recipient")
+            try:
+                record = await get_notification_service(db, container).send_report(
+                    report_type="daily", recipient=settings.smtp.to_address,
+                    attach_formats=[ReportFormat.EXCEL])
+            except Exception:
+                # Full traceback + a clear stage marker, then propagate so the run
+                # is recorded FAILED and the process exits non-zero.
+                log.exception("Report generation / email delivery failed")
+                raise
             run.excel_generated = True
             run.email_sent = record.delivery_status == DeliveryStatus.SENT
-            log.info("Report emailed to configured address (sent={})", run.email_sent)
-        else:
-            log.warning("No SMTP to_address configured — skipping email")
+            log.info("Report generated (Excel attachment produced)")
+            if run.email_sent:
+                log.info("Email sent successfully to configured recipient")
+                run.status = RunStatus.PARTIAL if run.failures else RunStatus.SUCCESS
+            else:
+                log.error("Email not delivered (delivery_status={})", record.delivery_status)
+                run.status = RunStatus.FAILED
+                run.failures.append(
+                    f"email not delivered (delivery_status={record.delivery_status})")
 
-        run.status = RunStatus.PARTIAL if run.failures else RunStatus.SUCCESS
+        if run.status == RunStatus.SUCCESS:
+            log.info("Scheduler completed successfully")
     except Exception as exc:  # orchestration must fail gracefully + be recorded
         log.exception("Daily run failed: {}", exc)
         run.status = RunStatus.FAILED
