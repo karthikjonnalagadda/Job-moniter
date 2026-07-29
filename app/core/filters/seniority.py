@@ -30,13 +30,44 @@ _SENIOR_ENUM = frozenset(
 )
 
 DEFAULT_SENIOR_TERMS: tuple[str, ...] = (
-    "senior", "sr", "staff", "principal", "lead", "leads", "leader",
-    "manager", "management", "director", "architect", "vp", "vice president",
-    "head", "chief", "cto", "ceo", "coo", "cfo", "cio", "ciso", "cxo", "president",
-    "engineering manager", "product manager", "program manager", "project manager",
-    "delivery manager", "people manager", "team lead", "tech lead", "technical lead",
-    "solution architect", "solutions architect", "enterprise architect",
-    "distinguished", "fellow", "expert",
+    "senior",
+    "sr",
+    "staff",
+    "principal",
+    "lead",
+    "leads",
+    "leader",
+    "manager",
+    "management",
+    "director",
+    "architect",
+    "vp",
+    "vice president",
+    "head",
+    "chief",
+    "cto",
+    "ceo",
+    "coo",
+    "cfo",
+    "cio",
+    "ciso",
+    "cxo",
+    "president",
+    "engineering manager",
+    "product manager",
+    "program manager",
+    "project manager",
+    "delivery manager",
+    "people manager",
+    "team lead",
+    "tech lead",
+    "technical lead",
+    "solution architect",
+    "solutions architect",
+    "enterprise architect",
+    "distinguished",
+    "fellow",
+    "expert",
 )
 
 # Numeric / roman level markers that denote mid+ bands (II/III/IV/V, 2-9,
@@ -45,16 +76,20 @@ _LEVEL_RE = re.compile(
     r"\b(?:sde|swe|engineer|developer|dev|scientist|analyst|programmer|consultant)"
     r"\s*[-–—]?\s*(?:[2-9]|ii|iii|iv|v|vi)\b"  # noqa: RUF001 - typographic dashes intentional
     r"|\blevel\s*[2-9]\b|\bl[2-9]\b"
-    r"|\bs?mts\b|\bpmts\b"                       # (senior/principal) member of technical staff
-    r"|\b(?:ic|pl)[-\s]?[2-9]\b"                 # IC2 / PL3 career-level codes
-    r"|\b[2-9]\s*/\s*[2-9]\b",                   # multi-level bands e.g. "MTS 2/3/4", "II/III"
+    r"|\bs?mts\b|\bpmts\b"  # (senior/principal) member of technical staff
+    r"|\b(?:ic|pl)[-\s]?[2-9]\b"  # IC2 / PL3 career-level codes
+    r"|\b[2-9]\s*/\s*[2-9]\b",  # multi-level bands e.g. "MTS 2/3/4", "II/III"
     re.I,
 )
 
 # Experience requirement in free text (mirrors the normalizer; lower bound wins).
-_EXP_RANGE = re.compile(r"(\d+(?:\.\d+)?)\s*(?:-|to|–|—)\s*\d+(?:\.\d+)?\s*\+?\s*(?:years?|yrs?)")  # noqa: RUF001
+_EXP_RANGE = re.compile(
+    r"(\d+(?:\.\d+)?)\s*(?:-|to|–|—)\s*\d+(?:\.\d+)?\s*\+?\s*(?:years?|yrs?)"  # noqa: RUF001
+)
 _EXP_PLUS = re.compile(r"(\d+(?:\.\d+)?)\s*\+\s*(?:years?|yrs?)")
-_EXP_SINGLE = re.compile(r"(?:minimum|min\.?|at least|atleast)\s*(\d+(?:\.\d+)?)\s*(?:years?|yrs?)")
+_EXP_SINGLE = re.compile(
+    r"(?:minimum|min\.?|at least|atleast)\s*(\d+(?:\.\d+)?)\s*(?:years?|yrs?)"
+)
 _EXPERIENCED = re.compile(
     r"\b(experienced professional|seasoned|veteran|extensive experience"
     r"|highly experienced|proven track record|expert-level)\b",
@@ -110,17 +145,28 @@ class SeniorityTitleFilter:
             return reject(f"level marker: {lvl.group(0).strip()}")
 
         # Parsed (normalized) experience requirement.
-        if job.experience.min_years is not None and job.experience.min_years > self._max_years:
-            return reject(f"requires {job.experience.min_years:g}y > max {self._max_years:g}y")
+        if (
+            job.experience.min_years is not None
+            and job.experience.min_years > self._max_years
+        ):
+            return reject(
+                f"requires {job.experience.min_years:g}y > max {self._max_years:g}y"
+            )
 
         # Text backstop over title + description (early part where requirements live).
+        # An explicit early-career signal in the TITLE suppresses the softer
+        # free-text checks (per this module's contract) — a "Junior Developer"
+        # posting that merely mentions "our team has 5+ years" must not be
+        # dropped by a stray number in the body.
+        title_is_entry = bool(_ENTRY_KEYWORDS.search(title_l))
         text = f"{title_l} {(job.description or '')[:2000].lower()}"
-        yrs = _min_years_in_text(text)
-        if yrs is not None and yrs > self._max_years:
-            return reject(f"text requires {yrs:g}y > max {self._max_years:g}y")
+        if not title_is_entry:
+            yrs = _min_years_in_text(text)
+            if yrs is not None and yrs > self._max_years:
+                return reject(f"text requires {yrs:g}y > max {self._max_years:g}y")
 
-        # "Experienced professional" language, unless an explicit entry signal is present.
-        if _EXPERIENCED.search(text) and not _ENTRY_KEYWORDS.search(title_l):
-            return reject("experienced-professional language")
+            # "Experienced professional" language (title had no entry signal).
+            if _EXPERIENCED.search(text):
+                return reject("experienced-professional language")
 
         return FilterResult(passed=True, filter_name=self.name)

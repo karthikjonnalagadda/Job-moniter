@@ -48,7 +48,9 @@ class SmtpNotifier(Notifier):
 
     async def send(self, message: NotificationMessage) -> None:
         if not self._settings.to_address:
-            raise NotificationError("SMTP notifier requires a recipient (smtp.to_address)")
+            raise NotificationError(
+                "SMTP notifier requires a recipient (smtp.to_address)"
+            )
         await self._rate_limit()
         email = self._build(message)
 
@@ -57,11 +59,18 @@ class SmtpNotifier(Notifier):
             try:
                 await asyncio.to_thread(self._deliver, email)
                 self._last_sent_at = time.monotonic()
-                log.info("Email sent to {} (attempt {})", self._settings.to_address, attempt)
+                log.info(
+                    "Email sent to {} (attempt {})", self._settings.to_address, attempt
+                )
                 return
             except (smtplib.SMTPException, OSError) as exc:
                 last_error = exc
-                log.warning("SMTP send failed (attempt {}/{}): {}", attempt, self._max_retries, exc)
+                log.warning(
+                    "SMTP send failed (attempt {}/{}): {}",
+                    attempt,
+                    self._max_retries,
+                    exc,
+                )
                 if attempt < self._max_retries:
                     await asyncio.sleep(self._backoff_base * 2 ** (attempt - 1))
         raise NotificationError(
@@ -95,31 +104,55 @@ class SmtpNotifier(Notifier):
         for path in message.attachments:
             data = path.read_bytes()
             maintype, subtype = _mime_type(path.suffix)
-            email.add_attachment(data, maintype=maintype, subtype=subtype, filename=path.name)
+            email.add_attachment(
+                data, maintype=maintype, subtype=subtype, filename=path.name
+            )
         return email
 
     def _deliver(self, email: EmailMessage) -> None:
         s = self._settings
         # Observability: connection parameters only — never the password/secret.
-        log.info("SMTP connect host={} port={} tls={} from={} to={}",
-                 s.host, s.port, s.use_tls, s.from_address, s.to_address)
+        log.info(
+            "SMTP connect host={} port={} tls={} from={} to={}",
+            s.host,
+            s.port,
+            s.use_tls,
+            s.from_address,
+            s.to_address,
+        )
         with smtplib.SMTP(s.host, s.port, timeout=30) as server:
             if s.use_tls:
                 server.starttls()
             password = s.password.get_secret_value()
+            # Fail fast with an actionable message instead of letting the server
+            # reject an unauthenticated send with a cryptic "530 Authentication
+            # Required". A username with no password almost always means the
+            # JOBAGENT_SMTP__PASSWORD secret is unset in the environment.
+            if s.username and not password:
+                raise NotificationError(
+                    f"SMTP username is set ({s.username}) but the password is empty. "
+                    "Set JOBAGENT_SMTP__PASSWORD to a Gmail App Password "
+                    "(16 chars, requires 2-Step Verification) — not your normal "
+                    "account password."
+                )
             if s.username and password:
                 server.login(s.username, password)
                 log.info("SMTP authentication succeeded for {}", s.username)
             server.send_message(email)
 
     def _probe(self) -> None:
-        with smtplib.SMTP(self._settings.host, self._settings.port, timeout=10) as server:
+        with smtplib.SMTP(
+            self._settings.host, self._settings.port, timeout=10
+        ) as server:
             server.noop()
 
 
 def _mime_type(suffix: str) -> tuple[str, str]:
     return {
-        ".xlsx": ("application", "vnd.openxmlformats-officedocument.spreadsheetml.sheet"),
+        ".xlsx": (
+            "application",
+            "vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        ),
         ".pdf": ("application", "pdf"),
         ".csv": ("text", "csv"),
         ".gz": ("application", "gzip"),

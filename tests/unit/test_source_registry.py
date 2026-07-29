@@ -15,8 +15,8 @@ REPO_YAML = Path("data/ats_sources.yaml")
 async def test_load_default_yaml_has_all_sources() -> None:
     registry = SourceRegistry()
     count = await registry.load_from(YamlSourceLoader(REPO_YAML))
-    assert count == 24
-    assert len(registry) == 24
+    assert count == 27
+    assert len(registry) == 27
 
     # O(1) lookup
     gh = registry.get("greenhouse")
@@ -37,8 +37,9 @@ async def test_enabled_and_stats() -> None:
     assert "linkedin" not in {s.name for s in enabled}  # disabled
 
     stats = registry.stats()
-    assert stats.total == 24
-    assert stats.enabled + stats.disabled == 24
+    # 24 original sources + 3 job-board aggregators (indianapi, jsearch, adzuna).
+    assert stats.total == 27
+    assert stats.enabled + stats.disabled == 27
     assert "linkedin" in stats.scrape_sources
     assert stats.by_source_type[str(SourceType.ATS)] == 15
 

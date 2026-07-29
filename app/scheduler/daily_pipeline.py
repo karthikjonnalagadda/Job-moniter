@@ -48,6 +48,10 @@ log = get_logger("scheduler")
 
 WorkList = list[tuple[str, list[CollectorTarget]]]
 
+#: Global job-board collectors that expose a single aggregator feed (no per-company
+#: token). Run alongside routed ATS work; each self-skips when unconfigured.
+_BOARD_COLLECTORS: tuple[str, ...] = ("indianapi", "jsearch", "adzuna")
+
 
 def _ats_for(collector: str) -> ATSType:
     """Best-effort ATSType for a collector name (ATS collectors == their type)."""
@@ -92,8 +96,12 @@ def log_effective_smtp_config(settings: Settings) -> None:
     s = settings.smtp
     log.info(
         "SMTP config: host={} port={} tls={} username={} from={} to_address={!r}",
-        s.host, s.port, s.use_tls,
-        s.username or "<empty>", s.from_address, s.to_address,
+        s.host,
+        s.port,
+        s.use_tls,
+        s.username or "<empty>",
+        s.from_address,
+        s.to_address,
     )
     if not s.to_address:
         log.warning(
@@ -117,13 +125,16 @@ def already_succeeded_today(runs: list[SchedulerRun], today: date) -> bool:
     """Idempotency guard: has a run already SUCCEEDED today? (recovers on restart)."""
 
     return any(
-        r.status == RunStatus.SUCCESS and r.started_at is not None
+        r.status == RunStatus.SUCCESS
+        and r.started_at is not None
         and r.started_at.astimezone(UTC).date() == today
         for r in runs
     )
 
 
-async def run_daily_pipeline(container: Container, *, force: bool = False) -> SchedulerRun:
+async def run_daily_pipeline(
+    container: Container, *, force: bool = False
+) -> SchedulerRun:
     """Execute one daily run end to end. Idempotent, audited, fails gracefully.
 
     Returns the ``SchedulerRun`` audit record (status SUCCESS / PARTIAL / FAILED).
@@ -137,12 +148,18 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
 
     run_id = uuid.uuid4().hex
     started = datetime.now(UTC)
-    run = SchedulerRun(run_id=run_id, correlation_id=run_id, status=RunStatus.RUNNING,
-                       started_at=started)
+    run = SchedulerRun(
+        run_id=run_id,
+        correlation_id=run_id,
+        status=RunStatus.RUNNING,
+        started_at=started,
+    )
     runs_repo = RunRepository(db)
 
     # ---- idempotency / restart recovery -----------------------------------
-    if not force and already_succeeded_today(await runs_repo.list_recent(limit=20), started.date()):
+    if not force and already_succeeded_today(
+        await runs_repo.list_recent(limit=20), started.date()
+    ):
         log.info("Daily run already succeeded today — skipping (use force to override)")
         run.status = RunStatus.SUCCESS
         run.failures = ["skipped: already succeeded today"]
@@ -160,45 +177,79 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
         discover_collectors()
         registered = sorted(available_collectors())
         log.info("Collector discovery complete")
-        log.info("Collector registry ready: {} registered {}", len(registered), registered)
+        log.info(
+            "Collector registry ready: {} registered {}", len(registered), registered
+        )
 
         # ---- sources + companies ------------------------------------------
         log.info("Loading registry")
-        await container.sources.load_from(YamlSourceLoader(settings.paths.ats_sources_file))
+        await container.sources.load_from(
+            YamlSourceLoader(settings.paths.ats_sources_file)
+        )
         companies = await CompanyRepository(db).list_active()
-        log.info("Registry loaded: {} sources, {} active companies",
-                 len(container.sources), len(companies))
+        log.info(
+            "Registry loaded: {} sources, {} active companies",
+            len(container.sources),
+            len(companies),
+        )
 
         # ---- build work-list + collect ------------------------------------
         # require_registered_collector: skip routing targets with no registered
         # collector (e.g. the generic "career_site" fallback) instead of crashing.
         log.info("Routing companies")
-        router = CompanyRouter(container.sources, RoutingConfig(require_registered_collector=True))
+        router = CompanyRouter(
+            container.sources, RoutingConfig(require_registered_collector=True)
+        )
         work = build_work_list(companies, router)
+        # Global job-board feeds (one aggregator endpoint, not per-company boards,
+        # so they aren't part of company routing) run alongside the routed ATS
+        # work in the same executor pass. Each self-skips when unconfigured.
+        work += [(name, [CollectorTarget()]) for name in _BOARD_COLLECTORS]
         run.collectors_executed = [name for name, _ in work]
-        log.info("Routing completed: {} collectors {}", len(work), run.collectors_executed)
+        log.info(
+            "Routing completed: {} collectors {}", len(work), run.collectors_executed
+        )
 
         ctx = CollectorContext(
-            http=container.http, settings=settings,
-            states=container.collector_states, benchmarks=BenchmarkRepository(db),
+            http=container.http,
+            settings=settings,
+            states=container.collector_states,
+            benchmarks=BenchmarkRepository(db),
         )
         log.info("Starting collector execution ({} collectors)", len(work))
         results = await CollectorExecutor(ctx).run_many(work)
         items: list[ProcessItem] = [
-            ProcessItem(raw=raw, source=res.collector, source_type=SourceType.ATS,
-                        ats_type=_ats_for(res.collector))
-            for res in results for raw in res.jobs
+            ProcessItem(
+                raw=raw,
+                source=res.collector,
+                source_type=(
+                    SourceType.JOB_BOARD
+                    if res.collector in _BOARD_COLLECTORS
+                    else SourceType.ATS
+                ),
+                ats_type=(
+                    ATSType.UNKNOWN
+                    if res.collector in _BOARD_COLLECTORS
+                    else _ats_for(res.collector)
+                ),
+            )
+            for res in results
+            for raw in res.jobs
         ]
+
         run.jobs_collected = len(items)
         run.collector_failures = sum(1 for res in results if res.errors)
         run.failures.extend(
             f"{res.collector}: {res.errors} collector error(s)"
-            for res in results if res.errors
+            for res in results
+            if res.errors
         )
         log.info(
             "Collector execution completed: {} raw jobs across {} collectors "
             "({} collector(s) reported errors)",
-            len(items), len(results), run.collector_failures,
+            len(items),
+            len(results),
+            run.collector_failures,
         )
 
         # ---- resume + priority + process (normalize→filter→dedup→embed→rank→store)
@@ -210,21 +261,33 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
         resume_text = resolve_resume_text(settings)
         if resume_text.strip():
             resume = pipeline.build_resume_context(
-                text=resume_text, max_experience_years=settings.filters.max_experience_years)
+                text=resume_text,
+                max_experience_years=settings.filters.max_experience_years,
+            )
         else:
             log.warning(
                 "No resume provided (set JOBAGENT_RESUME_TEXT) — "
                 "jobs are collected/stored but ranking is unavailable"
             )
 
-        log.info("Starting pipeline processing (normalize→filter→dedup→embed→rank→store)")
+        log.info(
+            "Starting pipeline processing (normalize→filter→dedup→embed→rank→store)"
+        )
         result = await pipeline.process(
-            items, resume=resume, company_priority=priority, persist=True,
-            incremental=settings.collector.incremental, correlation_id=run_id)
+            items,
+            resume=resume,
+            company_priority=priority,
+            persist=True,
+            incremental=settings.collector.incremental,
+            correlation_id=run_id,
+        )
         run.duplicates_removed = result.dedup.duplicates if result.dedup else 0
         run.ai_ranked = len(result.jobs)
-        log.info("Pipeline completed: {} ranked, {} duplicates removed",
-                 run.ai_ranked, run.duplicates_removed)
+        log.info(
+            "Pipeline completed: {} ranked, {} duplicates removed",
+            run.ai_ranked,
+            run.duplicates_removed,
+        )
 
         # ---- report + email -----------------------------------------------
         # Truthfulness: a run's status must reflect what actually happened. A
@@ -234,8 +297,10 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
         no_jobs = run.jobs_collected == 0
         if no_jobs and run.failures:
             # Case A: zero jobs BECAUSE collectors/config failed -> real failure.
-            log.error("No jobs collected and {} collector failure(s) — run FAILED",
-                      run.collector_failures)
+            log.error(
+                "No jobs collected and {} collector failure(s) — run FAILED",
+                run.collector_failures,
+            )
             run.status = RunStatus.FAILED
             run.failures.append("no jobs collected (collectors failed / misconfigured)")
         elif not settings.smtp.to_address:
@@ -252,19 +317,28 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
             # Case B (no_jobs, no failures) still reports — never silently skipped.
             title = (
                 "Daily Job Intelligence Report — No matching jobs were found today"
-                if no_jobs else None
+                if no_jobs
+                else None
             )
             if no_jobs:
                 log.info("No matching jobs were found today — sending an empty report")
             log.info("Generating report")
-            log.info("Sending email (host={} port={} tls={} from={} to={})",
-                     settings.smtp.host, settings.smtp.port, settings.smtp.use_tls,
-                     settings.smtp.from_address, settings.smtp.to_address)
+            log.info(
+                "Sending email (host={} port={} tls={} from={} to={})",
+                settings.smtp.host,
+                settings.smtp.port,
+                settings.smtp.use_tls,
+                settings.smtp.from_address,
+                settings.smtp.to_address,
+            )
             run.email_attempted = True
             try:
                 record = await get_notification_service(db, container).send_report(
-                    report_type="daily", recipient=settings.smtp.to_address,
-                    attach_formats=[ReportFormat.EXCEL], title=title)
+                    report_type="daily",
+                    recipient=settings.smtp.to_address,
+                    attach_formats=[ReportFormat.EXCEL],
+                    title=title,
+                )
             except Exception:
                 # Full traceback + a clear stage marker, then propagate so the run
                 # is recorded FAILED and the process exits non-zero.
@@ -279,10 +353,13 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
                 log.info("Email sent successfully")
                 run.status = RunStatus.PARTIAL if run.failures else RunStatus.SUCCESS
             else:
-                log.error("Email not delivered (delivery_status={})", run.delivery_status)
+                log.error(
+                    "Email not delivered (delivery_status={})", run.delivery_status
+                )
                 run.status = RunStatus.FAILED
                 run.failures.append(
-                    f"email not delivered (delivery_status={run.delivery_status})")
+                    f"email not delivered (delivery_status={run.delivery_status})"
+                )
 
         if run.status == RunStatus.SUCCESS:
             log.info("Scheduler completed successfully")
@@ -294,6 +371,10 @@ async def run_daily_pipeline(container: Container, *, force: bool = False) -> Sc
         run.finished_at = datetime.now(UTC)
         run.duration_seconds = round(time.perf_counter() - t0, 3)
         await runs_repo.save(run)
-        log.info("Daily run {} finished: status={} duration={}s",
-                 run_id, run.status, run.duration_seconds)
+        log.info(
+            "Daily run {} finished: status={} duration={}s",
+            run_id,
+            run.status,
+            run.duration_seconds,
+        )
     return run

@@ -34,6 +34,13 @@ jobs:
       JOBAGENT_SMTP__FROM_ADDRESS: ${{ secrets.JOBAGENT_SMTP_FROM_ADDRESS }}
       # Resume text for ranking (no personal file committed).
       JOBAGENT_RESUME_TEXT: ${{ secrets.JOBAGENT_RESUME_TEXT }}
+      # IndianAPI jobs aggregator key. Absent => the indianapi collector no-ops.
+      JOBAGENT_INDIANAPI_KEY: ${{ secrets.JOBAGENT_INDIANAPI_KEY }}
+      # JSearch (openwebninja) — Google-for-Jobs breadth. Absent => no-ops.
+      JOBAGENT_JSEARCH_KEY: ${{ secrets.JOBAGENT_JSEARCH_KEY }}
+      # Adzuna (India) — free job board. Both absent => no-ops.
+      JOBAGENT_ADZUNA_APP_ID: ${{ secrets.JOBAGENT_ADZUNA_APP_ID }}
+      JOBAGENT_ADZUNA_APP_KEY: ${{ secrets.JOBAGENT_ADZUNA_APP_KEY }}
     steps:
       - uses: actions/checkout@v4
 

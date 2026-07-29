@@ -10,11 +10,11 @@ _CSV = (
 
 def test_registry_endpoints(app_client) -> None:
     sources = app_client.get("/registry").json()
-    assert len(sources) == 24
+    assert len(sources) == 27  # 24 + indianapi/jsearch/adzuna job-board aggregators
     assert sources[0]["name"] == "career_site"  # priority 1
 
     stats = app_client.get("/registry/stats").json()
-    assert stats["total"] == 24
+    assert stats["total"] == 27
     assert "linkedin" in stats["scrape_sources"]
 
 
