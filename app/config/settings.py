@@ -216,6 +216,22 @@ class Settings(BaseSettings):
     # Resume text for ranking, supplied via env/secret (JOBAGENT_RESUME_TEXT) so
     # no personal resume file is committed. Empty => ranking unavailable (skipped).
     resume_text: str = ""
+    # IndianAPI jobs aggregator key (JOBAGENT_INDIANAPI_KEY). Empty => the
+    # indianapi job-board collector no-ops, so existing runs are unaffected.
+    indianapi_key: str | None = None
+    # JSearch (openwebninja) — Google-for-Jobs aggregator (LinkedIn/Indeed/etc.).
+    # Empty key => collector no-ops. One query == one request; the 200/month free
+    # tier is protected by running only this small fixed query set per run.
+    jsearch_key: str | None = None
+    jsearch_queries: str = (
+        "python developer in India,machine learning engineer in India,"
+        "data scientist fresher in India"
+    )
+    # Adzuna (India) — free job-board API. BOTH ids required or the collector
+    # no-ops. One query == one request.
+    adzuna_app_id: str | None = None
+    adzuna_app_key: str | None = None
+    adzuna_queries: str = "python developer,machine learning engineer,data scientist"
     # Seconds between source-registry hot-reload checks (0 disables the watcher).
     registry_reload_seconds: int = 0
 
@@ -241,6 +257,14 @@ class Settings(BaseSettings):
     @property
     def is_production(self) -> bool:
         return self.env is Environment.PRODUCTION
+
+    @property
+    def jsearch_query_list(self) -> list[str]:
+        return [q.strip() for q in self.jsearch_queries.split(",") if q.strip()]
+
+    @property
+    def adzuna_query_list(self) -> list[str]:
+        return [q.strip() for q in self.adzuna_queries.split(",") if q.strip()]
 
     @model_validator(mode="after")
     def _cross_field_checks(self) -> Settings:

@@ -36,6 +36,9 @@ jazzhr:          { enabled: true,  priority: 16, source_type: ats, legal_mode: a
 wellfound:       { enabled: false, priority: 17, source_type: job_board, legal_mode: scrape, rate_limit_rps: 0.5 }
 otta:            { enabled: false, priority: 18, source_type: job_board, legal_mode: scrape, rate_limit_rps: 0.5 }
 hiringcafe:      { enabled: true,  priority: 19, source_type: job_board, legal_mode: api,   rate_limit_rps: 1 }
+indianapi:       { enabled: true,  priority: 19, source_type: job_board, legal_mode: api,   rate_limit_rps: 1 }
+jsearch:         { enabled: true,  priority: 18, source_type: job_board, legal_mode: api,   rate_limit_rps: 1 }
+adzuna:          { enabled: true,  priority: 18, source_type: job_board, legal_mode: api,   rate_limit_rps: 1 }
 remoteok:        { enabled: true,  priority: 20, source_type: job_board, legal_mode: feed,  rate_limit_rps: 1 }
 himalayas:       { enabled: true,  priority: 21, source_type: job_board, legal_mode: api,   rate_limit_rps: 1 }
 weworkremotely:  { enabled: true,  priority: 22, source_type: job_board, legal_mode: feed,  rate_limit_rps: 1 }
