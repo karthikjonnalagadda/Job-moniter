@@ -84,8 +84,8 @@ _LEVEL_RE = re.compile(
 
 # Experience requirement in free text (mirrors the normalizer; lower bound wins).
 _EXP_RANGE = re.compile(
-    r"(\d+(?:\.\d+)?)\s*(?:-|to|–|—)\s*\d+(?:\.\d+)?\s*\+?\s*(?:years?|yrs?)"
-)  # noqa: RUF001
+    r"(\d+(?:\.\d+)?)\s*(?:-|to|–|—)\s*\d+(?:\.\d+)?\s*\+?\s*(?:years?|yrs?)"  # noqa: RUF001
+)
 _EXP_PLUS = re.compile(r"(\d+(?:\.\d+)?)\s*\+\s*(?:years?|yrs?)")
 _EXP_SINGLE = re.compile(
     r"(?:minimum|min\.?|at least|atleast)\s*(\d+(?:\.\d+)?)\s*(?:years?|yrs?)"
