@@ -43,6 +43,7 @@ from app.pipeline.pipeline import ProcessItem
 from app.registry.loaders import YamlSourceLoader
 from app.routing.models import RoutingConfig
 from app.routing.router import CompanyRouter
+from app.routing.workday import parse_workday_url
 
 log = get_logger("scheduler")
 
@@ -62,12 +63,29 @@ def _ats_for(collector: str) -> ATSType:
         return ATSType.UNKNOWN
 
 
+def _collector_extra(company: Company, collector: str) -> dict[str, str]:
+    """Per-collector coordinates that don't fit the flat ``board_token``.
+
+    Workday needs host/tenant/site (its tenant/site live deep in the URL, not in
+    a flat token); derive them from the company's discovered board URL so the CXS
+    collector can run. Empty for collectors that only need a token.
+    """
+
+    if collector == ATSType.WORKDAY.value and company.discovered_ats_url:
+        coords = parse_workday_url(company.discovered_ats_url)
+        if coords is not None:
+            return coords.to_extra()
+    return {}
+
+
 def build_work_list(companies: list[Company], router: CompanyRouter) -> WorkList:
     """Route companies to collectors and group them into a per-collector work-list.
 
     Pure orchestration glue: ``CompanyRouter`` decides which collector services
     each company; we group the routed companies by collector and build one
-    ``CollectorTarget`` per company (board token + slug + name).
+    ``CollectorTarget`` per company (board token + slug + name). ATS coordinates
+    that don't fit a flat token (Workday host/tenant/site) are attached via
+    ``extra`` from the discovered board URL — the official career URL is retained.
     """
 
     by_slug = {c.slug: c for c in companies}
@@ -84,6 +102,7 @@ def build_work_list(companies: list[Company], router: CompanyRouter) -> WorkList
                 company_name=company.name,
                 board_token=company.ats_token,
                 url=company.career_url,
+                extra=_collector_extra(company, decision.collector),
             )
         )
     return [(name, targets) for name, targets in grouped.items() if targets]

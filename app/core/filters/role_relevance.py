@@ -28,7 +28,8 @@ DEFAULT_TARGET_TERMS: tuple[str, ...] = (
     # Data
     "data scientist", "data science", "data analyst", "data engineer",
     "analytics engineer", "decision scientist", "business intelligence",
-    "bi analyst", "bi developer", "ml scientist",
+    "bi analyst", "bi developer", "ml scientist", "applied scientist",
+    "applied science",
     # Backend / SWE
     "backend engineer", "backend developer", "back end engineer", "python developer",
     "python engineer", "software engineer", "software developer", "sde",

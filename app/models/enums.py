@@ -27,6 +27,13 @@ class ATSType(StrEnum):
     COMEET = "comeet"
     BREEZYHR = "breezyhr"
     JAZZHR = "jazzhr"
+    TALEO = "taleo"
+    WORKABLE = "workable"
+    PHENOM = "phenom"
+    EIGHTFOLD = "eightfold"
+    AVATURE = "avature"
+    UKG = "ukg"
+    DAYFORCE = "dayforce"
     UNKNOWN = "unknown"
 
 

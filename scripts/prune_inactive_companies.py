@@ -49,7 +49,7 @@ def main() -> None:
     keep = load_keep_keys(args.clean)
     print(f"Keep-list: {len(keep)} verified (ats_type, token) pairs from {args.clean}")
 
-    client = MongoClient(settings.mongo.uri.get_secret_value())
+    client: MongoClient = MongoClient(settings.mongo.uri.get_secret_value())
     coll = client[settings.mongo.db_name]["companies"]
 
     total = coll.count_documents({})

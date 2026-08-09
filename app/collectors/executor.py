@@ -18,6 +18,7 @@ run could later be dispatched to a separate worker with no business-logic change
 from __future__ import annotations
 
 import asyncio
+import inspect
 import time
 from typing import TYPE_CHECKING
 
@@ -58,9 +59,18 @@ class CollectorExecutor:
 
     def _instantiate(self, name: str) -> BaseCollector:
         cls = get_collector_class(name)
-        if issubclass(cls, BaseATSCollector):
-            return cls(self._ctx.http, archive=self._ctx.archive)
-        return cls()  # e.g. the disabled LinkedIn stub (no deps)
+        # Inject shared collaborators into any collector whose constructor accepts
+        # them (ATS collectors and API-based job boards alike). Collectors with a
+        # no-arg constructor (e.g. the disabled LinkedIn stub) are built bare.
+        # Constructors are heterogeneous (ATS/job-board take http+archive; the
+        # LinkedIn stub takes none), so this dynamic call can't be statically typed.
+        params = inspect.signature(cls).parameters
+        kwargs: dict[str, object] = {}
+        if "archive" in params:
+            kwargs["archive"] = self._ctx.archive
+        if "http" in params:
+            return cls(self._ctx.http, **kwargs)  # type: ignore[call-arg]
+        return cls(**kwargs)  # type: ignore[call-arg]
 
     async def run(self, name: str, targets: list[CollectorTarget]) -> CollectorRunResult:
         machine = self._ctx.states.get(name) if self._ctx.states else None

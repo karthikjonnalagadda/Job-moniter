@@ -53,6 +53,10 @@ class Company(MongoDocument):
     canonical_slug: str | None = None  # set when this company folds into a parent
     ats_type: ATSType = ATSType.UNKNOWN
     ats_token: str | None = None  # board token / tenant id for the ATS API
+    #: ATS board URL discovered behind a corporate careers page. Kept separate
+    #: from ``career_url`` (the official page is never overwritten); used to drive
+    #: the ATS collector when the corporate page is a WAF-blocked/JS shell.
+    discovered_ats_url: str | None = None
     career_url: str | None = None
     career_platform: str | None = None  # human name of the hosting platform
     industry: str | None = None
