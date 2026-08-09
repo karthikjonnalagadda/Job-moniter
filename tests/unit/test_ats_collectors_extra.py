@@ -66,6 +66,43 @@ async def test_workday_requires_host_tenant_site() -> None:
         await collector.search(CollectorTarget(board_token="acme"))
 
 
+@pytest.mark.parametrize(
+    ("discovered_url", "expected_endpoint"),
+    [
+        # Form A (tenant-in-host) — locale stripped, site kept.
+        (
+            "https://acme.wd1.myworkdayjobs.com/en-US/External/job/x",
+            "https://acme.wd1.myworkdayjobs.com/wday/cxs/acme/External/jobs",
+        ),
+        # Form B (recruiting path on a data-center host) — tenant + site from path.
+        (
+            "https://wd3.myworkdaysite.com/recruiting/riotinto/RioTinto_Careers/login",
+            "https://wd3.myworkdaysite.com/wday/cxs/riotinto/RioTinto_Careers/jobs",
+        ),
+    ],
+)
+async def test_workday_discovered_url_drives_collector(
+    discovered_url: str, expected_endpoint: str
+) -> None:
+    """The discovery→collector bridge: a stored board URL parses into the exact
+    CXS endpoint the existing WorkdayCollector then calls."""
+
+    from app.routing.workday import parse_workday_url
+
+    coords = parse_workday_url(discovered_url)
+    assert coords is not None
+    seen: list[str] = []
+
+    def handler(method: str, url: str, **_: object) -> httpx.Response:
+        seen.append(url)
+        return httpx.Response(200, json=WORKDAY_JOBS)
+
+    target = CollectorTarget(company_name="Acme", extra=coords.to_extra())
+    jobs = await WorkdayCollector(FakeHttpClient(handler)).search(target)
+    assert seen[0] == expected_endpoint
+    assert len(jobs) == 1
+
+
 async def test_smartrecruiters_parses() -> None:
     collector = SmartRecruitersCollector(FakeHttpClient(_handler(SMARTRECRUITERS_JOBS)))
     jobs = await collector.search(CollectorTarget(board_token="acme", company_name="Acme"))

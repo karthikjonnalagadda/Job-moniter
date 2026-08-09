@@ -65,7 +65,6 @@ _RULES: tuple[_Rule, ...] = (
     _Rule("jobvite.com", ATSType.JOBVITE, "Jobvite", "path"),
     _Rule("icims.com", ATSType.ICIMS, "iCIMS", "subdomain"),
     _Rule("oraclecloud.com", ATSType.ORACLE, "Oracle Recruiting", "none"),
-    _Rule("taleo.net", ATSType.ORACLE, "Oracle Taleo", "none"),
     _Rule("sapsf.com", ATSType.SUCCESSFACTORS, "SAP SuccessFactors", "none"),
     _Rule("sapsf.eu", ATSType.SUCCESSFACTORS, "SAP SuccessFactors", "none"),
     _Rule("successfactors.com", ATSType.SUCCESSFACTORS, "SAP SuccessFactors", "none"),
@@ -73,9 +72,30 @@ _RULES: tuple[_Rule, ...] = (
     _Rule("comeet.com", ATSType.COMEET, "Comeet", "path"),
     _Rule("breezy.hr", ATSType.BREEZYHR, "BreezyHR", "subdomain"),
     _Rule("applytojob.com", ATSType.JAZZHR, "JazzHR", "subdomain"),
+    # Taleo is Oracle-owned but a distinct platform/API; tracked separately.
+    _Rule("taleo.net", ATSType.TALEO, "Oracle Taleo", "none"),
+    _Rule("workable.com", ATSType.WORKABLE, "Workable", "path"),
+    _Rule("phenompeople.com", ATSType.PHENOM, "Phenom", "subdomain"),
+    _Rule("eightfold.ai", ATSType.EIGHTFOLD, "Eightfold", "subdomain"),
+    _Rule("avature.net", ATSType.AVATURE, "Avature", "subdomain"),
+    _Rule("ultipro.com", ATSType.UKG, "UKG (UltiPro)", "subdomain"),
+    _Rule("ukg.com", ATSType.UKG, "UKG", "none"),
+    _Rule("dayforcehcm.com", ATSType.DAYFORCE, "Dayforce", "subdomain"),
+    _Rule("dayforce.com", ATSType.DAYFORCE, "Dayforce", "none"),
 )
 
 _UNKNOWN = ATSDetection(ATSType.UNKNOWN, None, None, 0.0)
+
+
+def _host_matches(marker: str, host: str) -> bool:
+    """True if ``marker`` is ``host`` or a domain suffix of it.
+
+    Boundary-aware so a marker never matches mid-label: ``lever.co`` matches
+    ``jobs.lever.co`` but NOT ``hindustanunilever.com`` (which merely *contains*
+    the substring ``lever.co``). Prevents false-positive ATS assignment.
+    """
+
+    return host == marker or host.endswith("." + marker)
 
 
 def _subdomain_token(host: str) -> str | None:
@@ -105,7 +125,7 @@ class ATSDetector:
         if not host:
             return _UNKNOWN
         for rule in _RULES:
-            if rule.host_marker in host:
+            if _host_matches(rule.host_marker, host):
                 token = self._extract_token(rule, host, parsed.path)
                 # A platform we recognise but whose token we couldn't read is
                 # still a useful (slightly lower-confidence) signal.

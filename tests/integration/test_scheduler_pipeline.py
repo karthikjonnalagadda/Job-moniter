@@ -54,6 +54,37 @@ def test_build_work_list_groups_by_collector() -> None:
     assert all(t.board_token == "tok" for t in targets)
 
 
+def test_build_work_list_attaches_workday_coordinates() -> None:
+    company = Company(
+        name="Acme",
+        slug="acme",
+        ats_type=ATSType.WORKDAY,
+        ats_token="acme",
+        discovered_ats_url="https://acme.wd1.myworkdayjobs.com/en-US/External/job/x",
+        career_url="https://acme.com/careers",  # official URL retained
+        company_category=CompanyCategory.SAAS,
+    )
+    router = _StubRouter([_decision("acme", "workday")])
+    work = dict(build_work_list([company], router))  # type: ignore[arg-type]
+    target = work["workday"][0]
+    assert target.extra == {
+        "host": "acme.wd1.myworkdayjobs.com",
+        "tenant": "acme",
+        "site": "External",
+    }
+    assert target.url == "https://acme.com/careers"  # career URL not overwritten
+
+
+def test_build_work_list_no_extra_without_discovered_url() -> None:
+    company = Company(
+        name="Beta", slug="beta", ats_type=ATSType.WORKDAY, ats_token="beta",
+        company_category=CompanyCategory.SAAS,
+    )
+    router = _StubRouter([_decision("beta", "workday")])
+    work = dict(build_work_list([company], router))  # type: ignore[arg-type]
+    assert work["workday"][0].extra == {}  # no fabricated coordinates
+
+
 def test_build_work_list_skips_unrouted_and_unknown() -> None:
     companies = [_company("acme", "Acme")]
     router = _StubRouter([

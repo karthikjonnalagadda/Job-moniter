@@ -46,3 +46,45 @@ def test_unknown_url_not_detected() -> None:
 def test_empty_and_bare_host() -> None:
     assert DETECTOR.detect(None).ats_type == ATSType.UNKNOWN
     assert DETECTOR.detect("acme.lever.co/acme").ats_type == ATSType.LEVER  # scheme-less
+
+
+@pytest.mark.parametrize(
+    ("url", "ats"),
+    [
+        # ---- Required boundary cases (must-detect) ----
+        ("https://workday.wd5.myworkdayjobs.com/Workday/", ATSType.WORKDAY),
+        ("https://boards.greenhouse.io/acme", ATSType.GREENHOUSE),
+        ("https://jobs.lever.co/acme", ATSType.LEVER),
+        ("https://jobs.ashbyhq.com/acme", ATSType.ASHBY),
+        ("https://careers.smartrecruiters.com/acme", ATSType.SMARTRECRUITERS),
+        ("https://careers-acme.icims.com/jobs", ATSType.ICIMS),
+        ("https://acme.wd3.myworkdaysite.com/careers", ATSType.WORKDAY),
+        ("https://performancemanager.successfactors.com/acme", ATSType.SUCCESSFACTORS),
+        ("https://acme.oraclecloud.com/hcmUI/CandidateExperience", ATSType.ORACLE),
+        # ---- Newly-added platforms ----
+        ("https://acme.taleo.net/careersection", ATSType.TALEO),
+        ("https://apply.workable.com/acme/", ATSType.WORKABLE),
+        ("https://acme.phenompeople.com/careers", ATSType.PHENOM),
+        ("https://acme.eightfold.ai/careers", ATSType.EIGHTFOLD),
+        ("https://acme.avature.net/careers", ATSType.AVATURE),
+        ("https://acme.ultipro.com", ATSType.UKG),
+        ("https://acme.dayforcehcm.com/CandidatePortal", ATSType.DAYFORCE),
+    ],
+)
+def test_detects_expanded_platforms(url: str, ats: ATSType) -> None:
+    assert DETECTOR.detect(url).ats_type == ats
+
+
+@pytest.mark.parametrize(
+    "url",
+    [
+        # Substring collisions that must NOT be misdetected (boundary-aware).
+        "https://www.unilever.com/careers",          # contains "lever.co"
+        "https://careers.hindustanunilever.com/",    # contains "lever.co"
+        "https://www.workday.com/en-us/company.html",  # corp site, not *.myworkdayjobs.com
+        "https://www.ukgear.com/jobs",               # contains "ukg" but not ukg.com
+        "https://www.tcs.com/careers",               # plain corporate careers page
+    ],
+)
+def test_no_substring_false_positives(url: str) -> None:
+    assert DETECTOR.detect(url).ats_type == ATSType.UNKNOWN
